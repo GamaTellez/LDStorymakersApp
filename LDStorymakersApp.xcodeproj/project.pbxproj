@@ -15,6 +15,8 @@
 		87A29C5D1DD3FDA300DA0FA6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87A29C5B1DD3FDA300DA0FA6 /* LaunchScreen.storyboard */; };
 		87A29C681DD3FDA300DA0FA6 /* LDStorymakersAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A29C671DD3FDA300DA0FA6 /* LDStorymakersAppTests.swift */; };
 		87A29C731DD3FDA300DA0FA6 /* LDStorymakersAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A29C721DD3FDA300DA0FA6 /* LDStorymakersAppUITests.swift */; };
+		87A29C811DD41C4000DA0FA6 /* OtherExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A29C801DD41C4000DA0FA6 /* OtherExtensions.swift */; };
+		87F21D8E1DD40EC100AC2D0B /* URLSessionExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F21D8D1DD40EC100AC2D0B /* URLSessionExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		87A29C6E1DD3FDA300DA0FA6 /* LDStorymakersAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LDStorymakersAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		87A29C721DD3FDA300DA0FA6 /* LDStorymakersAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LDStorymakersAppUITests.swift; sourceTree = "<group>"; };
 		87A29C741DD3FDA300DA0FA6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		87A29C801DD41C4000DA0FA6 /* OtherExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OtherExtensions.swift; sourceTree = "<group>"; };
+		87F21D8D1DD40EC100AC2D0B /* URLSessionExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLSessionExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +105,8 @@
 			children = (
 				87A29C4F1DD3FDA300DA0FA6 /* AppDelegate.swift */,
 				87A29C511DD3FDA300DA0FA6 /* ViewController.swift */,
+				87F21D8D1DD40EC100AC2D0B /* URLSessionExtensions.swift */,
+				87A29C801DD41C4000DA0FA6 /* OtherExtensions.swift */,
 				87A29C531DD3FDA300DA0FA6 /* Main.storyboard */,
 				87A29C591DD3FDA300DA0FA6 /* Assets.xcassets */,
 				87A29C5B1DD3FDA300DA0FA6 /* LaunchScreen.storyboard */,
@@ -191,7 +197,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0800;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = "Gamaliel Tellez";
 				TargetAttributes = {
 					87A29C4B1DD3FDA300DA0FA6 = {
@@ -265,6 +271,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				87F21D8E1DD40EC100AC2D0B /* URLSessionExtensions.swift in Sources */,
+				87A29C811DD41C4000DA0FA6 /* OtherExtensions.swift in Sources */,
 				87A29C521DD3FDA300DA0FA6 /* ViewController.swift in Sources */,
 				87A29C581DD3FDA300DA0FA6 /* LDStorymakersApp.xcdatamodeld in Sources */,
 				87A29C501DD3FDA300DA0FA6 /* AppDelegate.swift in Sources */,
@@ -340,6 +348,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -390,6 +399,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -518,6 +528,7 @@
 				87A29C791DD3FDA300DA0FA6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		87A29C7A1DD3FDA300DA0FA6 /* Build configuration list for PBXNativeTarget "LDStorymakersAppTests" */ = {
 			isa = XCConfigurationList;
@@ -526,6 +537,7 @@
 				87A29C7C1DD3FDA300DA0FA6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		87A29C7D1DD3FDA300DA0FA6 /* Build configuration list for PBXNativeTarget "LDStorymakersAppUITests" */ = {
 			isa = XCConfigurationList;
@@ -534,6 +546,7 @@
 				87A29C7F1DD3FDA300DA0FA6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
