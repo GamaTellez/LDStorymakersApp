@@ -17,7 +17,7 @@ private let mainSpreadSheetKey = "1Y8jMldIfTCOdiirkINlMHJNij1C_ura01Ol40AwZxHs"
  * gets the spreadsheet keys stored in userdefaults, with a completion value
  * of type bool
  *****************************************************************************/
-private extension URL {
+extension URLSession {
     func getAllSpreadSheetkeys(completion:@escaping (_ success:Bool)-> Void) {
         guard let mainSpreadSheetURL = URL(string: generalSpreadSheetLink + mainSpreadSheetKey) else {
             completion(false)
@@ -29,7 +29,20 @@ private extension URL {
                 completion(false)
                 return
             }
-        
+            guard let javaStringData = data else {
+                completion(false)
+                return
+            }
+            guard let jsonData = NSString().parseJSonString(from: javaStringData) else {
+                completion(false)
+                return
+            }
+            do {
+                let pureJson = try JSONSerialization.jsonObject(with: jsonData, options: .mutableContainers)
+                print(pureJson)
+            } catch let error  as NSError {
+                print(error.localizedDescription)
+            }
         }
         taskForSpreadSheetKeys.resume()
     }

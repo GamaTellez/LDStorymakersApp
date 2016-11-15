@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		87A29C501DD3FDA300DA0FA6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A29C4F1DD3FDA300DA0FA6 /* AppDelegate.swift */; };
-		87A29C521DD3FDA300DA0FA6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A29C511DD3FDA300DA0FA6 /* ViewController.swift */; };
 		87A29C551DD3FDA300DA0FA6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87A29C531DD3FDA300DA0FA6 /* Main.storyboard */; };
 		87A29C581DD3FDA300DA0FA6 /* LDStorymakersApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 87A29C561DD3FDA300DA0FA6 /* LDStorymakersApp.xcdatamodeld */; };
 		87A29C5A1DD3FDA300DA0FA6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87A29C591DD3FDA300DA0FA6 /* Assets.xcassets */; };
@@ -16,6 +15,7 @@
 		87A29C681DD3FDA300DA0FA6 /* LDStorymakersAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A29C671DD3FDA300DA0FA6 /* LDStorymakersAppTests.swift */; };
 		87A29C731DD3FDA300DA0FA6 /* LDStorymakersAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A29C721DD3FDA300DA0FA6 /* LDStorymakersAppUITests.swift */; };
 		87A29C811DD41C4000DA0FA6 /* OtherExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A29C801DD41C4000DA0FA6 /* OtherExtensions.swift */; };
+		87E09CEE1DDAB6DD00921B27 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E09CED1DDAB6DD00921B27 /* HomeView.swift */; };
 		87F21D8E1DD40EC100AC2D0B /* URLSessionExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F21D8D1DD40EC100AC2D0B /* URLSessionExtensions.swift */; };
 /* End PBXBuildFile section */
 
@@ -39,7 +39,6 @@
 /* Begin PBXFileReference section */
 		87A29C4C1DD3FDA300DA0FA6 /* LDStorymakersApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LDStorymakersApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		87A29C4F1DD3FDA300DA0FA6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		87A29C511DD3FDA300DA0FA6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		87A29C541DD3FDA300DA0FA6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		87A29C571DD3FDA300DA0FA6 /* LDStorymakersApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LDStorymakersApp.xcdatamodel; sourceTree = "<group>"; };
 		87A29C591DD3FDA300DA0FA6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -52,6 +51,7 @@
 		87A29C721DD3FDA300DA0FA6 /* LDStorymakersAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LDStorymakersAppUITests.swift; sourceTree = "<group>"; };
 		87A29C741DD3FDA300DA0FA6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		87A29C801DD41C4000DA0FA6 /* OtherExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OtherExtensions.swift; sourceTree = "<group>"; };
+		87E09CED1DDAB6DD00921B27 /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeView.swift; path = ../HomeView.swift; sourceTree = "<group>"; };
 		87F21D8D1DD40EC100AC2D0B /* URLSessionExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLSessionExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -104,10 +104,10 @@
 			isa = PBXGroup;
 			children = (
 				87A29C4F1DD3FDA300DA0FA6 /* AppDelegate.swift */,
-				87A29C511DD3FDA300DA0FA6 /* ViewController.swift */,
 				87F21D8D1DD40EC100AC2D0B /* URLSessionExtensions.swift */,
 				87A29C801DD41C4000DA0FA6 /* OtherExtensions.swift */,
 				87A29C531DD3FDA300DA0FA6 /* Main.storyboard */,
+				87E09CED1DDAB6DD00921B27 /* HomeView.swift */,
 				87A29C591DD3FDA300DA0FA6 /* Assets.xcassets */,
 				87A29C5B1DD3FDA300DA0FA6 /* LaunchScreen.storyboard */,
 				87A29C5E1DD3FDA300DA0FA6 /* Info.plist */,
@@ -273,8 +273,8 @@
 			files = (
 				87F21D8E1DD40EC100AC2D0B /* URLSessionExtensions.swift in Sources */,
 				87A29C811DD41C4000DA0FA6 /* OtherExtensions.swift in Sources */,
-				87A29C521DD3FDA300DA0FA6 /* ViewController.swift in Sources */,
 				87A29C581DD3FDA300DA0FA6 /* LDStorymakersApp.xcdatamodeld in Sources */,
+				87E09CEE1DDAB6DD00921B27 /* HomeView.swift in Sources */,
 				87A29C501DD3FDA300DA0FA6 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
