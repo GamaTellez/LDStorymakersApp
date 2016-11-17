@@ -32,7 +32,7 @@ extension NSString {
     }
 }
 
-private extension UserDefaults {
+extension UserDefaults {
     func saveSpreadSheetKey() {
         
     }

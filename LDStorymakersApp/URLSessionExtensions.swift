@@ -25,7 +25,7 @@ extension URLSession {
         }
         let taskForSpreadSheetKeys = URLSession.shared.dataTask(with: mainSpreadSheetURL) { (data:Data?, response:URLResponse?, error:Error?) in
             guard error == nil else {
-                print(error?.localizedDescription)
+                print(error!.localizedDescription)
                 completion(false)
                 return
             }
