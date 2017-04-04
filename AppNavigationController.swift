@@ -1,20 +1,18 @@
 //
-//  HomeView.swift
+//  AppNavigationController.swift
 //  LDStorymakersApp
 //
-//  Created by Gamaliel Tellez on 11/14/16.
-//  Copyright © 2016 Gamaliel Tellez. All rights reserved.
+//  Created by Gamaliel Tellez on 4/3/17.
+//  Copyright © 2017 Gamaliel Tellez. All rights reserved.
 //
 
 import UIKit
 
-class HomeView: UIViewController {
-    lazy var urlSession = URLSession.shared
+class AppNavigationController: UINavigationController {
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        URLSession().getAllSpreadSheetkeys { (succeded) in
-            
-        }
+
         // Do any additional setup after loading the view.
     }
 

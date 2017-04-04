@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+import UIKit
 
 /******************************************************************************
  * it takes the data from calling the google spreadsheets.
@@ -37,3 +37,13 @@ extension UserDefaults {
         
     }
 }
+
+//Mark:adds the background view to the area where the status bar is
+extension UIView {
+    static func statusBarBackGroundView()-> UIView {
+            let statusBarView = UIView(frame: CGRect(x: 0, y: -12, width: UIScreen.main.bounds.width, height: 22))
+            statusBarView.backgroundColor = AppColors.statusBarColor
+        return statusBarView
+    }
+}
+

@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8744DA731E92F9890088B8F9 /* AppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8744DA721E92F9890088B8F9 /* AppViewController.swift */; };
+		8744DA751E92F9F40088B8F9 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8744DA741E92F9F40088B8F9 /* HomeViewController.swift */; };
+		8744DA771E92FC220088B8F9 /* AppTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8744DA761E92FC220088B8F9 /* AppTitleLabel.swift */; };
+		8744DA7A1E933A230088B8F9 /* AppLabelGeneral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8744DA791E933A230088B8F9 /* AppLabelGeneral.swift */; };
+		8744DA7C1E933F3B0088B8F9 /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8744DA7B1E933F3B0088B8F9 /* ScheduleViewController.swift */; };
+		8744DA7E1E93435A0088B8F9 /* AppTapBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8744DA7D1E93435A0088B8F9 /* AppTapBarController.swift */; };
+		8744DA811E934B690088B8F9 /* AppDataStructures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8744DA801E934B690088B8F9 /* AppDataStructures.swift */; };
+		8744DA831E9351750088B8F9 /* AppNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8744DA821E9351750088B8F9 /* AppNavigationController.swift */; };
 		87A29C501DD3FDA300DA0FA6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A29C4F1DD3FDA300DA0FA6 /* AppDelegate.swift */; };
 		87A29C551DD3FDA300DA0FA6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87A29C531DD3FDA300DA0FA6 /* Main.storyboard */; };
 		87A29C581DD3FDA300DA0FA6 /* LDStorymakersApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 87A29C561DD3FDA300DA0FA6 /* LDStorymakersApp.xcdatamodeld */; };
@@ -15,7 +23,6 @@
 		87A29C681DD3FDA300DA0FA6 /* LDStorymakersAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A29C671DD3FDA300DA0FA6 /* LDStorymakersAppTests.swift */; };
 		87A29C731DD3FDA300DA0FA6 /* LDStorymakersAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A29C721DD3FDA300DA0FA6 /* LDStorymakersAppUITests.swift */; };
 		87A29C811DD41C4000DA0FA6 /* OtherExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A29C801DD41C4000DA0FA6 /* OtherExtensions.swift */; };
-		87E09CEE1DDAB6DD00921B27 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E09CED1DDAB6DD00921B27 /* HomeView.swift */; };
 		87F21D8E1DD40EC100AC2D0B /* URLSessionExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F21D8D1DD40EC100AC2D0B /* URLSessionExtensions.swift */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +44,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8744DA721E92F9890088B8F9 /* AppViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppViewController.swift; sourceTree = "<group>"; };
+		8744DA741E92F9F40088B8F9 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = ../HomeViewController.swift; sourceTree = "<group>"; };
+		8744DA761E92FC220088B8F9 /* AppTitleLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppTitleLabel.swift; sourceTree = "<group>"; };
+		8744DA791E933A230088B8F9 /* AppLabelGeneral.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppLabelGeneral.swift; sourceTree = "<group>"; };
+		8744DA7B1E933F3B0088B8F9 /* ScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
+		8744DA7D1E93435A0088B8F9 /* AppTapBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppTapBarController.swift; sourceTree = "<group>"; };
+		8744DA801E934B690088B8F9 /* AppDataStructures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDataStructures.swift; sourceTree = "<group>"; };
+		8744DA821E9351750088B8F9 /* AppNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppNavigationController.swift; path = ../AppNavigationController.swift; sourceTree = "<group>"; };
 		87A29C4C1DD3FDA300DA0FA6 /* LDStorymakersApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LDStorymakersApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		87A29C4F1DD3FDA300DA0FA6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		87A29C541DD3FDA300DA0FA6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -51,7 +66,6 @@
 		87A29C721DD3FDA300DA0FA6 /* LDStorymakersAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LDStorymakersAppUITests.swift; sourceTree = "<group>"; };
 		87A29C741DD3FDA300DA0FA6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		87A29C801DD41C4000DA0FA6 /* OtherExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OtherExtensions.swift; sourceTree = "<group>"; };
-		87E09CED1DDAB6DD00921B27 /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeView.swift; path = ../HomeView.swift; sourceTree = "<group>"; };
 		87F21D8D1DD40EC100AC2D0B /* URLSessionExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLSessionExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -80,6 +94,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8744DA781E92FC470088B8F9 /* HomeView */ = {
+			isa = PBXGroup;
+			children = (
+				8744DA741E92F9F40088B8F9 /* HomeViewController.swift */,
+				8744DA7B1E933F3B0088B8F9 /* ScheduleViewController.swift */,
+			);
+			name = HomeView;
+			sourceTree = "<group>";
+		};
+		8744DA7F1E9343690088B8F9 /* App Views */ = {
+			isa = PBXGroup;
+			children = (
+				8744DA721E92F9890088B8F9 /* AppViewController.swift */,
+				8744DA761E92FC220088B8F9 /* AppTitleLabel.swift */,
+				8744DA791E933A230088B8F9 /* AppLabelGeneral.swift */,
+			);
+			name = "App Views";
+			sourceTree = "<group>";
+		};
 		87A29C431DD3FDA300DA0FA6 = {
 			isa = PBXGroup;
 			children = (
@@ -106,8 +139,12 @@
 				87A29C4F1DD3FDA300DA0FA6 /* AppDelegate.swift */,
 				87F21D8D1DD40EC100AC2D0B /* URLSessionExtensions.swift */,
 				87A29C801DD41C4000DA0FA6 /* OtherExtensions.swift */,
+				8744DA801E934B690088B8F9 /* AppDataStructures.swift */,
+				8744DA7D1E93435A0088B8F9 /* AppTapBarController.swift */,
+				8744DA821E9351750088B8F9 /* AppNavigationController.swift */,
 				87A29C531DD3FDA300DA0FA6 /* Main.storyboard */,
-				87E09CED1DDAB6DD00921B27 /* HomeView.swift */,
+				8744DA7F1E9343690088B8F9 /* App Views */,
+				8744DA781E92FC470088B8F9 /* HomeView */,
 				87A29C591DD3FDA300DA0FA6 /* Assets.xcassets */,
 				87A29C5B1DD3FDA300DA0FA6 /* LaunchScreen.storyboard */,
 				87A29C5E1DD3FDA300DA0FA6 /* Info.plist */,
@@ -271,11 +308,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8744DA731E92F9890088B8F9 /* AppViewController.swift in Sources */,
 				87F21D8E1DD40EC100AC2D0B /* URLSessionExtensions.swift in Sources */,
 				87A29C811DD41C4000DA0FA6 /* OtherExtensions.swift in Sources */,
+				8744DA7E1E93435A0088B8F9 /* AppTapBarController.swift in Sources */,
+				8744DA7C1E933F3B0088B8F9 /* ScheduleViewController.swift in Sources */,
 				87A29C581DD3FDA300DA0FA6 /* LDStorymakersApp.xcdatamodeld in Sources */,
-				87E09CEE1DDAB6DD00921B27 /* HomeView.swift in Sources */,
 				87A29C501DD3FDA300DA0FA6 /* AppDelegate.swift in Sources */,
+				8744DA811E934B690088B8F9 /* AppDataStructures.swift in Sources */,
+				8744DA771E92FC220088B8F9 /* AppTitleLabel.swift in Sources */,
+				8744DA831E9351750088B8F9 /* AppNavigationController.swift in Sources */,
+				8744DA751E92F9F40088B8F9 /* HomeViewController.swift in Sources */,
+				8744DA7A1E933A230088B8F9 /* AppLabelGeneral.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
