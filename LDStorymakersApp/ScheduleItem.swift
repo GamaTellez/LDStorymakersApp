@@ -1,0 +1,70 @@
+//
+//  ScheduleItem.swift
+//  LDStorymakersApp
+//
+//  Created by Gamaliel Tellez on 4/12/17.
+//  Copyright © 2017 Gamaliel Tellez. All rights reserved.
+//
+
+import Foundation
+import CoreData
+
+extension ScheduleItem {
+    
+   static func createScheduleItemFromInfoArray(_ arrayWithInfoDicts:NSArray) {
+        let newItemSchedule = NSEntityDescription.insertNewObject(forEntityName: AppManagedObject.ScheduleItem.rawValue, into: StoreCoordinator().context)
+        if let scheduleIdDictionary = arrayWithInfoDicts[0] as? NSDictionary {
+            if let schID = scheduleIdDictionary.object(forKey: "v") as? Int {
+                newItemSchedule.setValue(NSNumber(value: schID as Int), forKey: "scheduleId")
+            }
+        }
+        
+        if let itemPresentationTitleDict = arrayWithInfoDicts[1] as? NSDictionary {
+            if let title = itemPresentationTitleDict.object(forKey: "v") as? String {
+                newItemSchedule.setValue(title, forKey: "presentationTitle")
+            }
+        }
+        if let itemPresentationIdDict = arrayWithInfoDicts[2] as? NSDictionary {
+            if let idNum = itemPresentationIdDict.object(forKey: "v") as? Int {
+                newItemSchedule.setValue(NSNumber(value: idNum as Int), forKey: "presentationId")
+            }
+        }
+        
+        if let itemBreakoutIdDict = arrayWithInfoDicts[3] as? NSDictionary {
+            // print(itemBreakoutIdDict)
+            if let idNum = itemBreakoutIdDict.object(forKey: "v") as? Int {
+                newItemSchedule.setValue(NSNumber(value: idNum as Int), forKey: "breakout")
+            }
+            if let idString = itemBreakoutIdDict.object(forKey: "f") as? String {
+                newItemSchedule.setValue(idString, forKey: "breakoutID")
+            }
+        }
+        
+        if let itemSectionDictionary = arrayWithInfoDicts[4] as? NSDictionary {
+            if let sect = itemSectionDictionary.object(forKey: "v") as? Int {
+                newItemSchedule.setValue(sect, forKey: "section")
+            }
+        }
+        //not sure what data type is location goinng to be but most likely string
+        if let itemLocationDictionary = arrayWithInfoDicts[5] as? NSDictionary {
+            if let location = itemLocationDictionary.object(forKey: "v") as? String {
+                newItemSchedule.setValue(location, forKey: "location")
+            }
+        }
+        if let itemIsPresentationDictionaty = arrayWithInfoDicts[6] as? NSDictionary {
+            if let isPresentation = itemIsPresentationDictionaty.object(forKey: "v") as? String {
+                if isPresentation == "Yes" {
+                    newItemSchedule.setValue(NSNumber(value: true as Bool), forKey: "isPresentation")
+                } else {
+                    newItemSchedule.setValue(NSNumber(value: false as Bool), forKey: "isPresentation")
+                }
+            }
+        }
+        if let itemTimeIdDictionary = arrayWithInfoDicts[7] as? NSDictionary {
+            if let timeId = itemTimeIdDictionary.object(forKey: "v") as? Int {
+                newItemSchedule.setValue(NSNumber(integerLiteral: timeId), forKey: "timeId")
+            }
+        }
+    }
+
+}

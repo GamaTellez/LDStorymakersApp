@@ -17,7 +17,6 @@ class AppTitleLabel: UILabel {
     private func appearanceSetUp() {
         self.font =  UIFont(name: AppFonts.labelFont, size: 20)
         self.textColor = .white
-        self.addSubview(UIView.statusBarBackGroundView())
         self.backgroundColor = AppColors.appBarsColor
     }
 }

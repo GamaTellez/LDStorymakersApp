@@ -22,3 +22,18 @@ struct AppColors {
 struct AppFonts {
     static let labelFont = "AppleSDGothicNeo-Bold"
 }
+
+
+enum SpreadSheets:String {
+    case Breakouts = "Breakouts"
+    case Speakers = "Speakers"
+    case Presentations = "Presentations"
+    case ScheduleItems = "ScheduleItems"
+}
+
+enum AppManagedObject:String {
+    case Breakout = "Breakout"
+    case Speaker = "Speaker"
+    case Presentation = "Presentation"
+    case ScheduleItem = "ScheduleItem"
+}

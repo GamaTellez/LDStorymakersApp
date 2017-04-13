@@ -23,13 +23,26 @@ class HomeViewController: AppViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.setUpViews()
+        self.downloadingConferenceInformation()
     }
     
     private func setUpViews() {
         //Mark:refresButton set up
         self.refreshButton.setImage(UIImage(named: Icons.refreshIcon), for: .normal)
         self.refreshButton.setTitleColor(.white, for: .normal)
+    }
+    
+    
+    
+    private func downloadingConferenceInformation() {
+        URLSession.getAllSpreadSheetkeys { (finished) in
+            URLSession.downloadSpreadSheetData(for: .Breakouts, completion: { (finished) in
+                if (!finished) {
+                    print("failed to create managed object")
+                }
+            })
+        }
     }
     
 }
