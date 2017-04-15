@@ -28,7 +28,7 @@ enum SpreadSheets:String {
     case Breakouts = "Breakouts"
     case Speakers = "Speakers"
     case Presentations = "Presentations"
-    case ScheduleItems = "ScheduleItems"
+    case Schedules = "Schedules"
 }
 
 enum AppManagedObject:String {
@@ -36,4 +36,8 @@ enum AppManagedObject:String {
     case Speaker = "Speaker"
     case Presentation = "Presentation"
     case ScheduleItem = "ScheduleItem"
+}
+
+enum UserDefaultsKeyNames:String {
+    case FirstLaunch = "FirstLaunch"
 }

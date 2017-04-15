@@ -36,24 +36,27 @@ extension URLSession {
                 completion(false)
                 return
             }
-            do {
-                let pureJson = try JSONSerialization.jsonObject(with: jsonData, options: .mutableContainers)
-               // print(pureJson)
-                UserDefaults.saveLinksToUserDefaults(from: pureJson)
-                completion(true)
-            } catch let error  as NSError {
-                print(error.localizedDescription)
-                completion(false)
+            DispatchQueue.main.async {
+                do {
+                    let pureJson = try JSONSerialization.jsonObject(with: jsonData, options: .mutableContainers)
+                    // print(pureJson)
+                    UserDefaults.saveLinksToUserDefaults(from: pureJson)
+                    completion(true)
+                } catch let error  as NSError {
+                    print(error.localizedDescription)
+                    completion(false)
+                }
             }
         }
         taskForSpreadSheetKeys.resume()
     }
+    
     /*****************************************************************************
      * it gets the spreadsheet data for the given entityName
      *****************************************************************************/
-    static func downloadSpreadSheetData(for entityName: SpreadSheets, completion: @escaping (_ finished:Bool) -> Void) {
+    static func downloadSpreadSheetData(for entity: SpreadSheets, completion: @escaping (_ finished:Bool) -> Void) {
     let defaults = UserDefaults()
-        guard let spreadSheetKey = defaults.object(forKey: entityName.rawValue) as? String else {
+        guard let spreadSheetKey = defaults.object(forKey: entity.rawValue) as? String else {
             completion(false)
             return
         }
@@ -78,33 +81,26 @@ extension URLSession {
                         return
                     }
                     //print(infoDictionaries)
-                    for objectDictionary in infoDictionaries {
-                        switch entityName {
-                        case .Breakouts:
-                            guard let infoDictArray = objectDictionary["c"] as? NSArray else {
-                                return
+                    DispatchQueue.main.async {
+                        for objectDictionary in infoDictionaries {
+                            if let arrayWithInfo = objectDictionary["c"] as? NSArray {
+                                switch entity {
+                                case .Breakouts:
+                                    Breakout.createBreakoutFromInfoArray(arrayWithInfo)
+                                    break
+                                case .Presentations:
+                                    Presentation.createPresentationFromInfoArray(arrayWithInfo)
+                                    break
+                                case .Speakers:
+                                    Speaker.createSpeakerFromInfoArray(arrayWithInfo)
+                                    break
+                                case .Schedules:
+                                    ScheduleItem.createScheduleItemFromInfoArray(arrayWithInfo)
+                                    break
+                                }
                             }
-                            Breakout.createBreakoutFromInfoArray(infoDictArray)
-                            break
-                        case .Presentations:
-                            guard let infoDictArray = objectDictionary["c"] as? NSArray else {
-                                return
-                            }
-                            Presentation.createPresentationFromInfoArray(infoDictArray)
-                            break
-                        case .Speakers:
-                            guard let infoDictArray = objectDictionary["c"] as? NSArray else {
-                                return
-                            }
-                            Speaker.createSpeakerFromInfoArray(infoDictArray)
-                            break
-                        case .ScheduleItems:
-                            guard let infoDictArray = objectDictionary["c"] as? NSArray else {
-                                return
-                            }
-                            ScheduleItem.createScheduleItemFromInfoArray(infoDictArray) 
-                            break
                         }
+                        completion(true)
                     }
                 } catch let error as NSError {
                     print(error.localizedDescription)
@@ -116,7 +112,6 @@ extension URLSession {
 
     
     static func extractInfoDictioariesFromJsonDictionary(jsonDict:[String:Any]) -> [[String:Any]]? {
-        
         guard let tableDictionary = jsonDict["table"] as? [String:Any] else {
             return nil
         }
@@ -129,5 +124,7 @@ extension URLSession {
     /*****************************************************************************
      * Download all data for conference managed objects
      *****************************************************************************/
-
 }
+
+
+

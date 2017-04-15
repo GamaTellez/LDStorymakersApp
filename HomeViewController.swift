@@ -19,12 +19,15 @@ class HomeViewController: AppViewController {
     @IBOutlet var nextClasDescription: AppLabelGeneral!
     @IBOutlet var upcomingClassesTitleaLabel: UILabel!
     @IBOutlet var upcomingClasesTableView: UITableView!
-    
+    lazy var defaults = UserDefaults()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setUpViews()
-        self.downloadingConferenceInformation()
+        if ((self.defaults.value(forKey: UserDefaultsKeyNames.FirstLaunch.rawValue)) == nil) {
+           self.appFirstLaunch()
+        }
+        
     }
     
     private func setUpViews() {
@@ -33,16 +36,40 @@ class HomeViewController: AppViewController {
         self.refreshButton.setTitleColor(.white, for: .normal)
     }
     
+    private func appFirstLaunch() {
+            self.getConferenceInformation { (finished) in
+                if (finished) {
+                    self.defaults.set(false, forKey: UserDefaultsKeyNames.FirstLaunch.rawValue)
+                } else {
+                    print("failed to get conference data")
+                }
+        }
+    }
     
     
-    private func downloadingConferenceInformation() {
+    private func getConferenceInformation(completion:@escaping (Bool)-> Void) {
         URLSession.getAllSpreadSheetkeys { (finished) in
             URLSession.downloadSpreadSheetData(for: .Breakouts, completion: { (finished) in
-                if (!finished) {
-                    print("failed to create managed object")
+                if (finished) {
+                    print("finished downloading breakouts")
+                    URLSession.downloadSpreadSheetData(for: .Presentations, completion: { (finished) in
+                        if (finished) {
+                            print("finished downloading presentations")
+                            URLSession.downloadSpreadSheetData(for: .Schedules, completion: { (finished) in
+                                if (finished) {
+                                    print("print finished downloading Schedule")
+                                    URLSession.downloadSpreadSheetData(for: .Speakers, completion: { (finished) in
+                                        if (finished) {
+                                            print("print finished downloading speakers")
+                                            completion(true)
+                                        }
+                                    })
+                                }
+                            })
+                        }
+                    })
                 }
             })
         }
     }
-    
 }

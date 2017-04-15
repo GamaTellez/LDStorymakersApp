@@ -11,11 +11,15 @@ import UIKit
 class ConferenceScheduleVC: AppViewController {
     @IBOutlet var daySegmentedController: AppSegmentedControl!
     @IBOutlet var breakoutsTableView: UITableView!
+    var brakoutsForDaySelected:Breakout?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
      
+    }
+    
+    func setUpViews() {
+        self.daySegmentedController.selectedSegmentIndex = 0
     }
     
     //Mark: initial set up for views

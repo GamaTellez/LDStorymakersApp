@@ -77,6 +77,7 @@ extension UserDefaults {
                         spreadSheetKey = stringSpreadSheetKey
                     }
                 }
+                print(nameKey! + " = " + spreadSheetKey!)
                 defaults.set(spreadSheetKey, forKey: nameKey!)
                 defaults.synchronize()
             } else {
