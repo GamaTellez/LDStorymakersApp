@@ -103,7 +103,7 @@ extension URLSession {
                         completion(true)
                     }
                 } catch let error as NSError {
-                    print(error.localizedDescription)
+                    print(error.localizedDescription + "when trying to save links")
                 }
             }
         }

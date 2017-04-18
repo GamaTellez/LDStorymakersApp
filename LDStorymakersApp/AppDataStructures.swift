@@ -20,7 +20,7 @@ struct AppColors {
 }
 
 struct AppFonts {
-    static let labelFont = "AppleSDGothicNeo-Bold"
+    static let titlesFont = "AppleSDGothicNeo-Bold"
 }
 
 

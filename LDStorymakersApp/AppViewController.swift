@@ -21,9 +21,6 @@ class AppViewController: UIViewController {
     
     private func setUpAppearance() {
         self.view.backgroundColor = AppColors.viewBackGroundColor
-        self.view.addSubview(self.view.addStatusBarBackGroundView())
+        self.view.addSubview(UIView.addStatusBarBackGroundView(at: 0, y: 0))
     }
-    
-    
-    
 }

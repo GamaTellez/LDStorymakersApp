@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8736BDEC1EA5394100078436 /* BreakoutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8736BDEB1EA5394100078436 /* BreakoutCell.swift */; };
 		8744DA731E92F9890088B8F9 /* AppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8744DA721E92F9890088B8F9 /* AppViewController.swift */; };
 		8744DA751E92F9F40088B8F9 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8744DA741E92F9F40088B8F9 /* HomeViewController.swift */; };
 		8744DA771E92FC220088B8F9 /* AppTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8744DA761E92FC220088B8F9 /* AppTitleLabel.swift */; };
@@ -51,6 +52,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8736BDEB1EA5394100078436 /* BreakoutCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BreakoutCell.swift; path = ../BreakoutCell.swift; sourceTree = "<group>"; };
 		8744DA721E92F9890088B8F9 /* AppViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppViewController.swift; sourceTree = "<group>"; };
 		8744DA741E92F9F40088B8F9 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = ../HomeViewController.swift; sourceTree = "<group>"; };
 		8744DA761E92FC220088B8F9 /* AppTitleLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppTitleLabel.swift; sourceTree = "<group>"; };
@@ -119,11 +121,11 @@
 		8744DA7F1E9343690088B8F9 /* App Views */ = {
 			isa = PBXGroup;
 			children = (
-				8744DA7D1E93435A0088B8F9 /* AppTapBarController.swift */,
 				8744DA721E92F9890088B8F9 /* AppViewController.swift */,
 				8744DA761E92FC220088B8F9 /* AppTitleLabel.swift */,
 				8744DA791E933A230088B8F9 /* AppLabelGeneral.swift */,
 				8744DA821E9351750088B8F9 /* AppNavigationController.swift */,
+				8744DA7D1E93435A0088B8F9 /* AppTapBarController.swift */,
 				87E7E7531E993F1800A30157 /* AppSegmentedControl.swift */,
 			);
 			name = "App Views";
@@ -204,6 +206,7 @@
 			children = (
 				87A617761E9B00FB00DC7A39 /* ConferenceScheduleVC.swift */,
 				87A617781E9B012E00DC7A39 /* BreakoutsDataSource.swift */,
+				8736BDEB1EA5394100078436 /* BreakoutCell.swift */,
 			);
 			name = "Conference Schedule";
 			sourceTree = "<group>";
@@ -359,6 +362,7 @@
 				8744DA811E934B690088B8F9 /* AppDataStructures.swift in Sources */,
 				87A617791E9B012E00DC7A39 /* BreakoutsDataSource.swift in Sources */,
 				8744DA771E92FC220088B8F9 /* AppTitleLabel.swift in Sources */,
+				8736BDEC1EA5394100078436 /* BreakoutCell.swift in Sources */,
 				8744DA831E9351750088B8F9 /* AppNavigationController.swift in Sources */,
 				8776838D1E9EC3D100A22BC8 /* SpeakersExtensions.swift in Sources */,
 				8744DA751E92F9F40088B8F9 /* HomeViewController.swift in Sources */,

@@ -10,6 +10,8 @@ import UIKit
 
 class AppSegmentedControl: UISegmentedControl {
 
-
+    override func awakeFromNib() {
+        self.tintColor = AppColors.statusBarColor
+    }
 
 }

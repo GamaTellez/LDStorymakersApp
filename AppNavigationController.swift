@@ -12,12 +12,14 @@ class AppNavigationController: UINavigationController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        self.navigationBar.backgroundColor = AppColors.appBarsColor
+        self.navigationBar.tintColor = UIColor.white
+        self.navigationBar.barTintColor = AppColors.appBarsColor
+        self.navigationBar.addSubview(UIView.addStatusBarBackGroundView(at: 0, y: -20))
+        guard let titleFont = UIFont(name: AppFonts.titlesFont, size: 20) else {
+            return
+        }
+        self.navigationBar.titleTextAttributes = [NSFontAttributeName: titleFont,
+                                                NSForegroundColorAttributeName:UIColor.white]
     }
 }

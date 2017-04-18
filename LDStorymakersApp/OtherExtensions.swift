@@ -77,7 +77,7 @@ extension UserDefaults {
                         spreadSheetKey = stringSpreadSheetKey
                     }
                 }
-                print(nameKey! + " = " + spreadSheetKey!)
+                //print(nameKey! + " = " + spreadSheetKey!)
                 defaults.set(spreadSheetKey, forKey: nameKey!)
                 defaults.synchronize()
             } else {
@@ -90,10 +90,30 @@ extension UserDefaults {
 
 //Mark:adds the background view to the area where the status bar is
 extension UIView {
-    func addStatusBarBackGroundView()-> UIView {
-            let statusBarView = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 22))
+    static func addStatusBarBackGroundView(at x:CGFloat, y:CGFloat)-> UIView {
+            let statusBarView = UIView(frame: CGRect(x: x, y: y, width: UIScreen.main.bounds.width, height: 22))
             statusBarView.backgroundColor = AppColors.statusBarColor
         return statusBarView
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

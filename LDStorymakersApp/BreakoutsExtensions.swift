@@ -35,8 +35,7 @@ extension Breakout {
                 if let breakId = breakoutIDDict.object(forKey: "v") as? Int {
                     //newBreakout.setValue(NSNumber(value: breakId as Int), forKey: "id")
                     newBreakout.id = Int16(breakId)
-                }
-            }
+                }            }
             
             if let dictionayWithBreakoutStartTime = arrayWithInfoDictionaries[1] as? NSDictionary {
                 if let stringStartTime = dictionayWithBreakoutStartTime.object(forKey: "f") as? String {
@@ -69,24 +68,40 @@ extension Breakout {
             }
         }
     }
-    
-    static func getBreakoutsByDay(day:String)-> [Breakout]? {
+    //Mark: returns all breakouts stored in two arrays (dayOne= first six breakouts, day two:last six breakouts)
+    static func getBreakouts()-> ([Breakout]?, [Breakout]?) {
+        var dayOneBreakouts:[Breakout] = [Breakout]()
+        var dayTwoBreakouts:[Breakout] = [Breakout]()
         do  {
             let allBreakouts = try StoreCoordinator().context.fetch(Breakout.fetchRequest()) as [Breakout]
-                return allBreakouts
-            } catch {
-            print(error.localizedDescription)
+            if (!allBreakouts.isEmpty) {
+            for i in 0..<allBreakouts.count {
+                if (i <= 5) {
+                    dayOneBreakouts.append(allBreakouts[i])
+                } else if (i > 5 && i <= 12) {
+                    dayTwoBreakouts.append(allBreakouts[i])
+                }
             }
-            return nil
+                return (dayOneBreakouts, dayTwoBreakouts)
+            } else {
+                return (nil, nil)
+            }
+            } catch {
+                print(error.localizedDescription + " failed to fecth brakouts")
+                return (nil, nil)
         }
-//    static func getAllGoals() -> [Goal]? {
-//        do {
-//            let allGoals = try PersistantStorageCoordinator().context.fetch(Goal.fetchRequest())
-//            return allGoals as? [Goal]
-//        } catch {
-//            print(error.localizedDescription)
-//            return nil
-//        }
-//    }
+    }
 
+    
+    //Mark:gets the breakout start and end time as a readable string
+        func breakoutShortFormatTimes() -> String {
+            guard let startTime = self.startTime else {
+                return ("Time not available")
+            }
+            //let startTimeString = self.localizedString(from: startTime as Date, dateStyle: .none, timeStyle: .short)
+            guard let endTime = self.endTime else {
+                return ("Time not Available")
+            }
+            return String(format:"%@ : %@", DateFormatter.localizedString(from: startTime as Date, dateStyle: .none, timeStyle: .short), DateFormatter.localizedString(from: endTime as Date, dateStyle: .none, timeStyle: .short))
+        }
 }

@@ -15,7 +15,7 @@ class AppTitleLabel: UILabel {
 
     //MarK: appearance setup
     private func appearanceSetUp() {
-        self.font =  UIFont(name: AppFonts.labelFont, size: 20)
+        self.font =  UIFont(name: AppFonts.titlesFont, size: 20)
         self.textColor = .white
         self.backgroundColor = AppColors.appBarsColor
     }

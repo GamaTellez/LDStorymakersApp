@@ -11,7 +11,6 @@ import UIKit
 class HomeViewController: AppViewController {
 
     @IBOutlet var nextClassTitleLabel: UILabel!
-    @IBOutlet var refreshButton: UIButton!
     @IBOutlet var nextClassInfoView: UIView!
     @IBOutlet var nextClassTitle: AppLabelGeneral!
     @IBOutlet var nextClassTime: AppLabelGeneral!
@@ -27,13 +26,9 @@ class HomeViewController: AppViewController {
         if ((self.defaults.value(forKey: UserDefaultsKeyNames.FirstLaunch.rawValue)) == nil) {
            self.appFirstLaunch()
         }
-        
     }
     
     private func setUpViews() {
-        //Mark:refresButton set up
-        self.refreshButton.setImage(UIImage(named: Icons.refreshIcon), for: .normal)
-        self.refreshButton.setTitleColor(.white, for: .normal)
     }
     
     private func appFirstLaunch() {
@@ -49,27 +44,31 @@ class HomeViewController: AppViewController {
     
     private func getConferenceInformation(completion:@escaping (Bool)-> Void) {
         URLSession.getAllSpreadSheetkeys { (finished) in
-            URLSession.downloadSpreadSheetData(for: .Breakouts, completion: { (finished) in
-                if (finished) {
-                    print("finished downloading breakouts")
-                    URLSession.downloadSpreadSheetData(for: .Presentations, completion: { (finished) in
-                        if (finished) {
-                            print("finished downloading presentations")
-                            URLSession.downloadSpreadSheetData(for: .Schedules, completion: { (finished) in
-                                if (finished) {
-                                    print("print finished downloading Schedule")
-                                    URLSession.downloadSpreadSheetData(for: .Speakers, completion: { (finished) in
-                                        if (finished) {
-                                            print("print finished downloading speakers")
-                                            completion(true)
-                                        }
-                                    })
-                                }
-                            })
-                        }
-                    })
-                }
-            })
+            if (finished) {
+                URLSession.downloadSpreadSheetData(for: .Breakouts, completion: { (finished) in
+                    if (finished) {
+                        print("finished downloading breakouts")
+                        URLSession.downloadSpreadSheetData(for: .Presentations, completion: { (finished) in
+                            if (finished) {
+                                print("finished downloading presentations")
+                                URLSession.downloadSpreadSheetData(for: .Schedules, completion: { (finished) in
+                                    if (finished) {
+                                        print("finished downloading Schedule")
+                                        URLSession.downloadSpreadSheetData(for: .Speakers, completion: { (finished) in
+                                            if (finished) {
+                                                print("finished downloading speakers")
+                                                completion(true)
+                                            }
+                                        })
+                                    }
+                                })
+                            }
+                        })
+                    }
+                })
+            } else {
+                print("failed to get spreadsheet links")
+            }
         }
     }
 }
