@@ -21,6 +21,7 @@ struct AppColors {
 
 struct AppFonts {
     static let titlesFont = "AppleSDGothicNeo-Bold"
+    static let classCellTitleFont = "AppleSDGothicNeo-Thin"
 }
 
 
@@ -36,8 +37,24 @@ enum AppManagedObject:String {
     case Speaker = "Speaker"
     case Presentation = "Presentation"
     case ScheduleItem = "ScheduleItem"
+    case PersonalScheduleItem = "PersonalScheduleItem"
 }
 
 enum UserDefaultsKeyNames:String {
     case FirstLaunch = "FirstLaunch"
 }
+
+struct PossiblePersonalScheduleItem {
+    var breakout:Breakout?
+    var presentation:Presentation?
+    var speaker:Speaker?
+    var scheduleItem:ScheduleItem?
+    
+    init(breakout:Breakout?, presentation:Presentation?, speaker:Speaker?, scheduleItem:ScheduleItem?) {
+        self.breakout = breakout
+        self.presentation = presentation
+        self.speaker = speaker
+        self.scheduleItem = scheduleItem
+    }
+}
+

@@ -18,27 +18,27 @@ extension Breakout {
             //dateFormatter.timeZone = NSTimeZone(abbreviation: "UTC−07")
             dateFormatter.timeZone = TimeZone(abbreviation: "MST")
             var dateDay = ""
-            if let dictWithBreakoutID = arrayWithInfoDictionaries[0] as? NSDictionary {
-                if let id = dictWithBreakoutID.object(forKey: "v") as? String {
+            if let dictWithBreakoutID = arrayWithInfoDictionaries[0] as? [String:Any] {
+                if let id = dictWithBreakoutID["v"] as? String {
                     //newBreakout.setValue(id, forKey: "breakoutID")
                     newBreakout.breakoutID = id
                 }
             }
-            if let breakoutDayDate = arrayWithInfoDictionaries[3] as? NSDictionary {
-                if let dayDate = breakoutDayDate.object(forKey: "f") as? String {
+            if let breakoutDayDate = arrayWithInfoDictionaries[3] as? [String:Any] {
+                if let dayDate = breakoutDayDate["f"] as? String {
                     dateDay = dayDate
                 }
             }
         
-            if let breakoutIDDict = arrayWithInfoDictionaries[4] as? NSDictionary {
+            if let breakoutIDDict = arrayWithInfoDictionaries[4] as? [String:Any] {
                 //print(breakoutIDDict)
-                if let breakId = breakoutIDDict.object(forKey: "v") as? Int {
+                if let breakId = breakoutIDDict["v"] as? Int {
                     //newBreakout.setValue(NSNumber(value: breakId as Int), forKey: "id")
                     newBreakout.id = Int16(breakId)
                 }            }
             
-            if let dictionayWithBreakoutStartTime = arrayWithInfoDictionaries[1] as? NSDictionary {
-                if let stringStartTime = dictionayWithBreakoutStartTime.object(forKey: "f") as? String {
+            if let dictionayWithBreakoutStartTime = arrayWithInfoDictionaries[1] as? [String:Any] {
+                if let stringStartTime = dictionayWithBreakoutStartTime["f"] as? String {
                     let fullStartTimeString = String(format: "%@ %@", dateDay, stringStartTime)
                     if let startDate = dateFormatter.date(from: fullStartTimeString) {
                         //newBreakout.setValue(startDate, forKey: "startTime")
@@ -49,8 +49,8 @@ extension Breakout {
                 }
             }
             
-            if let dictionaryWithBreakoutEndTime = arrayWithInfoDictionaries[2] as? NSDictionary {
-                if let stringEndTime = dictionaryWithBreakoutEndTime.object(forKey: "f") as? String {
+            if let dictionaryWithBreakoutEndTime = arrayWithInfoDictionaries[2] as? [String:Any] {
+                if let stringEndTime = dictionaryWithBreakoutEndTime["f"] as? String {
                     let fullEndTimeString = String(format: "%@ %@", dateDay, stringEndTime)
                     if let endDate = dateFormatter.date(from: fullEndTimeString) {
                        // newBreakout.setValue(endDate, forKey: "endTime")
@@ -78,7 +78,7 @@ extension Breakout {
             for i in 0..<allBreakouts.count {
                 if (i <= 5) {
                     dayOneBreakouts.append(allBreakouts[i])
-                } else if (i > 5 && i <= 12) {
+                } else if (i > 5 && i <= 11) {
                     dayTwoBreakouts.append(allBreakouts[i])
                 }
             }
@@ -102,6 +102,56 @@ extension Breakout {
             guard let endTime = self.endTime else {
                 return ("Time not Available")
             }
-            return String(format:"%@ : %@", DateFormatter.localizedString(from: startTime as Date, dateStyle: .none, timeStyle: .short), DateFormatter.localizedString(from: endTime as Date, dateStyle: .none, timeStyle: .short))
+            return String(format:"%@ - %@", DateFormatter.localizedString(from: startTime as Date, dateStyle: .none, timeStyle: .short), DateFormatter.localizedString(from: endTime as Date, dateStyle: .none, timeStyle: .short))
         }
+    
+    func getBreakoutDay()-> String? {
+        guard let dayDate = self.startTime else {
+            return nil
+        }
+        let day = Calendar.current.component(.weekday, from: dayDate as Date)
+        if (day == 6) {
+            return "Friday"
+        } else {
+            return "Saturday"
+        }
+    }
+    
+    func getAllScheduleItemsInBreakout()-> [ScheduleItem]? {
+        var breakoutScheduleItems:[ScheduleItem] = [ScheduleItem]()
+        if let breakoutSelectedId = self.breakoutID {
+            do {
+                let allScheduleItems = try StoreCoordinator().context.fetch(ScheduleItem.fetchRequest()) as [ScheduleItem]
+                if (!allScheduleItems.isEmpty) {
+                    for item in allScheduleItems {
+                        if (item.isPresentation) {
+                            if let itemBreakout = item.breakout {
+                                if (itemBreakout == breakoutSelectedId) {
+                                    breakoutScheduleItems.append(item)
+                                }
+                            }
+                        }
+                    }
+                }
+                return breakoutScheduleItems
+            } catch {
+                print(error.localizedDescription + " fetching the schedule items")
+                return nil
+            }
+        }
+        return breakoutScheduleItems
+    }
+    
+    func getBreakoutPossiblePersonalItemSchedule()-> [PossiblePersonalScheduleItem]? {
+        guard let allScheduleItemsInBreakout = self.getAllScheduleItemsInBreakout() else {
+            return nil
+        }
+        var possiblePersonalScheduleItems:[PossiblePersonalScheduleItem] = [PossiblePersonalScheduleItem]()
+        for item in allScheduleItemsInBreakout {
+            let itemPresentation = Presentation.getPresentationForScheduleItem(item: item)
+            let presentationSpeaker = Speaker.getSpeakerOfPresentation(thePresentation: itemPresentation)
+            possiblePersonalScheduleItems.append(PossiblePersonalScheduleItem(breakout: self, presentation: itemPresentation, speaker: presentationSpeaker, scheduleItem: item))
+        }
+        return possiblePersonalScheduleItems
+    }
 }

@@ -9,7 +9,7 @@
 import UIKit
 
 class BreakoutsDataSource: NSObject, UITableViewDataSource {
-    let kBreakoutCellId = "breakoutCellId"
+   // let kBreakoutCellId = "breakoutCellId"
     private var dayBreakouts:[Breakout] = [Breakout]()
 
     func updateBreakoutsArray(newBreakouts:[Breakout]) {
@@ -21,7 +21,7 @@ class BreakoutsDataSource: NSObject, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: self.kBreakoutCellId, for: indexPath) as! BreakoutCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: BreakoutCell.identifier , for: indexPath) as! BreakoutCell
         let breakoutAtIndex = self.dayBreakouts[indexPath.row]
         cell.breakoutInfoLabel.text = String(format:"Breakout %@ \n %@", breakoutAtIndex.breakoutID!, breakoutAtIndex.breakoutShortFormatTimes())
         return cell

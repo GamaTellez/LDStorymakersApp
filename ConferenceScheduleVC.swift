@@ -14,6 +14,8 @@ class ConferenceScheduleVC: AppViewController, UITableViewDelegate {
     var breakoutsTableDataSource:BreakoutsDataSource = BreakoutsDataSource()
     var dayOneBreakouts:[Breakout]?
     var dayTwoBreakouts:[Breakout]?
+    let kBreakoutClassesSegueId = "breakoutClassesSegueId"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.getBreakoutsForDataSource()
@@ -31,6 +33,7 @@ class ConferenceScheduleVC: AppViewController, UITableViewDelegate {
         self.breakoutsTableView.backgroundColor = UIColor.clear
         self.breakoutsTableView.dataSource = self.breakoutsTableDataSource
         self.breakoutsTableView.delegate = self
+        self.breakoutsTableView.backgroundColor = UIColor.clear
         guard  let currentDayBreakouts = self.dayOneBreakouts else {
             self.breakoutsTableDataSource.updateBreakoutsArray(newBreakouts: [Breakout]())
             return
@@ -48,7 +51,7 @@ class ConferenceScheduleVC: AppViewController, UITableViewDelegate {
         }
     
         if (sender.selectedSegmentIndex == 1) {
-            guard let dayTwo = self.dayOneBreakouts else {
+            guard let dayTwo = self.dayTwoBreakouts else {
                 return
             }
             self.breakoutsTableDataSource.updateBreakoutsArray(newBreakouts: dayTwo)
@@ -71,6 +74,35 @@ class ConferenceScheduleVC: AppViewController, UITableViewDelegate {
     //Mark: tableview delegate methoda
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let segueId = segue.identifier else {
+            return
+        }
+        if (segueId == self.kBreakoutClassesSegueId) {
+            var breakoutSelected:Breakout?
+            if (self.daySegmentedController.selectedSegmentIndex == 0) {
+                guard let breakoutTapped = self.dayOneBreakouts?[(self.breakoutsTableView.indexPathForSelectedRow?.row)!] else {
+                    return
+                }
+                breakoutSelected = breakoutTapped
+            }
+            if (self.daySegmentedController.selectedSegmentIndex == 1) {
+                guard let breakoutTapped = self.dayTwoBreakouts?[(self.breakoutsTableView.indexPathForSelectedRow?.row)!] else {
+                    return
+                }
+                breakoutSelected = breakoutTapped
+            }
+            guard let theBreakout = breakoutSelected else {
+                return
+            }
+            //print(theBreakout.breakoutID!)
+            let selectedBreakoutClassesVC = segue.destination as! BreakoutClassesVC
+            selectedBreakoutClassesVC.breakoutClasses = theBreakout.getBreakoutPossiblePersonalItemSchedule()
+            selectedBreakoutClassesVC.title = String(format: "Breakout %@", theBreakout.breakoutID!)
+            selectedBreakoutClassesVC.breakoutTimeString = theBreakout.breakoutShortFormatTimes()
+        }
     }
 }
 

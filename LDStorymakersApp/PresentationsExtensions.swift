@@ -14,38 +14,38 @@ extension Presentation {
    static func createPresentationFromInfoArray(_ arrayWithInfoDicts:NSArray) {
         let newPresentation = NSEntityDescription.insertNewObject(forEntityName: AppManagedObject.Presentation.rawValue, into: StoreCoordinator().context) as! Presentation
         
-        if let idDictionary = arrayWithInfoDicts[0] as? NSDictionary {
-            if let id = idDictionary.object(forKey: "v") as? Int {
+        if let idDictionary = arrayWithInfoDicts[0] as? [String:Any] {
+            if let id = idDictionary["v"] as? Int {
                 //newPresentation.setValue( NSNumber(integerLiteral:id), forKey: "id")
                 newPresentation.id = Int16(id)
             }
         }
-        if let titleDictionary = arrayWithInfoDicts[1] as? NSDictionary {
-            if let title = titleDictionary.object(forKey: "v") as? String {
+        if let titleDictionary = arrayWithInfoDicts[1] as? [String:Any] {
+            if let title = titleDictionary["v"] as? String {
                 //newPresentation.setValue(title, forKey: "title")
                 newPresentation.title = title
             }
         }
-        if let descriptionDictionary = arrayWithInfoDicts[2] as? NSDictionary {
-            if let description = descriptionDictionary.object(forKey: "v") as? String {
+        if let descriptionDictionary = arrayWithInfoDicts[2] as? [String:Any] {
+            if let description = descriptionDictionary["v"] as? String {
                 //newPresentation.setValue(descript, forKey: "presentationDescription")
                 newPresentation.presentationDescription = description
             }
         }
-        if let speakerDictionary = arrayWithInfoDicts[3] as? NSDictionary {
-            if let speaker = speakerDictionary.object(forKey: "v") as? String {
+        if let speakerDictionary = arrayWithInfoDicts[3] as? [String:Any] {
+            if let speaker = speakerDictionary["v"] as? String {
                 //newPresentation.setValue(speaker, forKey: "speakerName")
                 newPresentation.speakerName = speaker
             }
         }
-        if let speakerIdDictionary =  arrayWithInfoDicts[4] as? NSDictionary {
-            if let speakerId = speakerIdDictionary.object(forKey: "v") as? Int  {
+        if let speakerIdDictionary =  arrayWithInfoDicts[4] as? [String:Any] {
+            if let speakerId = speakerIdDictionary["v"] as? Int  {
                //newPresentation.setValue(NSNumber(integerLiteral:speakerId), forKey: "speakerId")
                 newPresentation.speakerId = Int16(speakerId)
             }
         }
-        if let presentationKindDictionaty = arrayWithInfoDicts[5] as? NSDictionary {
-            if let kind = presentationKindDictionaty.object(forKey: "v") as? String {
+        if let presentationKindDictionaty = arrayWithInfoDicts[5] as? [String:Any] {
+            if let kind = presentationKindDictionaty["v"] as? String {
                 if kind == "Yes" {
                     //newPresentation.setValue(NSNumber(value: true as Bool), forKey: "isIntensive")
                     newPresentation.isIntensive = true
@@ -55,8 +55,8 @@ extension Presentation {
                 }
             }
         }
-        if let presentationSection = arrayWithInfoDicts[6] as? NSDictionary {
-            if let sect = presentationSection.object(forKey: "v") as? Int {
+        if let presentationSection = arrayWithInfoDicts[6] as? [String:Any] {
+            if let sect = presentationSection["v"] as? Int {
                // newPresentation.setValue(NSNumber(integerLiteral: sect), forKey: "sectionId")
                 newPresentation.sectionId = Int16(sect)
             }
@@ -67,6 +67,33 @@ extension Presentation {
             }
         }
     }
+    
+    static func getPresentationForScheduleItem(item:ScheduleItem) -> Presentation? {
+        guard let presentationTileInItem = item.presentationTitle else {
+            return nil
+        }
+            do {
+                let allPresentations = try StoreCoordinator().context.fetch(Presentation.fetchRequest()) as [Presentation]
+                if (!allPresentations.isEmpty) {
+                    for pres in allPresentations {
+                        if let presTitle = pres.title {
+                            if (presTitle == presentationTileInItem) {
+                                return pres
+                            }
+                        }
+                    }
+                } else {
+                    return nil
+                }
+            } catch {
+                print(error.localizedDescription + "when fetching presentations")
+                return nil
+        }
+        return nil
+    }
 }
+
+
+
 
 

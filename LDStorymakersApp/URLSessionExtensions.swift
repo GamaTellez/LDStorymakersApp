@@ -109,7 +109,6 @@ extension URLSession {
         }
         dataTask.resume()
     }
-
     
     static func extractInfoDictioariesFromJsonDictionary(jsonDict:[String:Any]) -> [[String:Any]]? {
         guard let tableDictionary = jsonDict["table"] as? [String:Any] else {
@@ -120,10 +119,6 @@ extension URLSession {
         }
         return arrayOfRowsDict
     }
-    
-    /*****************************************************************************
-     * Download all data for conference managed objects
-     *****************************************************************************/
 }
 
 

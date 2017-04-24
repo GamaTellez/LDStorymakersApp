@@ -11,7 +11,8 @@ import UIKit
 class BreakoutCell: UITableViewCell {
 
     @IBOutlet var breakoutInfoLabel: UILabel!
-    
+    static let identifier = "breakoutCellId"
+
     override func awakeFromNib() {
         super.awakeFromNib()
         self.breakoutInfoLabel.numberOfLines = 2
