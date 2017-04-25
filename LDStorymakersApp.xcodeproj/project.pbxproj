@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		873412E91EAE4D8700F3383C /* PersonalScheduleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873412E81EAE4D8700F3383C /* PersonalScheduleVC.swift */; };
+		873412EC1EAE4E4200F3383C /* PersonalScheduleDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873412EB1EAE4E4200F3383C /* PersonalScheduleDataSource.swift */; };
+		873412EE1EAE4F2A00F3383C /* PersonalScheduleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873412ED1EAE4F2A00F3383C /* PersonalScheduleCell.swift */; };
 		8736BDEC1EA5394100078436 /* BreakoutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8736BDEB1EA5394100078436 /* BreakoutCell.swift */; };
 		8744DA731E92F9890088B8F9 /* AppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8744DA721E92F9890088B8F9 /* AppViewController.swift */; };
 		8744DA751E92F9F40088B8F9 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8744DA741E92F9F40088B8F9 /* HomeViewController.swift */; };
@@ -58,6 +61,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		873412E81EAE4D8700F3383C /* PersonalScheduleVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalScheduleVC.swift; sourceTree = "<group>"; };
+		873412EB1EAE4E4200F3383C /* PersonalScheduleDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalScheduleDataSource.swift; sourceTree = "<group>"; };
+		873412ED1EAE4F2A00F3383C /* PersonalScheduleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalScheduleCell.swift; sourceTree = "<group>"; };
 		8736BDEB1EA5394100078436 /* BreakoutCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BreakoutCell.swift; path = ../BreakoutCell.swift; sourceTree = "<group>"; };
 		8744DA721E92F9890088B8F9 /* AppViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppViewController.swift; sourceTree = "<group>"; };
 		8744DA741E92F9F40088B8F9 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = ../HomeViewController.swift; sourceTree = "<group>"; };
@@ -122,6 +128,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		873412EA1EAE4D9500F3383C /* PersonalSchedule */ = {
+			isa = PBXGroup;
+			children = (
+				873412E81EAE4D8700F3383C /* PersonalScheduleVC.swift */,
+				873412EB1EAE4E4200F3383C /* PersonalScheduleDataSource.swift */,
+				873412ED1EAE4F2A00F3383C /* PersonalScheduleCell.swift */,
+			);
+			name = PersonalSchedule;
+			sourceTree = "<group>";
+		};
 		8744DA781E92FC470088B8F9 /* HomeView */ = {
 			isa = PBXGroup;
 			children = (
@@ -214,6 +230,7 @@
 				87A29C531DD3FDA300DA0FA6 /* Main.storyboard */,
 				877683871E9EAA2800A22BC8 /* Managed Objects Extensions */,
 				8744DA7F1E9343690088B8F9 /* App Views */,
+				873412EA1EAE4D9500F3383C /* PersonalSchedule */,
 				8744DA781E92FC470088B8F9 /* HomeView */,
 				87A617751E9B009700DC7A39 /* Conference Schedule */,
 				87A29C591DD3FDA300DA0FA6 /* Assets.xcassets */,
@@ -391,10 +408,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				8744DA731E92F9890088B8F9 /* AppViewController.swift in Sources */,
+				873412EE1EAE4F2A00F3383C /* PersonalScheduleCell.swift in Sources */,
 				87A617771E9B00FB00DC7A39 /* ConferenceScheduleVC.swift in Sources */,
+				873412EC1EAE4E4200F3383C /* PersonalScheduleDataSource.swift in Sources */,
 				877683891E9EAB3900A22BC8 /* StoreCoordinator.swift in Sources */,
 				87640DA91EAADCA10052FA3D /* AppLabelGeneral.swift in Sources */,
 				87640DAD1EAD1D680052FA3D /* ClassDetailView.swift in Sources */,
+				873412E91EAE4D8700F3383C /* PersonalScheduleVC.swift in Sources */,
 				87F21D8E1DD40EC100AC2D0B /* URLSessionExtensions.swift in Sources */,
 				879C1BB31EA6BDBD002D3870 /* BreakoutClassesVC.swift in Sources */,
 				879C1BB01EA6BBCA002D3870 /* BreakoutClassesDataSource.swift in Sources */,

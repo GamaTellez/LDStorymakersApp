@@ -19,8 +19,7 @@ class ClassDetailView: AppViewController {
     @IBOutlet var descriptionTextView: UITextView!
     @IBOutlet var viewAuthorButton: UIButton!
     @IBOutlet var classFeedBackButton: UIButton!
-    
-    
+        
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +33,7 @@ class ClassDetailView: AppViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         self.setUpClassTitleLabel()
-        self.setClassTimeLabel()
+        //self.setClassTimeLabel()
         self.setUpLocationLabel()
         self.setUpDescriptionTextView()
         self.setupSpeakerButton()
@@ -53,25 +52,15 @@ class ClassDetailView: AppViewController {
         self.classTitleLabel.text = classTitle
     }
     
-    private func setClassTimeLabel() {
-        self.classSelectedTimeLabel.font = UIFont(name: AppFonts.classCellTitleFont, size: 18)
-        self.classSelectedTimeLabel.backgroundColor = UIColor.clear
-        if let classTime = self.classSelected?.breakout?.breakoutShortFormatTimes() {
-            if let classDay = self.classSelected?.breakout?.getBreakoutDay() {
-                self.classSelectedTimeLabel.text = String(format:"%@ %@ - %@", classDay, classTime)
-            }
-        }
-//        guard let classTime = self.classSelected?.breakout?.breakoutShortFormatTimes() else {
-//            self.classSelectedTimeLabel.text = "Not Available"
-//            return
+//    private func setClassTimeLabel() {
+//        self.classSelectedTimeLabel.font = UIFont(name: AppFonts.classCellTitleFont, size: 18)
+//        self.classSelectedTimeLabel.backgroundColor = UIColor.clear
+//        if let classTime = self.classSelected?.breakout?.breakoutShortFormatTimes() {
+//            if let classDay = self.classSelected?.breakout?.getBreakoutDay() {
+//                self.classSelectedTimeLabel.text = String(format:"%@ %@ - %@", classDay, classTime)
+//            }
 //        }
-//        guard let classDay = self.classSelected?.breakout?.getBreakoutDay() else {
-//            self.classSelectedTimeLabel.text = "Not Available"
-//            return
-//        }
-//        let timeText:String = String(format:"%@ %@ - %@", classDay, classTime)
-//        self.classSelectedTimeLabel.text = timeText
-    }
+//    }
     
     private func setUpLocationLabel() {
         self.locationLabel.font = UIFont(name: AppFonts.classCellTitleFont, size: 20)
@@ -85,6 +74,7 @@ class ClassDetailView: AppViewController {
     
     private func setUpDescriptionTextView() {
         self.descriptionTextView.backgroundColor = UIColor.clear
+        self.descriptionTextView.isEditable = false
         self.descriptionTextView.font = UIFont(name: AppFonts.classCellTitleFont, size: 20)
         self.descriptionTextView.textAlignment = .center
         guard let classDescriptionString = self.classSelected?.presentation?.presentationDescription else {
@@ -116,6 +106,10 @@ class ClassDetailView: AppViewController {
     
     
     @IBAction func feedBackButtonTapped(_ sender: UIButton) {
+        guard let classTitle = self.classSelected?.presentation?.title else {
+            return
+        }
+        URLSession.openCourseFeedBack(classTitle: classTitle)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 //general spreadsheet is the url used for all spreadsheets
 private let generalSpreadSheetLink = "https://spreadsheets.google.com/tq?key="
 //mainspreadsheet, contains the keys for every spreadsheet needed(speakers, breakouts, classes, etc)
@@ -119,6 +120,22 @@ extension URLSession {
         }
         return arrayOfRowsDict
     }
+    
+    static func openCourseFeedBack(classTitle:String) {
+        let defaults = UserDefaults()
+        guard let classFeedbackLinkString = defaults.value(forKey: "CourseLink") as? String,
+            let classFeedBackKey = defaults.value(forKey: "Course Feedback") as? String,
+            let className = classTitle.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
+            let classFeedBackURL = URL(string: classFeedbackLinkString + classFeedBackKey + className)
+            else {
+                print("failed to get course feed back link")
+                return
+        }
+        UIApplication.shared.open(classFeedBackURL, options: [:], completionHandler: nil)
+
+    }
+    
+    
 }
 
 

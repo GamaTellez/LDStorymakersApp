@@ -57,19 +57,6 @@ class BreakoutClassCell: UITableViewCell {
             sender.isSelected = false
             sender.backgroundColor = self.notSelectedColor
         }
-        
-        
-        //        guard let classToSave = self.classItem else {
-//            return
-//        }
-//        
-//        StoreCoordinator().save { (saved) in
-//            if (saved) {
-//                
-//            } else {
-//                
-//            }
-//        }
     }
     
     override func prepareForReuse() {
