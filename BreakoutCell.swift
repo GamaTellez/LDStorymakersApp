@@ -19,11 +19,4 @@ class BreakoutCell: UITableViewCell {
         self.breakoutInfoLabel.font = UIFont(name: AppFonts.titlesFont, size: 15)
         self.selectionStyle = .none
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
 }

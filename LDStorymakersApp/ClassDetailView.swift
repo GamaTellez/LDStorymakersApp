@@ -13,7 +13,7 @@ class ClassDetailView: AppViewController {
     var classSelected:PossiblePersonalScheduleItem?
     
     
-    @IBOutlet var classSelectedTimeLabel: UILabel!
+    //@IBOutlet var classSelectedTimeLabel: UILabel!
     @IBOutlet var classTitleLabel: UILabel!
     @IBOutlet var locationLabel: UILabel!
     @IBOutlet var descriptionTextView: UITextView!
@@ -23,12 +23,13 @@ class ClassDetailView: AppViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        self.setUpClassTitleLabel()
-//        self.setClassTimeLabel()
-//        self.setUpLocationLabel()
-//        self.setUpDescriptionTextView()
-//        self.setupSpeakerButton()
-//        self.setUpFeedBackButton()
+        self.setUpClassTitleLabel()
+        //self.setClassTimeLabel()
+        self.setUpLocationLabel()
+        self.setUpDescriptionTextView()
+        self.setupSpeakerButton()
+        self.setUpFeedBackButton()
+        self.setUpNavigationBarTitle()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -52,15 +53,14 @@ class ClassDetailView: AppViewController {
         self.classTitleLabel.text = classTitle
     }
     
-//    private func setClassTimeLabel() {
-//        self.classSelectedTimeLabel.font = UIFont(name: AppFonts.classCellTitleFont, size: 18)
-//        self.classSelectedTimeLabel.backgroundColor = UIColor.clear
-//        if let classTime = self.classSelected?.breakout?.breakoutShortFormatTimes() {
-//            if let classDay = self.classSelected?.breakout?.getBreakoutDay() {
-//                self.classSelectedTimeLabel.text = String(format:"%@ %@ - %@", classDay, classTime)
-//            }
-//        }
-//    }
+    private func setUpNavigationBarTitle() {
+        guard let breakoutTime = self.classSelected?.breakout?.breakoutShortFormatTimes(),
+            let breakoutDay = self.classSelected?.breakout?.getBreakoutDay()
+            else {
+                return
+        }
+        self.title = String(format:"%@ %@", breakoutDay, breakoutTime)
+    }
     
     private func setUpLocationLabel() {
         self.locationLabel.font = UIFont(name: AppFonts.classCellTitleFont, size: 20)

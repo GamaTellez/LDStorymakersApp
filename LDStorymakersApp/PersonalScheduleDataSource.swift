@@ -9,23 +9,44 @@
 import UIKit
 
 class PersonalScheduleDataSource: NSObject, UITableViewDataSource {
-    var personalScheduleClasses:[PersonalScheduleItem] = [PersonalScheduleItem]()
-    var dayBreakouts:[Breakout] = [Breakout]()
+    var dayBreakouts:[Breakout]?
+    let findClassCellID = "findClassCell"
     
-    internal func updatePersonalScheduleArray(with classes:[PersonalScheduleItem]) {
-        self.personalScheduleClasses.removeAll()
-        self.personalScheduleClasses = classes
+    internal func updateDayBreakouts(with breakouts:[Breakout]) {
+        self.dayBreakouts = breakouts
     }
+   
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return self.dayBreakouts.count
+    func numberOfSections(in tableView: UITableView) -> Int {
+        guard  let breakouts = self.dayBreakouts else {
+            return 0
+        }
+        return breakouts.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.personalScheduleClasses.count
+        guard let breakoutID = self.dayBreakouts?[section].breakoutID?.characters.count else {
+            return 0
+        }
+        if (breakoutID < 3) {
+            return 1
+        } else {
+            return 0
+        }
     }
     
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return PersonalScheduleCell()
+        guard let breakoutAtIndex = self.dayBreakouts?[indexPath.row],
+                let classInBreakout = breakoutAtIndex.personalScheduleItem
+            else {
+                let findClassCell = tableView.dequeueReusableCell(withIdentifier: self.findClassCellID, for: indexPath)
+                findClassCell.textLabel?.text = "Find Class"
+                return findClassCell
+        }
+        let classScheduleCell = tableView.dequeueReusableCell(withIdentifier: PersonalScheduleCell.personalScheduleCellID, for: indexPath) as! PersonalScheduleCell
+            classScheduleCell.updateInfoLabel(with: classInBreakout)
+        return classScheduleCell
     }
+    
 }

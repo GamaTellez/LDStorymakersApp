@@ -8,6 +8,7 @@
 
 import Foundation
 import CoreData
+import UIKit
 
 extension Breakout {
     static func createBreakoutFromInfoArray(_ arrayWithInfoDictionaries:NSArray) {
@@ -68,6 +69,30 @@ extension Breakout {
             }
         }
     }
+    
+    //gets all the breakouts for personal schedule view controller
+    static func getAllBreakoutsSortedByDate()-> ([Breakout]? , [Breakout]?) {
+        var fridayBreakouts:[Breakout] = [Breakout]()
+        var saturdayBreakouts:[Breakout] = [Breakout]()
+        do {
+            let allBreakouts = try StoreCoordinator().context.fetch(Breakout.fetchRequest()) as [Breakout]
+            let allBreakoutsSorted = allBreakouts.sorted(by: {$1.startTime! as Date > $0.startTime! as Date })
+            var count = 0
+            for breakoutItem in allBreakoutsSorted {
+                if (count < 13) {
+                    fridayBreakouts.append(breakoutItem)
+                } else {
+                    saturdayBreakouts.append(breakoutItem)
+                }
+                count += 1
+            }
+            return (fridayBreakouts, saturdayBreakouts)
+        } catch {
+            print(error.localizedDescription + "when fectching all breakouts for personal schedule")
+            return (nil, nil)
+        }
+    }
+    
     //Mark: returns all breakouts stored in two arrays (dayOne= first six breakouts, day two:last six breakouts)
     static func getBreakouts()-> ([Breakout]?, [Breakout]?) {
         var dayOneBreakouts:[Breakout] = [Breakout]()
@@ -104,7 +129,7 @@ extension Breakout {
             }
             return String(format:"%@ - %@", DateFormatter.localizedString(from: startTime as Date, dateStyle: .none, timeStyle: .short), DateFormatter.localizedString(from: endTime as Date, dateStyle: .none, timeStyle: .short))
         }
-    
+    //gets the day as a string of the breakout
     func getBreakoutDay()-> String? {
         guard let dayDate = self.startTime else {
             return nil
@@ -116,7 +141,7 @@ extension Breakout {
             return "Saturday"
         }
     }
-    
+    //gets all the items of the breakout instance
     func getAllScheduleItemsInBreakout()-> [ScheduleItem]? {
         var breakoutScheduleItems:[ScheduleItem] = [ScheduleItem]()
         if let breakoutSelectedId = self.breakoutID {
@@ -141,7 +166,7 @@ extension Breakout {
         }
         return breakoutScheduleItems
     }
-    
+    ///creates intacnes of possible personal schedule for the current breakout
     func getBreakoutPossiblePersonalItemSchedule()-> [PossiblePersonalScheduleItem]? {
         guard let allScheduleItemsInBreakout = self.getAllScheduleItemsInBreakout() else {
             return nil
@@ -154,4 +179,58 @@ extension Breakout {
         }
         return possiblePersonalScheduleItems
     }
+    
+    //creates the label for the section header of mandatory breakout in personal schedule view
+     func labelForHeaderViewForMandatoryBreakoutIn(tableView:UITableView)-> UILabel? {
+        if let breakoutIDString = self.breakoutID {
+            if (breakoutIDString.characters.count > 2) {
+                let headerLabel = UILabel(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 80))
+                headerLabel.font = UIFont(name: AppFonts.classCellTitleFont, size: 20)
+                headerLabel.textAlignment = .center
+                headerLabel.numberOfLines = 0
+                guard let breakoutLocation = self.findLocationForBreakoutEvent() else {
+                   // print("found nil when finding " + breakoutIDString)
+                    headerLabel.text = String(format: "%@ \n %@", breakoutIDString, self.breakoutShortFormatTimes())
+                    return headerLabel
+                }
+                headerLabel.text = String(format: "%@ \n %@ \n %@", breakoutIDString, self.breakoutShortFormatTimes(), breakoutLocation)
+                return headerLabel
+            } else {
+                let headerLabel = UILabel(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 20))
+                headerLabel.font = UIFont(name: AppFonts.titlesFont, size: 18)
+                headerLabel.textAlignment = .left
+                headerLabel.text = String(format:"Breakout, %@ %@" ,breakoutIDString, self.breakoutShortFormatTimes())
+                return headerLabel
+            }
+        } else {
+            return nil
+        }
+    }
+
+    
+    //finds the location for breakout event
+    func findLocationForBreakoutEvent()-> String? {
+        do {
+             let scheduleItems = try StoreCoordinator().context.fetch(ScheduleItem.fetchRequest()) as [ScheduleItem]
+                for itemSchedule in scheduleItems {
+                        if (itemSchedule.timeID == self.id) {
+                            return itemSchedule.location
+                        }
+                }
+            return nil
+            } catch {
+                print(error.localizedDescription)
+                return nil
+            }
+    }
 }
+
+
+
+
+
+
+
+
+
+
