@@ -22,9 +22,10 @@ class BreakoutClassesDataSource: NSObject, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: BreakoutClassCell.identifier, for: indexPath) as! BreakoutClassCell
-        cell.classItem = self.classScheduleItems[indexPath.row]
-        cell.scheduleItemTitle.text = "dsdsd"
+        let classAtIndex = self.classScheduleItems[indexPath.row]
+        cell.classItem = classAtIndex
         cell.loadInfoInCellViews()
+        cell.contentView.setNeedsDisplay()
         return cell
     }
 }

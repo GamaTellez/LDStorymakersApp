@@ -27,7 +27,6 @@ class BreakoutClassCell: UITableViewCell {
     private func setUpViews() {
         self.selectionStyle = .none
         self.backgroundColor = UIColor.clear
-        //self.addRemoveScheduleItemButton.isSelected = false
         self.addRemoveScheduleItemButton.setBackgroundImage(UIImage(named:"add")?.withRenderingMode(.alwaysTemplate), for: .normal)
         self.addRemoveScheduleItemButton.backgroundColor = self.notSelectedColor
         self.addRemoveScheduleItemButton.setBackgroundImage(UIImage(named:"remove")?.withRenderingMode(.alwaysTemplate), for: .selected)
@@ -50,21 +49,39 @@ class BreakoutClassCell: UITableViewCell {
     }
     
     @IBAction func addRemoveScheduleItemButtonTapped(_ sender: UIButton) {
+        
         if (!sender.isSelected) {
-            sender.isSelected = true
-            sender.backgroundColor = self.selectedColor
-        } else if (sender.isSelected) {
+            guard let possiblePersonalScheduleClass = self.classItem else {
+                return
+            }
+            PersonalScheduleItem.createPersonalScheduleItem(fromo: possiblePersonalScheduleClass) { (saved) in
+                if (saved) {
+                    possiblePersonalScheduleClass.existsInPersonalSchedule = true
+                    sender.isSelected = true
+                    sender.backgroundColor = self.selectedColor
+                } else {
+                print("failed to save new schedule item from cell")
+                }
+            }
+        } else {
+            guard let personalScheduleItemToDelete = PersonalScheduleItem.findPersonalScheduleItem(with: (self.classItem?.presentation?.title)!) else {
+                return
+            }
+            StoreCoordinator().context.delete(personalScheduleItemToDelete)
+            self.classItem?.existsInPersonalSchedule = false
             sender.isSelected = false
             sender.backgroundColor = self.notSelectedColor
         }
     }
     
+    
     override func prepareForReuse() {
-        
+        super.prepareForReuse()
+        self.checkIfClassExistInPersonalSchedule()
     }
-    
-    
+
     internal func loadInfoInCellViews() {
+        self.checkIfClassExistInPersonalSchedule()
         guard let classTitle = self.classItem?.scheduleItem?.presentationTitle else {
             self.scheduleItemTitle.text = "Not Available"
             return
@@ -77,4 +94,20 @@ class BreakoutClassCell: UITableViewCell {
         }
         self.scheduleItemSpeaker.text = classSpeaker
     }
+    
+    private func checkIfClassExistInPersonalSchedule() {
+        guard let isCurrentClassInPersonalSchedule = self.classItem?.existsInPersonalSchedule else {
+            self.addRemoveScheduleItemButton.isSelected = false
+            self.addRemoveScheduleItemButton.backgroundColor = self.notSelectedColor
+            return
+        }
+        if (isCurrentClassInPersonalSchedule) {
+            self.addRemoveScheduleItemButton.isSelected = true
+            self.addRemoveScheduleItemButton.backgroundColor = self.selectedColor
+        } else {
+            self.addRemoveScheduleItemButton.isSelected = false
+            self.addRemoveScheduleItemButton.backgroundColor = self.notSelectedColor
+        }
+    }
+    
 }

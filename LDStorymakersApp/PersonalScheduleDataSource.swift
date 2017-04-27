@@ -37,7 +37,7 @@ class PersonalScheduleDataSource: NSObject, UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let breakoutAtIndex = self.dayBreakouts?[indexPath.row],
+        guard let breakoutAtIndex = self.dayBreakouts?[indexPath.section],
                 let classInBreakout = breakoutAtIndex.personalScheduleItem
             else {
                 let findClassCell = tableView.dequeueReusableCell(withIdentifier: self.findClassCellID, for: indexPath)

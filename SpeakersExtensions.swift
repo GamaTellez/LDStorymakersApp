@@ -63,23 +63,6 @@ extension Speaker {
         return nil
     }
     
-    /*****************************************************************************
-     * get image
-     *****************************************************************************/
-    //    if let speakerName = self.speakerSelected?.valueForKey("imageName") as? String {
-    //        NSURLSessionController.sharedInstance.getSpeakerPhotoData(speakerName, completion: { (photoData) -> Void in
-    //            dispatch_async(dispatch_get_main_queue(), { () -> Void in
-    //                if let imageData = photoData {
-    //                    self.speakerImageView.image = UIImage(data: imageData)
-    //                    self.activityIndicator.stopAnimating()
-    //                    self.activityIndicator.alpha = 0
-    //                } else {
-    //                    self.imageFetchFailAlert()
-    //                }
-    //            })
-    //        })
-    //    }
-    //}
     func getImage()-> UIImage? {
         let cloudinaryStringURL = "https://res-4.cloudinary.com/innatemobile/image/upload/v1492531068/"
         guard let imageURL = URL(string: cloudinaryStringURL + self.imageName!.replacingOccurrences(of: " ", with: "_")) else {

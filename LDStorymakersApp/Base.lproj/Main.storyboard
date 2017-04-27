@@ -607,6 +607,7 @@
         <!--App Tap Bar Controller-->
         <scene sceneID="yMc-ZS-8OK">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uF2-TH-cP7" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="lHl-tY-ZU4" customClass="AppTapBarController" customModule="LDStorymakersApp" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="MhN-u7-kZf">
@@ -620,9 +621,8 @@
                         <segue destination="M3E-nC-UuA" kind="relationship" relationship="viewControllers" id="dbT-Aq-nt6"/>
                     </connections>
                 </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="uF2-TH-cP7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-446" y="36"/>
+            <point key="canvasLocation" x="-185" y="36"/>
         </scene>
         <!--Schedule-->
         <scene sceneID="a1k-TG-7ZG">

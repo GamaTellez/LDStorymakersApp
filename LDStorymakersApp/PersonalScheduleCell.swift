@@ -12,6 +12,7 @@ class PersonalScheduleCell: UITableViewCell {
     static let personalScheduleCellID = "personalScheduleClassCell"
     @IBOutlet var classScheduledInfoLabel: UILabel!
     
+    
     internal func updateInfoLabel(with classScheduled:PersonalScheduleItem) {
         guard let presentationTitle =  classScheduled.presentation?.title,
                 let presentationTime = classScheduled.breakout?.breakoutShortFormatTimes(),
@@ -24,6 +25,7 @@ class PersonalScheduleCell: UITableViewCell {
     }
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        self.classScheduledInfoLabel.numberOfLines = 0
+        self.classScheduledInfoLabel.font = UIFont(name: AppFonts.classCellTitleFont, size: 17)
     }
 }

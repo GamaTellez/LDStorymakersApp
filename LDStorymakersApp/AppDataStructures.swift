@@ -44,17 +44,44 @@ enum UserDefaultsKeyNames:String {
     case FirstLaunch = "FirstLaunch"
 }
 
-struct PossiblePersonalScheduleItem {
+class PossiblePersonalScheduleItem {
     var breakout:Breakout?
     var presentation:Presentation?
     var speaker:Speaker?
     var scheduleItem:ScheduleItem?
+    var existsInPersonalSchedule:Bool?
     
     init(breakout:Breakout?, presentation:Presentation?, speaker:Speaker?, scheduleItem:ScheduleItem?) {
         self.breakout = breakout
         self.presentation = presentation
         self.speaker = speaker
         self.scheduleItem = scheduleItem
+        self.existsInPersonalSchedule = self.existsInPersonalScheduleItems()
+    }
+    
+    //check if it is already in personal schedule
+    private func existsInPersonalScheduleItems() -> Bool? {
+        guard let presentationTitle = self.scheduleItem?.presentationTitle else {
+            return nil
+        }
+        do {
+            let personalScheduledItems = try StoreCoordinator().context.fetch(PersonalScheduleItem.fetchRequest()) as [PersonalScheduleItem]
+            for personalItem in personalScheduledItems {
+                if let personalItemPresentationTitle = personalItem.scheduleItem?.presentationTitle {
+                    if (personalItemPresentationTitle == presentationTitle) {
+//                        print(personalScheduledItems.count)
+//                        print(personalItemPresentationTitle + " " + presentationTitle)
+                        return true
+                    }
+                }
+            }
+            return false
+        } catch {
+            print(error.localizedDescription)
+            return nil
+        }
     }
 }
+
+
 
