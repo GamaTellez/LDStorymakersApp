@@ -136,6 +136,36 @@ extension URLSession {
     }
     
     
+    static func getConferenceInformation(completion:@escaping (Bool)-> Void) {
+        URLSession.getAllSpreadSheetkeys { (finished) in
+            if (finished) {
+                URLSession.downloadSpreadSheetData(for: .Breakouts, completion: { (finished) in
+                    if (finished) {
+                        print("finished downloading breakouts")
+                        URLSession.downloadSpreadSheetData(for: .Presentations, completion: { (finished) in
+                            if (finished) {
+                                print("finished downloading presentations")
+                                URLSession.downloadSpreadSheetData(for: .Schedules, completion: { (finished) in
+                                    if (finished) {
+                                        print("finished downloading Schedule")
+                                        URLSession.downloadSpreadSheetData(for: .Speakers, completion: { (finished) in
+                                            if (finished) {
+                                                print("finished downloading speakers")
+                                                completion(true)
+                                            }
+                                        })
+                                    }
+                                })
+                            }
+                        })
+                    }
+                })
+            } else {
+                print("failed to get spreadsheet links")
+            }
+        }
+    }
+    
 }
 
 

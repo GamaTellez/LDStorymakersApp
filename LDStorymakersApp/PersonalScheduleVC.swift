@@ -19,10 +19,13 @@ class PersonalScheduleVC: AppViewController, UITableViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         //self.getBreakoutsForDataSource()
+            self.title = "LDStorymakers 2017"
         self.setUpDaySegmentedController()
         self.setUpPersonalScheduleTableView()
         self.loadTableViewData()
     }
+    
+
     
     override func viewDidAppear(_ animated: Bool) {
         self.loadTableViewData()

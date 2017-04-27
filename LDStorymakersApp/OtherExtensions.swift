@@ -98,6 +98,21 @@ extension UIView {
 }
 
 
+extension UIAlertController {
+    static func personalScheduleModified(action:String, sourceView:UIView, navigationController:UINavigationController) {
+            let personalScheduleModifiedAlert = UIAlertController(title: action, message: nil, preferredStyle: .alert)
+        personalScheduleModifiedAlert.popoverPresentationController?.sourceView = sourceView
+        personalScheduleModifiedAlert.popoverPresentationController?.sourceRect = sourceView.bounds
+        navigationController.present(personalScheduleModifiedAlert, animated: true) { 
+            let delay = 1000.0 * Double(NSEC_PER_SEC)
+            let time = DispatchTime.init(uptimeNanoseconds: UInt64(delay))
+            DispatchQueue.main.asyncAfter(deadline: time, execute: {
+                navigationController.dismiss(animated: true, completion: nil)
+                navigationController.popViewController(animated: true)
+            })
+        }
+    }
+}
 
 
 

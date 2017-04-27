@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="lHl-tY-ZU4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="iJi-Z5-KeB">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,143 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Home-->
-        <scene sceneID="tne-QT-ifu">
-            <objects>
-                <viewController id="BYZ-38-t0r" customClass="HomeViewController" customModule="LDStorymakersApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LDStoryMakers2017" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ubB-7E-4AI" customClass="AppTitleLabel" customModule="LDStorymakersApp" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="10" width="375" height="63"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="63" id="RuN-ol-gM8"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Next Class" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SdP-8y-Shp">
-                                <rect key="frame" x="125" y="76" width="124" height="20"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="124" id="qLN-cJ-FXJ"/>
-                                    <constraint firstAttribute="height" constant="20" id="rhL-ea-p4F"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m6T-do-i42">
-                                <rect key="frame" x="12" y="110" width="353" height="165"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Class title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jr3-di-Dbu" customClass="AppLabelGeneral" customModule="LDStorymakersApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="353" height="34"/>
-                                        <color key="backgroundColor" red="0.4395949468" green="1" blue="0.33629372219999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="34" id="vnO-lj-CoC"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Class time" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rxk-iE-jK9" customClass="AppLabelGeneral" customModule="LDStorymakersApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="34" width="353" height="20"/>
-                                        <color key="backgroundColor" red="0.4395949468" green="1" blue="0.33629372219999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XFG-Gb-XDq" customClass="AppLabelGeneral" customModule="LDStorymakersApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="73" width="353" height="92"/>
-                                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mBV-0V-Vbx" customClass="AppLabelGeneral" customModule="LDStorymakersApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="53" width="353" height="20"/>
-                                        <color key="backgroundColor" red="0.4395949468" green="1" blue="0.33629372219999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" red="1" green="0.38122736210000002" blue="0.41753811759999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstItem="mBV-0V-Vbx" firstAttribute="top" secondItem="Jr3-di-Dbu" secondAttribute="bottom" constant="19" id="2Bq-VQ-Nyb"/>
-                                    <constraint firstAttribute="bottom" secondItem="XFG-Gb-XDq" secondAttribute="bottom" id="FeA-Au-SI0"/>
-                                    <constraint firstItem="mBV-0V-Vbx" firstAttribute="leading" secondItem="XFG-Gb-XDq" secondAttribute="leading" id="HSt-TO-dLV"/>
-                                    <constraint firstItem="XFG-Gb-XDq" firstAttribute="top" secondItem="mBV-0V-Vbx" secondAttribute="bottom" id="HWX-xY-g2u"/>
-                                    <constraint firstItem="mBV-0V-Vbx" firstAttribute="trailing" secondItem="XFG-Gb-XDq" secondAttribute="trailing" id="Hy3-oh-Tqf"/>
-                                    <constraint firstItem="Jr3-di-Dbu" firstAttribute="leading" secondItem="Rxk-iE-jK9" secondAttribute="leading" id="MCi-9I-bH6"/>
-                                    <constraint firstItem="XFG-Gb-XDq" firstAttribute="top" secondItem="Rxk-iE-jK9" secondAttribute="bottom" constant="19" id="RXT-lh-2U9"/>
-                                    <constraint firstItem="Rxk-iE-jK9" firstAttribute="top" secondItem="Jr3-di-Dbu" secondAttribute="bottom" id="RxS-aP-2Lg"/>
-                                    <constraint firstItem="Jr3-di-Dbu" firstAttribute="top" secondItem="m6T-do-i42" secondAttribute="top" id="Xy3-Tn-bfg"/>
-                                    <constraint firstAttribute="trailing" secondItem="Jr3-di-Dbu" secondAttribute="trailing" id="gc8-ev-hiR"/>
-                                    <constraint firstItem="Jr3-di-Dbu" firstAttribute="trailing" secondItem="Rxk-iE-jK9" secondAttribute="trailing" id="mQn-yR-Rg4"/>
-                                    <constraint firstItem="Rxk-iE-jK9" firstAttribute="leading" secondItem="mBV-0V-Vbx" secondAttribute="leading" id="mfw-qy-93h"/>
-                                    <constraint firstItem="Jr3-di-Dbu" firstAttribute="leading" secondItem="m6T-do-i42" secondAttribute="leading" id="moi-a2-3HW"/>
-                                    <constraint firstItem="Rxk-iE-jK9" firstAttribute="trailing" secondItem="mBV-0V-Vbx" secondAttribute="trailing" id="zvl-K7-GXZ"/>
-                                </constraints>
-                            </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Upcoming Classes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ywN-Zc-Puy">
-                                <rect key="frame" x="53" y="301" width="269" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="ejJ-Ip-oLU"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="oWz-XM-c1G">
-                                <rect key="frame" x="0.0" y="340" width="375" height="278"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="278" id="UuD-Ha-cO9"/>
-                                </constraints>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="ubB-7E-4AI" firstAttribute="centerX" secondItem="SdP-8y-Shp" secondAttribute="centerX" id="7ud-fi-gNv"/>
-                            <constraint firstAttribute="trailing" secondItem="ubB-7E-4AI" secondAttribute="trailing" id="9td-z3-Bvj"/>
-                            <constraint firstItem="ywN-Zc-Puy" firstAttribute="top" secondItem="m6T-do-i42" secondAttribute="bottom" constant="26" id="CMM-R4-KMx"/>
-                            <constraint firstItem="m6T-do-i42" firstAttribute="top" secondItem="SdP-8y-Shp" secondAttribute="bottom" constant="14" id="ECU-c1-yQ0"/>
-                            <constraint firstItem="ubB-7E-4AI" firstAttribute="trailing" secondItem="oWz-XM-c1G" secondAttribute="trailing" id="F64-SD-tkR"/>
-                            <constraint firstItem="oWz-XM-c1G" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="Tp5-Ry-3QR"/>
-                            <constraint firstItem="m6T-do-i42" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-4" id="b2u-xp-1vg"/>
-                            <constraint firstItem="ubB-7E-4AI" firstAttribute="leading" secondItem="oWz-XM-c1G" secondAttribute="leading" id="gFf-g0-kbj"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="m6T-do-i42" secondAttribute="trailing" constant="-6" id="gwg-Ke-81r"/>
-                            <constraint firstItem="SdP-8y-Shp" firstAttribute="centerX" secondItem="ywN-Zc-Puy" secondAttribute="centerX" id="nvN-lF-j7n"/>
-                            <constraint firstItem="ubB-7E-4AI" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="sZO-Gc-RhE"/>
-                            <constraint firstItem="ywN-Zc-Puy" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="37" id="tqg-Bh-GTO"/>
-                            <constraint firstItem="SdP-8y-Shp" firstAttribute="top" secondItem="ubB-7E-4AI" secondAttribute="bottom" constant="3" id="tt5-ec-aVm"/>
-                            <constraint firstItem="ubB-7E-4AI" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="10" id="uTs-di-rT7"/>
-                            <constraint firstItem="oWz-XM-c1G" firstAttribute="top" secondItem="ywN-Zc-Puy" secondAttribute="bottom" constant="18" id="z8u-8l-U3v"/>
-                        </constraints>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Home" image="home" id="P4M-fk-SeL"/>
-                    <connections>
-                        <outlet property="nextClasDescription" destination="XFG-Gb-XDq" id="Kdc-b9-0Z7"/>
-                        <outlet property="nextClassInfoView" destination="m6T-do-i42" id="2S2-Yz-jWK"/>
-                        <outlet property="nextClassTime" destination="Rxk-iE-jK9" id="gXl-Yc-Akj"/>
-                        <outlet property="nextClassTitle" destination="Jr3-di-Dbu" id="0V6-IW-d9R"/>
-                        <outlet property="nextClassTitleLabel" destination="SdP-8y-Shp" id="q3k-m9-5Ay"/>
-                        <outlet property="nextTimeLocation" destination="mBV-0V-Vbx" id="R4i-ty-rWA"/>
-                        <outlet property="upcomingClasesTableView" destination="oWz-XM-c1G" id="rED-6h-Wne"/>
-                        <outlet property="upcomingClassesTitleaLabel" destination="ywN-Zc-Puy" id="5dG-LP-Rr5"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="672.79999999999995" y="36.431784107946029"/>
-        </scene>
-        <!--Item-->
+        <!--Personal ScheduleVC-->
         <scene sceneID="f5y-w6-fML">
             <objects>
                 <viewController id="M3E-nC-UuA" customClass="PersonalScheduleVC" customModule="LDStorymakersApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -159,24 +23,29 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" rowHeight="106" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="20Q-xt-zYK">
-                                <rect key="frame" x="0.0" y="67" width="375" height="551"/>
+                                <rect key="frame" x="0.0" y="108" width="375" height="510"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="personalScheduleClassCell" rowHeight="106" id="ax5-or-Vvo" customClass="PersonalScheduleCell" customModule="LDStorymakersApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="56" width="375" height="106"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ax5-or-Vvo" id="q3Q-yV-zRC">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="105"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="106"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OHf-Ko-cOR">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OHf-Ko-cOR">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="106"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="OHf-Ko-cOR" firstAttribute="leading" secondItem="q3Q-yV-zRC" secondAttribute="leading" id="5sW-L1-lKw"/>
+                                                <constraint firstAttribute="trailing" secondItem="OHf-Ko-cOR" secondAttribute="trailing" id="7nl-KT-1pN"/>
+                                                <constraint firstItem="OHf-Ko-cOR" firstAttribute="top" secondItem="q3Q-yV-zRC" secondAttribute="top" id="WB9-Xb-Oz9"/>
+                                                <constraint firstItem="OHf-Ko-cOR" firstAttribute="centerY" secondItem="q3Q-yV-zRC" secondAttribute="centerY" id="yGm-fM-tkA"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="classScheduledInfoLabel" destination="OHf-Ko-cOR" id="Mjx-9v-30q"/>
@@ -205,9 +74,8 @@
                                     <outlet property="delegate" destination="M3E-nC-UuA" id="kyq-Tb-KlX"/>
                                 </connections>
                             </tableView>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="JrV-Xq-sHg" customClass="AppSegmentedControl" customModule="LDStorymakersApp" customModuleProvider="target">
-                                <rect key="frame" x="23" y="28" width="336" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="JrV-Xq-sHg" customClass="AppSegmentedControl" customModule="LDStorymakersApp" customModuleProvider="target">
+                                <rect key="frame" x="19" y="72" width="336" height="29"/>
                                 <segments>
                                     <segment title="Friday"/>
                                     <segment title="Saturday"/>
@@ -219,13 +87,16 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="20Q-xt-zYK" firstAttribute="bottom" secondItem="Ixa-OW-JIf" secondAttribute="top" id="5kn-qT-Ig3"/>
-                            <constraint firstItem="20Q-xt-zYK" firstAttribute="top" secondItem="BF5-iF-Rsd" secondAttribute="top" constant="67" id="B6V-uo-zKo"/>
-                            <constraint firstAttribute="trailing" secondItem="20Q-xt-zYK" secondAttribute="trailing" id="FeM-2F-71T"/>
-                            <constraint firstItem="20Q-xt-zYK" firstAttribute="leading" secondItem="BF5-iF-Rsd" secondAttribute="leading" id="qPA-DU-qJe"/>
+                            <constraint firstAttribute="trailing" secondItem="20Q-xt-zYK" secondAttribute="trailing" id="3ax-mo-glB"/>
+                            <constraint firstItem="20Q-xt-zYK" firstAttribute="leading" secondItem="BF5-iF-Rsd" secondAttribute="leading" id="6Jm-ED-N79"/>
+                            <constraint firstItem="JrV-Xq-sHg" firstAttribute="top" secondItem="q2q-Zu-djF" secondAttribute="bottom" constant="8" symbolic="YES" id="Lyf-zQ-R3r"/>
+                            <constraint firstItem="20Q-xt-zYK" firstAttribute="bottom" secondItem="Ixa-OW-JIf" secondAttribute="top" id="Nps-le-KL0"/>
+                            <constraint firstItem="JrV-Xq-sHg" firstAttribute="centerX" secondItem="20Q-xt-zYK" secondAttribute="centerX" id="RAr-zC-l74"/>
+                            <constraint firstItem="JrV-Xq-sHg" firstAttribute="leading" secondItem="BF5-iF-Rsd" secondAttribute="leadingMargin" constant="3" id="Zvu-qW-mVg"/>
+                            <constraint firstItem="20Q-xt-zYK" firstAttribute="top" secondItem="JrV-Xq-sHg" secondAttribute="bottom" constant="8" symbolic="YES" id="hHq-1Y-gWD"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="gjz-tM-Bcf"/>
+                    <navigationItem key="navigationItem" id="FLg-Sl-8Hi"/>
                     <connections>
                         <outlet property="daySegementedControl" destination="JrV-Xq-sHg" id="BKl-b6-2Nk"/>
                         <outlet property="personalScheduleGroupedTableView" destination="20Q-xt-zYK" id="5ew-xF-pzK"/>
@@ -234,7 +105,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RG7-CJ-Rzr" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <customObject id="r62-2v-oQ9" customClass="PersonalScheduleDataSource" customModule="LDStorymakersApp" customModuleProvider="target"/>
             </objects>
-            <point key="canvasLocation" x="672.79999999999995" y="744.3778110944528"/>
+            <point key="canvasLocation" x="2484" y="35.532233883058474"/>
         </scene>
         <!-- -->
         <scene sceneID="ehv-Jw-pJY">
@@ -249,7 +120,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="PrD-aS-VkO" customClass="AppSegmentedControl" customModule="LDStorymakersApp" customModuleProvider="target">
-                                <rect key="frame" x="16" y="83" width="343" height="29"/>
+                                <rect key="frame" x="16" y="75" width="343" height="29"/>
                                 <segments>
                                     <segment title="Friday"/>
                                     <segment title="Saturday"/>
@@ -278,10 +149,10 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="Q5N-V8-OPC" firstAttribute="leading" secondItem="l3K-UH-nNt" secondAttribute="leading" id="czK-J6-IYK"/>
-                                                <constraint firstAttribute="trailing" secondItem="Q5N-V8-OPC" secondAttribute="trailing" id="ewR-2g-ya3"/>
-                                                <constraint firstItem="Q5N-V8-OPC" firstAttribute="top" secondItem="l3K-UH-nNt" secondAttribute="topMargin" constant="9" id="thl-kz-WqK"/>
-                                                <constraint firstItem="Q5N-V8-OPC" firstAttribute="centerY" secondItem="l3K-UH-nNt" secondAttribute="centerY" id="zpj-Md-5dQ"/>
+                                                <constraint firstItem="Q5N-V8-OPC" firstAttribute="top" secondItem="l3K-UH-nNt" secondAttribute="topMargin" constant="9" id="KH6-ZM-bdc"/>
+                                                <constraint firstAttribute="trailing" secondItem="Q5N-V8-OPC" secondAttribute="trailing" id="SO6-eU-mTL"/>
+                                                <constraint firstItem="Q5N-V8-OPC" firstAttribute="leading" secondItem="l3K-UH-nNt" secondAttribute="leading" id="bEM-a3-ufk"/>
+                                                <constraint firstItem="Q5N-V8-OPC" firstAttribute="centerY" secondItem="l3K-UH-nNt" secondAttribute="centerY" id="epn-de-PJs"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -299,13 +170,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Inz-Pe-hHS" firstAttribute="leading" secondItem="O6B-Kv-2r3" secondAttribute="leading" id="3BH-Mg-rnl"/>
-                            <constraint firstItem="Inz-Pe-hHS" firstAttribute="top" secondItem="PrD-aS-VkO" secondAttribute="bottom" constant="8" symbolic="YES" id="9Xl-Ue-Gfd"/>
-                            <constraint firstAttribute="trailing" secondItem="Inz-Pe-hHS" secondAttribute="trailing" id="GSA-Be-oyo"/>
-                            <constraint firstItem="Inz-Pe-hHS" firstAttribute="bottom" secondItem="8OH-kQ-Sfm" secondAttribute="top" id="SDH-BV-Ajz"/>
-                            <constraint firstItem="PrD-aS-VkO" firstAttribute="centerX" secondItem="Inz-Pe-hHS" secondAttribute="centerX" id="ZFy-gs-1ys"/>
-                            <constraint firstItem="PrD-aS-VkO" firstAttribute="leading" secondItem="O6B-Kv-2r3" secondAttribute="leadingMargin" id="ie6-wP-ORQ"/>
-                            <constraint firstItem="PrD-aS-VkO" firstAttribute="top" secondItem="56C-NF-dsT" secondAttribute="bottom" constant="19" id="vQc-TI-xvD"/>
+                            <constraint firstItem="Inz-Pe-hHS" firstAttribute="leading" secondItem="O6B-Kv-2r3" secondAttribute="leading" id="5kA-S4-4Ed"/>
+                            <constraint firstItem="PrD-aS-VkO" firstAttribute="leading" secondItem="O6B-Kv-2r3" secondAttribute="leadingMargin" id="6Hq-iJ-IHL"/>
+                            <constraint firstItem="Inz-Pe-hHS" firstAttribute="top" secondItem="PrD-aS-VkO" secondAttribute="bottom" constant="16" id="DKK-FU-wcL"/>
+                            <constraint firstItem="PrD-aS-VkO" firstAttribute="top" secondItem="56C-NF-dsT" secondAttribute="bottom" constant="11" id="PSU-8z-Lq4"/>
+                            <constraint firstItem="PrD-aS-VkO" firstAttribute="centerX" secondItem="Inz-Pe-hHS" secondAttribute="centerX" id="RSi-B0-26s"/>
+                            <constraint firstAttribute="trailing" secondItem="Inz-Pe-hHS" secondAttribute="trailing" id="dye-dB-jAz"/>
+                            <constraint firstItem="Inz-Pe-hHS" firstAttribute="bottom" secondItem="8OH-kQ-Sfm" secondAttribute="top" id="rDa-AJ-bCO"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title=" " id="hL4-WN-xx6"/>
@@ -318,7 +189,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jwn-3h-S1V" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <customObject id="due-lN-9QB" customClass="BreakoutsDataSource" customModule="LDStorymakersApp" customModuleProvider="target"/>
             </objects>
-            <point key="canvasLocation" x="2056.8000000000002" y="35.532233883058474"/>
+            <point key="canvasLocation" x="4004" y="36"/>
         </scene>
         <!-- -->
         <scene sceneID="Gqs-ul-MQ4">
@@ -440,6 +311,7 @@
                             <constraint firstItem="Rzu-hO-OsM" firstAttribute="top" secondItem="6bz-4S-p2F" secondAttribute="bottom" constant="10" id="umc-Sh-dK9"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="M5W-I2-wDx"/>
                     <connections>
                         <outlet property="breakoutClassesTableView" destination="Rzu-hO-OsM" id="Uhh-Tu-nyD"/>
                         <outlet property="breakoutTimeLabel" destination="6bz-4S-p2F" id="I1F-gv-v4q"/>
@@ -448,9 +320,9 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f6D-KG-cpi" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <customObject id="Yi3-1L-7cw" customClass="BreakoutClassesDataSource" customModule="LDStorymakersApp" customModuleProvider="target"/>
             </objects>
-            <point key="canvasLocation" x="2768.8000000000002" y="35.532233883058474"/>
+            <point key="canvasLocation" x="4786" y="36"/>
         </scene>
-        <!--Class Detail View-->
+        <!--Title-->
         <scene sceneID="Re1-LW-ra4">
             <objects>
                 <viewController id="X0c-x9-1ju" customClass="ClassDetailView" customModule="LDStorymakersApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -524,17 +396,25 @@
                             <constraint firstItem="Zny-cA-dRN" firstAttribute="leading" secondItem="jNq-ME-j0x" secondAttribute="leading" id="unO-uP-GE0"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Title" id="RYH-Ah-2ue">
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="DkU-eh-gKR">
+                            <connections>
+                                <action selector="saveBarButtonItemTapped:" destination="X0c-x9-1ju" id="hXT-84-SBZ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="classFeedBackButton" destination="7Yb-35-bFH" id="xKb-AI-hCH"/>
                         <outlet property="classTitleLabel" destination="Zny-cA-dRN" id="FN6-pX-gkV"/>
                         <outlet property="descriptionTextView" destination="VJI-GW-XE5" id="51t-Wm-DM0"/>
                         <outlet property="locationLabel" destination="jNq-ME-j0x" id="827-Cg-I60"/>
+                        <outlet property="saveClassBarButton" destination="DkU-eh-gKR" id="7vC-2t-DNB"/>
                         <outlet property="viewAuthorButton" destination="pkf-tY-bxC" id="0dS-YL-oGb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TVt-NI-EAc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3501.5999999999999" y="35.532233883058474"/>
+            <point key="canvasLocation" x="5519" y="36"/>
         </scene>
         <!--Speaker DetailVC-->
         <scene sceneID="txz-Un-PoY">
@@ -602,50 +482,67 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3CJ-kD-JtM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4200.8000000000002" y="35.532233883058474"/>
+            <point key="canvasLocation" x="6281" y="36"/>
         </scene>
-        <!--App Tap Bar Controller-->
-        <scene sceneID="yMc-ZS-8OK">
+        <!--Tab Bar Controller-->
+        <scene sceneID="REm-6f-2F2">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="uF2-TH-cP7" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="lHl-tY-ZU4" customClass="AppTapBarController" customModule="LDStorymakersApp" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="iJi-Z5-KeB" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="MhN-u7-kZf">
-                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="qVd-58-ITR">
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="B7i-fO-Mx5"/>
-                        <segue destination="qLB-jz-gv7" kind="relationship" relationship="viewControllers" id="0tf-4u-Z8x"/>
-                        <segue destination="M3E-nC-UuA" kind="relationship" relationship="viewControllers" id="dbT-Aq-nt6"/>
+                        <segue destination="xav-8Z-n0M" kind="relationship" relationship="viewControllers" id="uWL-0K-wtf"/>
+                        <segue destination="zzK-Xh-ZWY" kind="relationship" relationship="viewControllers" id="Agd-9Z-lB7"/>
                     </connections>
                 </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KY7-J9-DtQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-185" y="36"/>
+            <point key="canvasLocation" x="791" y="36"/>
         </scene>
-        <!--Schedule-->
-        <scene sceneID="a1k-TG-7ZG">
+        <!--Conference Schedule-->
+        <scene sceneID="gzT-YB-XGd">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qLB-jz-gv7" customClass="AppNavigationController" customModule="LDStorymakersApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Schedule" image="schedule" id="qWn-5T-cnX"/>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zzK-Xh-ZWY" customClass="AppNavigationController" customModule="LDStorymakersApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Conference Schedule" image="schedule" id="hQb-sB-USK"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="EeK-Jn-R8P">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="NvV-nc-Hy6">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="oBE-dE-Eor" kind="relationship" relationship="rootViewController" id="6ie-f1-iB5"/>
+                        <segue destination="oBE-dE-Eor" kind="relationship" relationship="rootViewController" id="rlr-3F-5T0"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="3Mc-Td-5hI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qac-oF-Zsq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1344.8" y="36.431784107946029"/>
+            <point key="canvasLocation" x="3300" y="36"/>
+        </scene>
+        <!--My Schedule-->
+        <scene sceneID="Wp6-xv-wiW">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xav-8Z-n0M" customClass="AppNavigationController" customModule="LDStorymakersApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="My Schedule" image="speakerImage" id="gjz-tM-Bcf"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="F2G-n7-YeE">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="M3E-nC-UuA" kind="relationship" relationship="rootViewController" id="ty2-v1-Z2R"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cWp-wS-BzK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1544.8" y="35.532233883058474"/>
         </scene>
     </scenes>
     <resources>
-        <image name="home" width="24" height="24"/>
         <image name="schedule" width="24" height="24"/>
+        <image name="speakerImage" width="24" height="24"/>
     </resources>
 </document>

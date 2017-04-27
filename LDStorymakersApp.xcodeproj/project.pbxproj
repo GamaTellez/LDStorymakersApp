@@ -12,7 +12,6 @@
 		873412EE1EAE4F2A00F3383C /* PersonalScheduleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873412ED1EAE4F2A00F3383C /* PersonalScheduleCell.swift */; };
 		8736BDEC1EA5394100078436 /* BreakoutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8736BDEB1EA5394100078436 /* BreakoutCell.swift */; };
 		8744DA731E92F9890088B8F9 /* AppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8744DA721E92F9890088B8F9 /* AppViewController.swift */; };
-		8744DA751E92F9F40088B8F9 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8744DA741E92F9F40088B8F9 /* HomeViewController.swift */; };
 		8744DA771E92FC220088B8F9 /* AppTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8744DA761E92FC220088B8F9 /* AppTitleLabel.swift */; };
 		8744DA7E1E93435A0088B8F9 /* AppTapBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8744DA7D1E93435A0088B8F9 /* AppTapBarController.swift */; };
 		8744DA811E934B690088B8F9 /* AppDataStructures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8744DA801E934B690088B8F9 /* AppDataStructures.swift */; };
@@ -66,7 +65,6 @@
 		873412ED1EAE4F2A00F3383C /* PersonalScheduleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalScheduleCell.swift; sourceTree = "<group>"; };
 		8736BDEB1EA5394100078436 /* BreakoutCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BreakoutCell.swift; path = ../BreakoutCell.swift; sourceTree = "<group>"; };
 		8744DA721E92F9890088B8F9 /* AppViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppViewController.swift; sourceTree = "<group>"; };
-		8744DA741E92F9F40088B8F9 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = ../HomeViewController.swift; sourceTree = "<group>"; };
 		8744DA761E92FC220088B8F9 /* AppTitleLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppTitleLabel.swift; sourceTree = "<group>"; };
 		8744DA7D1E93435A0088B8F9 /* AppTapBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppTapBarController.swift; sourceTree = "<group>"; };
 		8744DA801E934B690088B8F9 /* AppDataStructures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDataStructures.swift; sourceTree = "<group>"; };
@@ -136,14 +134,6 @@
 				873412ED1EAE4F2A00F3383C /* PersonalScheduleCell.swift */,
 			);
 			name = PersonalSchedule;
-			sourceTree = "<group>";
-		};
-		8744DA781E92FC470088B8F9 /* HomeView */ = {
-			isa = PBXGroup;
-			children = (
-				8744DA741E92F9F40088B8F9 /* HomeViewController.swift */,
-			);
-			name = HomeView;
 			sourceTree = "<group>";
 		};
 		8744DA7F1E9343690088B8F9 /* App Views */ = {
@@ -231,7 +221,6 @@
 				877683871E9EAA2800A22BC8 /* Managed Objects Extensions */,
 				8744DA7F1E9343690088B8F9 /* App Views */,
 				873412EA1EAE4D9500F3383C /* PersonalSchedule */,
-				8744DA781E92FC470088B8F9 /* HomeView */,
 				87A617751E9B009700DC7A39 /* Conference Schedule */,
 				87A29C591DD3FDA300DA0FA6 /* Assets.xcassets */,
 				87A29C5B1DD3FDA300DA0FA6 /* LaunchScreen.storyboard */,
@@ -434,7 +423,6 @@
 				8736BDEC1EA5394100078436 /* BreakoutCell.swift in Sources */,
 				8744DA831E9351750088B8F9 /* AppNavigationController.swift in Sources */,
 				8776838D1E9EC3D100A22BC8 /* SpeakersExtensions.swift in Sources */,
-				8744DA751E92F9F40088B8F9 /* HomeViewController.swift in Sources */,
 				8776838F1E9ECBB300A22BC8 /* ScheduleItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

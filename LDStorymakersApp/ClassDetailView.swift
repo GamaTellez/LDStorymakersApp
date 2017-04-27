@@ -11,15 +11,12 @@ import UIKit
 class ClassDetailView: AppViewController {
 
     var classSelected:PossiblePersonalScheduleItem?
-    
-    
-    //@IBOutlet var classSelectedTimeLabel: UILabel!
     @IBOutlet var classTitleLabel: UILabel!
     @IBOutlet var locationLabel: UILabel!
     @IBOutlet var descriptionTextView: UITextView!
     @IBOutlet var viewAuthorButton: UIButton!
     @IBOutlet var classFeedBackButton: UIButton!
-        
+    @IBOutlet var saveClassBarButton: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +36,7 @@ class ClassDetailView: AppViewController {
         self.setUpDescriptionTextView()
         self.setupSpeakerButton()
         self.setUpFeedBackButton()
+        self.setupSaveBarButtonItem()
     }
         
     private func setUpClassTitleLabel() {
@@ -60,6 +58,7 @@ class ClassDetailView: AppViewController {
                 return
         }
         self.title = String(format:"%@ %@", breakoutDay, breakoutTime)
+        
     }
     
     private func setUpLocationLabel() {
@@ -103,6 +102,31 @@ class ClassDetailView: AppViewController {
         self.classFeedBackButton.titleLabel?.text = "Feedback"
         
     }
+    
+    private func setupSaveBarButtonItem() {
+        self.saveClassBarButton.image = UIImage(named: "save")?.withRenderingMode(.alwaysTemplate)
+        self.saveClassBarButton.tintColor = UIColor.white
+        guard let possibleClassExist = self.classSelected?.existsInPersonalSchedule else {
+            self.saveClassBarButton.isEnabled = false
+            return
+        }
+        if (possibleClassExist) {
+            self.saveClassBarButton.isEnabled = false
+        }
+    }
+    
+    @IBAction func saveBarButtonItemTapped(_ sender: UIBarButtonItem) {
+        guard let possibleClassTosave = self.classSelected else {
+            return
+        }
+        PersonalScheduleItem.createPersonalScheduleItem(fromo: possibleClassTosave) { (saved) in
+            if (saved) {
+            possibleClassTosave.existsInPersonalSchedule = true
+            UIAlertController.personalScheduleModified(action: "Class Saved", sourceView: self.view, navigationController: self.navigationController!)
+            }
+        }
+    }
+    
     
     
     @IBAction func feedBackButtonTapped(_ sender: UIButton) {

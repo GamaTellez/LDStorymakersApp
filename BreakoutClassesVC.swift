@@ -34,6 +34,10 @@ class BreakoutClassesVC: AppViewController, UITableViewDelegate {
         self.breakoutClassesTableView.reloadData()
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        self.breakoutClassesTableView.reloadData()
+    }
+    
     private func setBreakoutTimeLabel() {
         guard let timeString = self.breakoutTimeString else {
             self.breakoutTimeLabel.text = "Not Available"

@@ -16,6 +16,7 @@ class AppNavigationController: UINavigationController {
         self.navigationBar.tintColor = UIColor.white
         self.navigationBar.barTintColor = AppColors.appBarsColor
         self.navigationBar.addSubview(UIView.addStatusBarBackGroundView(at: 0, y: -20))
+        self.navigationItem.backBarButtonItem?.title = " "
         guard let titleFont = UIFont(name: AppFonts.titlesFont, size: 20) else {
             return
         }
