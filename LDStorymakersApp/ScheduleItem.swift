@@ -74,6 +74,36 @@ extension ScheduleItem {
         }
     }
     }
+    
+    static func getAllScheduleItems(with title:String)-> [ScheduleItem]? {
+        var matchingScheduleItems:[ScheduleItem] = [ScheduleItem]()
+        do {
+            let allItems = try StoreCoordinator().context.fetch(ScheduleItem.fetchRequest()) as [ScheduleItem]
+            for item in allItems {
+                if let itemTitle = item.presentationTitle {
+                    if (itemTitle == title) {
+                        matchingScheduleItems.append(item)
+                    }
+                }
+            }
+            return matchingScheduleItems
+        } catch {
+            print(error.localizedDescription + "when fecthing matching schedule items to title")
+            return nil
+        }
+    }
+    
+    static func deleteSchedule(completion:(_ finished:Bool)-> Void) {
+        do {
+            let allSchedules = try StoreCoordinator().context.fetch(ScheduleItem.fetchRequest()) as [ScheduleItem]
+            for item in allSchedules {
+                StoreCoordinator().context.delete(item)
+            }
+        } catch {
+            print (error.localizedDescription)
+        }
+        completion(true)
+    }
 }
 
 

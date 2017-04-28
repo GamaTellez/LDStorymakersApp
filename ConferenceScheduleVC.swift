@@ -60,7 +60,7 @@ class ConferenceScheduleVC: AppViewController, UITableViewDelegate {
     }
     
     private func getBreakoutsForDataSource() {
-        let breakouts = Breakout.getBreakouts()
+        let breakouts = Breakout.getBreakoutsInDays()
         guard let dayOne = breakouts.0 else {
             return
         }
@@ -101,7 +101,7 @@ class ConferenceScheduleVC: AppViewController, UITableViewDelegate {
             
             //print(theBreakout.breakoutID!)
             let selectedBreakoutClassesVC = segue.destination as! BreakoutClassesVC
-            selectedBreakoutClassesVC.breakoutClasses = theBreakout.getBreakoutPossiblePersonalItemSchedule()
+            selectedBreakoutClassesVC.breakoutClasses = theBreakout.getBreakoutPossiblePersonalItemsSchedule()
             selectedBreakoutClassesVC.title = String(format: "Breakout %@", theBreakout.breakoutID!)
             selectedBreakoutClassesVC.breakoutTimeString = theBreakout.breakoutShortFormatTimes()
         }

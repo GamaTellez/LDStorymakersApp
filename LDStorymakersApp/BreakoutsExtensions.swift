@@ -94,7 +94,7 @@ extension Breakout {
     }
     
     //Mark: returns all breakouts stored in two arrays (dayOne= first six breakouts, day two:last six breakouts)
-    static func getBreakouts()-> ([Breakout]?, [Breakout]?) {
+    static func getBreakoutsInDays()-> ([Breakout]?, [Breakout]?) {
         var dayOneBreakouts:[Breakout] = [Breakout]()
         var dayTwoBreakouts:[Breakout] = [Breakout]()
         do  {
@@ -117,6 +117,16 @@ extension Breakout {
         }
     }
 
+    //Mark:gets all breakouts
+    static func getAllBreakouts()-> [Breakout]? {
+        do {
+            let allBreakouts = try StoreCoordinator().context.fetch(Breakout.fetchRequest()) as [Breakout]
+            return allBreakouts
+        } catch {
+            print(error.localizedDescription + "when fetching all breakouts")
+            return nil
+        }
+    }
     
     //Mark:gets the breakout start and end time as a readable string
         func breakoutShortFormatTimes() -> String {
@@ -167,7 +177,7 @@ extension Breakout {
         return breakoutScheduleItems
     }
     ///creates intacnes of possible personal schedule for the current breakout
-    func getBreakoutPossiblePersonalItemSchedule()-> [PossiblePersonalScheduleItem]? {
+    func getBreakoutPossiblePersonalItemsSchedule()-> [PossiblePersonalScheduleItem]? {
         guard let allScheduleItemsInBreakout = self.getAllScheduleItemsInBreakout() else {
             return nil
         }
@@ -222,6 +232,30 @@ extension Breakout {
                 print(error.localizedDescription)
                 return nil
             }
+    }
+
+    
+    //Mark: finds the breakout with the given id int
+    static func findBreakoutWithId(id:Int16)-> Breakout? {
+        guard let allBreakouts = Breakout.getAllBreakouts() else {
+            return nil
+        }
+        for breakoutItem in allBreakouts {
+            if (breakoutItem.id == id) {
+                return breakoutItem
+            }
+        }
+        return nil
+    }
+    
+    static func deleteBreakouts(completion:(_ finished:Bool)-> Void) {
+        guard let allBreakouts = Breakout.getAllBreakouts() else {
+            return
+        }
+        for itemBreakout  in allBreakouts {
+            StoreCoordinator().delete(object: itemBreakout)
+        }
+        completion(true)
     }
 }
 

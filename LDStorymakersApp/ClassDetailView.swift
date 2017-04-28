@@ -110,7 +110,7 @@ class ClassDetailView: AppViewController {
             self.saveClassBarButton.isEnabled = false
             return
         }
-        if (possibleClassExist) {
+        if (possibleClassExist || self.classSelected?.breakout?.personalScheduleItem != nil) {
             self.saveClassBarButton.isEnabled = false
         }
     }
@@ -126,8 +126,6 @@ class ClassDetailView: AppViewController {
             }
         }
     }
-    
-    
     
     @IBAction func feedBackButtonTapped(_ sender: UIButton) {
         guard let classTitle = self.classSelected?.presentation?.title else {

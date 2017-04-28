@@ -48,6 +48,7 @@ enum UserDefaultsKeyNames:String {
 enum PersonalScheduleModifiedKeywords:String {
     case classAdded = "Class Added"
     case classRemoved = "Class Removed"
+    case timeConflict = "Can't add the class. There is a class saved in this breakout already."
 }
 
 

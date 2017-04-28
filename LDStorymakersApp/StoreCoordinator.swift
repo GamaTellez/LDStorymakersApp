@@ -23,6 +23,13 @@ class StoreCoordinator:NSObject {
             completion(false)
         }
     }
+    
+    
+    func delete(object:NSManagedObject) {
+        self.context.delete(object)
+        self.save { (saved) in
+        }
+    }
 }
 
 

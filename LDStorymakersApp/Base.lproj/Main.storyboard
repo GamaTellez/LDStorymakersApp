@@ -41,10 +41,10 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="OHf-Ko-cOR" firstAttribute="leading" secondItem="q3Q-yV-zRC" secondAttribute="leading" id="5sW-L1-lKw"/>
-                                                <constraint firstAttribute="trailing" secondItem="OHf-Ko-cOR" secondAttribute="trailing" id="7nl-KT-1pN"/>
-                                                <constraint firstItem="OHf-Ko-cOR" firstAttribute="top" secondItem="q3Q-yV-zRC" secondAttribute="top" id="WB9-Xb-Oz9"/>
-                                                <constraint firstItem="OHf-Ko-cOR" firstAttribute="centerY" secondItem="q3Q-yV-zRC" secondAttribute="centerY" id="yGm-fM-tkA"/>
+                                                <constraint firstAttribute="trailing" secondItem="OHf-Ko-cOR" secondAttribute="trailing" id="2ft-kj-2e9"/>
+                                                <constraint firstItem="OHf-Ko-cOR" firstAttribute="leading" secondItem="q3Q-yV-zRC" secondAttribute="leading" id="8VE-NO-oI1"/>
+                                                <constraint firstItem="OHf-Ko-cOR" firstAttribute="centerY" secondItem="q3Q-yV-zRC" secondAttribute="centerY" id="J2U-fY-8fj"/>
+                                                <constraint firstItem="OHf-Ko-cOR" firstAttribute="top" secondItem="q3Q-yV-zRC" secondAttribute="top" id="RLB-fn-YtG"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -87,13 +87,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="20Q-xt-zYK" secondAttribute="trailing" id="3ax-mo-glB"/>
-                            <constraint firstItem="20Q-xt-zYK" firstAttribute="leading" secondItem="BF5-iF-Rsd" secondAttribute="leading" id="6Jm-ED-N79"/>
-                            <constraint firstItem="JrV-Xq-sHg" firstAttribute="top" secondItem="q2q-Zu-djF" secondAttribute="bottom" constant="8" symbolic="YES" id="Lyf-zQ-R3r"/>
-                            <constraint firstItem="20Q-xt-zYK" firstAttribute="bottom" secondItem="Ixa-OW-JIf" secondAttribute="top" id="Nps-le-KL0"/>
-                            <constraint firstItem="JrV-Xq-sHg" firstAttribute="centerX" secondItem="20Q-xt-zYK" secondAttribute="centerX" id="RAr-zC-l74"/>
-                            <constraint firstItem="JrV-Xq-sHg" firstAttribute="leading" secondItem="BF5-iF-Rsd" secondAttribute="leadingMargin" constant="3" id="Zvu-qW-mVg"/>
-                            <constraint firstItem="20Q-xt-zYK" firstAttribute="top" secondItem="JrV-Xq-sHg" secondAttribute="bottom" constant="8" symbolic="YES" id="hHq-1Y-gWD"/>
+                            <constraint firstItem="20Q-xt-zYK" firstAttribute="leading" secondItem="BF5-iF-Rsd" secondAttribute="leading" id="4hK-Uw-VLx"/>
+                            <constraint firstItem="20Q-xt-zYK" firstAttribute="bottom" secondItem="Ixa-OW-JIf" secondAttribute="top" id="EjE-pb-oOg"/>
+                            <constraint firstAttribute="trailing" secondItem="20Q-xt-zYK" secondAttribute="trailing" id="Fgh-jM-m59"/>
+                            <constraint firstItem="JrV-Xq-sHg" firstAttribute="top" secondItem="q2q-Zu-djF" secondAttribute="bottom" constant="8" symbolic="YES" id="ZEW-uN-Hsv"/>
+                            <constraint firstItem="JrV-Xq-sHg" firstAttribute="leading" secondItem="BF5-iF-Rsd" secondAttribute="leadingMargin" constant="3" id="lFi-Ix-aNa"/>
+                            <constraint firstItem="JrV-Xq-sHg" firstAttribute="centerX" secondItem="20Q-xt-zYK" secondAttribute="centerX" id="r4O-Qz-RnK"/>
+                            <constraint firstItem="20Q-xt-zYK" firstAttribute="top" secondItem="JrV-Xq-sHg" secondAttribute="bottom" constant="8" symbolic="YES" id="yV4-2U-hhh"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="FLg-Sl-8Hi"/>
@@ -107,10 +107,71 @@
             </objects>
             <point key="canvasLocation" x="2484" y="35.532233883058474"/>
         </scene>
+        <!--Settings-->
+        <scene sceneID="Y2H-qV-SKi">
+            <objects>
+                <viewController id="wfh-pq-O79" customClass="SettingsVC" customModule="LDStorymakersApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="mIw-fA-jDX"/>
+                        <viewControllerLayoutGuide type="bottom" id="PJ9-O6-xqG"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Fp6-8w-svJ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="FN6-yf-b7D">
+                                <rect key="frame" x="0.0" y="73" width="375" height="545"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="settingsCellID" id="ymf-Ii-4D6">
+                                        <rect key="frame" x="0.0" y="56" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ymf-Ii-4D6" id="Rhz-T1-uYH">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="wfh-pq-O79" id="84c-lI-iWi"/>
+                                    <outlet property="delegate" destination="wfh-pq-O79" id="m59-uL-lVI"/>
+                                </connections>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ewd-0c-iyt" customClass="AppTitleLabel" customModule="LDStorymakersApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="65"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="65" id="7Ny-gI-M08"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Ewd-0c-iyt" firstAttribute="trailing" secondItem="FN6-yf-b7D" secondAttribute="trailing" id="9sG-Ne-PbJ"/>
+                            <constraint firstItem="Ewd-0c-iyt" firstAttribute="leading" secondItem="Fp6-8w-svJ" secondAttribute="leading" id="D8l-x5-OVO"/>
+                            <constraint firstItem="Ewd-0c-iyt" firstAttribute="leading" secondItem="FN6-yf-b7D" secondAttribute="leading" id="ElM-Nd-Yze"/>
+                            <constraint firstItem="FN6-yf-b7D" firstAttribute="bottom" secondItem="PJ9-O6-xqG" secondAttribute="top" id="GiR-Lw-G3F"/>
+                            <constraint firstItem="Ewd-0c-iyt" firstAttribute="top" secondItem="Fp6-8w-svJ" secondAttribute="top" id="Hca-Td-osg"/>
+                            <constraint firstAttribute="trailing" secondItem="Ewd-0c-iyt" secondAttribute="trailing" id="XQ9-89-Pok"/>
+                            <constraint firstItem="FN6-yf-b7D" firstAttribute="top" secondItem="Ewd-0c-iyt" secondAttribute="bottom" constant="8" symbolic="YES" id="aGO-Bs-v8K"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Settings" image="settings" id="dRB-yL-QeM"/>
+                    <connections>
+                        <outlet property="settingsTableView" destination="FN6-yf-b7D" id="O5Y-pN-G9q"/>
+                        <outlet property="titleLabel" destination="Ewd-0c-iyt" id="LfP-wg-c5j"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0Kh-Dk-0hu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1559.2" y="726.38680659670172"/>
+        </scene>
         <!-- -->
         <scene sceneID="ehv-Jw-pJY">
             <objects>
-                <viewController title=" " id="oBE-dE-Eor" customClass="ConferenceScheduleVC" customModule="LDStorymakersApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="conferenceScheduleVC" title=" " id="oBE-dE-Eor" customClass="ConferenceScheduleVC" customModule="LDStorymakersApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="56C-NF-dsT"/>
                         <viewControllerLayoutGuide type="bottom" id="8OH-kQ-Sfm"/>
@@ -194,7 +255,7 @@
         <!-- -->
         <scene sceneID="Gqs-ul-MQ4">
             <objects>
-                <viewController title=" " automaticallyAdjustsScrollViewInsets="NO" id="gPR-T7-Dlm" customClass="BreakoutClassesVC" customModule="LDStorymakersApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="breakoutClassesVC" title=" " automaticallyAdjustsScrollViewInsets="NO" id="gPR-T7-Dlm" customClass="BreakoutClassesVC" customModule="LDStorymakersApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="iJI-Uf-qXQ"/>
                         <viewControllerLayoutGuide type="bottom" id="1U3-hp-cMU"/>
@@ -325,7 +386,7 @@
         <!--Title-->
         <scene sceneID="Re1-LW-ra4">
             <objects>
-                <viewController id="X0c-x9-1ju" customClass="ClassDetailView" customModule="LDStorymakersApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="classDetailVC" id="X0c-x9-1ju" customClass="ClassDetailView" customModule="LDStorymakersApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="MZI-Vi-LUY"/>
                         <viewControllerLayoutGuide type="bottom" id="SBO-ub-bxG"/>
@@ -397,7 +458,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="RYH-Ah-2ue">
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="DkU-eh-gKR">
+                        <barButtonItem key="rightBarButtonItem" id="DkU-eh-gKR">
                             <connections>
                                 <action selector="saveBarButtonItemTapped:" destination="X0c-x9-1ju" id="hXT-84-SBZ"/>
                             </connections>
@@ -484,10 +545,10 @@
             </objects>
             <point key="canvasLocation" x="6281" y="36"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--App Tap Bar Controller-->
         <scene sceneID="REm-6f-2F2">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="iJi-Z5-KeB" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="iJi-Z5-KeB" customClass="AppTapBarController" customModule="LDStorymakersApp" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="qVd-58-ITR">
                         <autoresizingMask key="autoresizingMask"/>
@@ -496,6 +557,7 @@
                     <connections>
                         <segue destination="xav-8Z-n0M" kind="relationship" relationship="viewControllers" id="uWL-0K-wtf"/>
                         <segue destination="zzK-Xh-ZWY" kind="relationship" relationship="viewControllers" id="Agd-9Z-lB7"/>
+                        <segue destination="wfh-pq-O79" kind="relationship" relationship="viewControllers" id="Ztx-Rf-c3O"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KY7-J9-DtQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -543,6 +605,7 @@
     </scenes>
     <resources>
         <image name="schedule" width="24" height="24"/>
+        <image name="settings" width="24" height="24"/>
         <image name="speakerImage" width="24" height="24"/>
     </resources>
 </document>

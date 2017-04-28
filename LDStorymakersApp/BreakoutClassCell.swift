@@ -11,6 +11,7 @@ import UIKit
 protocol PersonalScheduleModifiedDelegate {
         func classAddedToSchedule()
         func classRemovedFromSchedule()
+        func failedToAddClass()
 }
 
 class BreakoutClassCell: UITableViewCell {
@@ -54,36 +55,18 @@ class BreakoutClassCell: UITableViewCell {
     }
     
     @IBAction func addRemoveScheduleItemButtonTapped(_ sender: UIButton) {
-        
         if (!sender.isSelected) {
-            guard let possiblePersonalScheduleClass = self.classItem else {
-                return
-            }
-            PersonalScheduleItem.createPersonalScheduleItem(fromo: possiblePersonalScheduleClass) { (saved) in
-                if (saved) {
-                    possiblePersonalScheduleClass.existsInPersonalSchedule = true
-                    sender.isSelected = true
-                    sender.backgroundColor = self.selectedColor
-                    guard let classDelegate = self.delegate else {
-                        return
-                    }
-                    classDelegate.classAddedToSchedule()
-                } else {
-                print("failed to save new schedule item from cell")
+            if (self.classItem?.breakout?.personalScheduleItem != nil) {
+                guard let classDelegate = self.delegate else {
+                    return
                 }
-            }
+                classDelegate.failedToAddClass()
+
+            } else {
+                self.createNewPersonalScheduledItemFromSelectedClass(sender: sender)
+                }
         } else {
-            guard let personalScheduleItemToDelete = PersonalScheduleItem.findPersonalScheduleItem(with: (self.classItem?.presentation?.title)!) else {
-                return
-            }
-            StoreCoordinator().context.delete(personalScheduleItemToDelete)
-            self.classItem?.existsInPersonalSchedule = false
-            sender.isSelected = false
-            sender.backgroundColor = self.notSelectedColor
-            guard let classDelegate = self.delegate else {
-                return
-            }
-            classDelegate.classRemovedFromSchedule()
+            self.removeClassSelected(sender: sender)
         }
     }
     
@@ -123,4 +106,42 @@ class BreakoutClassCell: UITableViewCell {
         }
     }
     
+    
+    private func createNewPersonalScheduledItemFromSelectedClass(sender:UIButton) {
+        guard let possiblePersonalScheduleClass = self.classItem else {
+            return
+            }
+                PersonalScheduleItem.createPersonalScheduleItem(fromo: possiblePersonalScheduleClass) { (saved) in
+                    if (saved) {
+                        possiblePersonalScheduleClass.existsInPersonalSchedule = true
+                        sender.isSelected = true
+                        sender.backgroundColor = self.selectedColor
+                        guard let classDelegate = self.delegate else {
+                            return
+                        }
+                        classDelegate.classAddedToSchedule()
+                    } else {
+                        print("failed to save new schedule item from cell")
+                    }
+                }
+    }
+    
+    private func removeClassSelected(sender:UIButton) {
+        guard let personalScheduleItemToDelete = PersonalScheduleItem.findPersonalScheduleItem(with: (self.classItem?.presentation?.title)!) else {
+            return
+        }
+        StoreCoordinator().delete(object: personalScheduleItemToDelete)
+        self.classItem?.existsInPersonalSchedule = false
+        sender.isSelected = false
+        sender.backgroundColor = self.notSelectedColor
+        guard let classDelegate = self.delegate else {
+            return
+        }
+        classDelegate.classRemovedFromSchedule()
+    }
+    
 }
+
+
+
+

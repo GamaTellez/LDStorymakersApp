@@ -14,17 +14,18 @@ extension PersonalScheduleItem {
     static func createPersonalScheduleItem(fromo possibleItem:PossiblePersonalScheduleItem, completion:(_ saved:Bool)-> Void) {
         let newPersonalScheduleItem = NSEntityDescription.insertNewObject(forEntityName: AppManagedObject.PersonalScheduleItem.rawValue, into: StoreCoordinator().context) as! PersonalScheduleItem
         newPersonalScheduleItem.breakout = possibleItem.breakout
-        possibleItem.breakout?.personalScheduleItem = newPersonalScheduleItem
         newPersonalScheduleItem.presentation = possibleItem.presentation
         newPersonalScheduleItem.scheduleItem = possibleItem.scheduleItem
         newPersonalScheduleItem.speaker = possibleItem.speaker
+        possibleItem.breakout?.personalScheduleItem = newPersonalScheduleItem
+        
         StoreCoordinator().save { (saved) in
-            if (saved) {
-                completion(true)
-            } else {
-                completion(false)
-            }
-        }
+                    if (saved) {
+                        completion(true)
+                    } else {
+                        completion(false)
+                    }
+                }
     }
 
     static func findPersonalScheduleItem(with title:String)-> PersonalScheduleItem? {

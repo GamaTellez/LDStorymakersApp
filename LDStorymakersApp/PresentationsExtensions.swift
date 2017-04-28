@@ -91,6 +91,21 @@ extension Presentation {
         }
         return nil
     }
+    
+    static func deletePresentations(completion:(_ finished:Bool)-> Void) {
+        do {
+            let allPresentations = try StoreCoordinator().context.fetch(Presentation.fetchRequest()) as [Presentation]
+            for item in allPresentations {
+                StoreCoordinator().context.delete(item)
+            }
+        } catch {
+            print (error.localizedDescription)
+        }
+        completion(true)
+    }
+
+    
+    
 }
 
 

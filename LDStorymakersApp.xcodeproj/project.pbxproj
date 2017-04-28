@@ -10,6 +10,7 @@
 		873412E91EAE4D8700F3383C /* PersonalScheduleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873412E81EAE4D8700F3383C /* PersonalScheduleVC.swift */; };
 		873412EC1EAE4E4200F3383C /* PersonalScheduleDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873412EB1EAE4E4200F3383C /* PersonalScheduleDataSource.swift */; };
 		873412EE1EAE4F2A00F3383C /* PersonalScheduleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873412ED1EAE4F2A00F3383C /* PersonalScheduleCell.swift */; };
+		87345A201EB3C53600E9B4B6 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87345A1F1EB3C53600E9B4B6 /* SettingsVC.swift */; };
 		8736BDEC1EA5394100078436 /* BreakoutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8736BDEB1EA5394100078436 /* BreakoutCell.swift */; };
 		8744DA731E92F9890088B8F9 /* AppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8744DA721E92F9890088B8F9 /* AppViewController.swift */; };
 		8744DA771E92FC220088B8F9 /* AppTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8744DA761E92FC220088B8F9 /* AppTitleLabel.swift */; };
@@ -63,6 +64,7 @@
 		873412E81EAE4D8700F3383C /* PersonalScheduleVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalScheduleVC.swift; sourceTree = "<group>"; };
 		873412EB1EAE4E4200F3383C /* PersonalScheduleDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalScheduleDataSource.swift; sourceTree = "<group>"; };
 		873412ED1EAE4F2A00F3383C /* PersonalScheduleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalScheduleCell.swift; sourceTree = "<group>"; };
+		87345A1F1EB3C53600E9B4B6 /* SettingsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		8736BDEB1EA5394100078436 /* BreakoutCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BreakoutCell.swift; path = ../BreakoutCell.swift; sourceTree = "<group>"; };
 		8744DA721E92F9890088B8F9 /* AppViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppViewController.swift; sourceTree = "<group>"; };
 		8744DA761E92FC220088B8F9 /* AppTitleLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppTitleLabel.swift; sourceTree = "<group>"; };
@@ -136,6 +138,14 @@
 			name = PersonalSchedule;
 			sourceTree = "<group>";
 		};
+		87345A211EB3C53C00E9B4B6 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				87345A1F1EB3C53600E9B4B6 /* SettingsVC.swift */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
 		8744DA7F1E9343690088B8F9 /* App Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -186,6 +196,7 @@
 				879C1BAF1EA6BBCA002D3870 /* BreakoutClassesDataSource.swift */,
 				879C1BB41EA6BF6B002D3870 /* BreakoutClassCell.swift */,
 				87640DAE1EAD1D700052FA3D /* ClassDetailView */,
+				87345A211EB3C53C00E9B4B6 /* Settings */,
 			);
 			name = BreakoutClasses;
 			sourceTree = "<group>";
@@ -422,6 +433,7 @@
 				8744DA771E92FC220088B8F9 /* AppTitleLabel.swift in Sources */,
 				8736BDEC1EA5394100078436 /* BreakoutCell.swift in Sources */,
 				8744DA831E9351750088B8F9 /* AppNavigationController.swift in Sources */,
+				87345A201EB3C53600E9B4B6 /* SettingsVC.swift in Sources */,
 				8776838D1E9EC3D100A22BC8 /* SpeakersExtensions.swift in Sources */,
 				8776838F1E9ECBB300A22BC8 /* ScheduleItem.swift in Sources */,
 			);
@@ -577,6 +589,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = FCJBBVX9H7;
 				INFOPLIST_FILE = LDStorymakersApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -590,6 +603,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = FCJBBVX9H7;
 				INFOPLIST_FILE = LDStorymakersApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

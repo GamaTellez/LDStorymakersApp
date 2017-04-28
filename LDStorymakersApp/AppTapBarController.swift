@@ -22,4 +22,12 @@ class AppTapBarController: UITabBarController {
         // Dispose of any resources that can be recreated.
     }
     
+    func enableTabBarItems(enabled:Bool) {
+        guard let tabBarItems = self.tabBar.items else {
+            return
+        }
+        for item in tabBarItems {
+            item.isEnabled = enabled
+        }
+    }
 }

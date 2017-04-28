@@ -80,6 +80,17 @@ extension Speaker {
         }
     }
     
+    static func deleteSpeakers(completion:(_ finished:Bool)-> Void) {
+        do {
+            let allSpeakers = try StoreCoordinator().context.fetch(Speaker.fetchRequest()) as [Speaker]
+            for itemSpeaker in allSpeakers {
+                StoreCoordinator().context.delete(itemSpeaker)
+            }
+        } catch {
+            print (error.localizedDescription)
+        }
+        completion(true)
+    }
 }
 
 

@@ -95,6 +95,40 @@ extension UIView {
             statusBarView.backgroundColor = AppColors.statusBarColor
         return statusBarView
     }
+
+    static func downloadingInformationView(frame:CGRect)-> UIView {
+        let loadingView = UIView(frame: frame)
+        let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+        activityIndicator.startAnimating()
+        activityIndicator.center = loadingView.center
+        loadingView.addSubview(activityIndicator)
+        let label = UILabel()
+        label.textAlignment = .center
+        label.text = "Downloading Conference Schedule..."
+        label.font = UIFont(name: AppFonts.titlesFont, size: 15)
+        label.frame.size = CGSize(width: loadingView.frame.width, height: loadingView.frame.width)
+        label.center = CGPoint(x: loadingView.center.x, y: loadingView.center.y + activityIndicator.frame.height + 40)
+        loadingView.addSubview(label)
+        loadingView.alpha = 0
+        return loadingView
+    }
+    
+    static func presentView(view:UIView) {
+        UIView.animate(withDuration: 2) { 
+            view.alpha = 1
+        }
+    }
+    
+    static func removeView(view:UIView) {
+        let when = DispatchTime.now() + 3
+        DispatchQueue.main.asyncAfter(deadline: when) { 
+            UIView.animate(withDuration: 2, animations: {
+                view.alpha = 1
+            }) { (finished) in
+                view.removeFromSuperview()
+            }
+        }
+    }
 }
 
 
@@ -103,15 +137,23 @@ extension UIAlertController {
             let personalScheduleModifiedAlert = UIAlertController(title: message.rawValue, message: nil, preferredStyle: .alert)
         personalScheduleModifiedAlert.popoverPresentationController?.sourceView = sourceView
         personalScheduleModifiedAlert.popoverPresentationController?.sourceRect = sourceView.bounds
+        
+        if (message == PersonalScheduleModifiedKeywords.timeConflict) {
+            personalScheduleModifiedAlert.addAction(UIAlertAction(title: "Continue", style: .default, handler: nil))
+            navigationController.present(personalScheduleModifiedAlert, animated: true, completion: nil)
+        } else {
         navigationController.present(personalScheduleModifiedAlert, animated: true) { 
-            let delay = 1000.0 * Double(NSEC_PER_SEC)
+            let delay = 0.5 * Double(NSEC_PER_SEC)
             let time = DispatchTime.init(uptimeNanoseconds: UInt64(delay))
             DispatchQueue.main.asyncAfter(deadline: time, execute: {
+                
                 navigationController.dismiss(animated: true, completion: nil)
+               
                 if (message == PersonalScheduleModifiedKeywords.classAdded) {
                 navigationController.popViewController(animated: true)
-                }
-            })
+                    }
+                })
+            }
         }
     }
 }
