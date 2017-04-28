@@ -42,7 +42,14 @@ enum AppManagedObject:String {
 
 enum UserDefaultsKeyNames:String {
     case FirstLaunch = "FirstLaunch"
+    
 }
+
+enum PersonalScheduleModifiedKeywords:String {
+    case classAdded = "Class Added"
+    case classRemoved = "Class Removed"
+}
+
 
 class PossiblePersonalScheduleItem {
     var breakout:Breakout?

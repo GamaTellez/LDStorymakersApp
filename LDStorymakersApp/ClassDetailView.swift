@@ -122,7 +122,7 @@ class ClassDetailView: AppViewController {
         PersonalScheduleItem.createPersonalScheduleItem(fromo: possibleClassTosave) { (saved) in
             if (saved) {
             possibleClassTosave.existsInPersonalSchedule = true
-            UIAlertController.personalScheduleModified(action: "Class Saved", sourceView: self.view, navigationController: self.navigationController!)
+            UIAlertController.personalScheduleModified(message: PersonalScheduleModifiedKeywords.classAdded, sourceView: self.view, navigationController: self.navigationController!)
             }
         }
     }

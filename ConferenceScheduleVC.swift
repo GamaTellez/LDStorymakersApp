@@ -80,6 +80,7 @@ class ConferenceScheduleVC: AppViewController, UITableViewDelegate {
         guard let segueId = segue.identifier else {
             return
         }
+        
         if (segueId == self.kBreakoutClassesSegueId) {
             var breakoutSelected:Breakout?
             if (self.daySegmentedController.selectedSegmentIndex == 0) {
@@ -97,6 +98,7 @@ class ConferenceScheduleVC: AppViewController, UITableViewDelegate {
             guard let theBreakout = breakoutSelected else {
                 return
             }
+            
             //print(theBreakout.breakoutID!)
             let selectedBreakoutClassesVC = segue.destination as! BreakoutClassesVC
             selectedBreakoutClassesVC.breakoutClasses = theBreakout.getBreakoutPossiblePersonalItemSchedule()

@@ -8,10 +8,15 @@
 
 import UIKit
 
-class BreakoutClassCell: UITableViewCell {
+protocol PersonalScheduleModifiedDelegate {
+        func classAddedToSchedule()
+        func classRemovedFromSchedule()
+}
 
-    static let identifier = "brakoutClassCell"
+class BreakoutClassCell: UITableViewCell {
     
+    var delegate:PersonalScheduleModifiedDelegate?
+    static let identifier = "brakoutClassCell"
     @IBOutlet var detailDisclosureImage: UIImageView!
     @IBOutlet var scheduleItemTitle: UILabel!
     @IBOutlet var addRemoveScheduleItemButton: UIButton!
@@ -59,6 +64,10 @@ class BreakoutClassCell: UITableViewCell {
                     possiblePersonalScheduleClass.existsInPersonalSchedule = true
                     sender.isSelected = true
                     sender.backgroundColor = self.selectedColor
+                    guard let classDelegate = self.delegate else {
+                        return
+                    }
+                    classDelegate.classAddedToSchedule()
                 } else {
                 print("failed to save new schedule item from cell")
                 }
@@ -71,6 +80,10 @@ class BreakoutClassCell: UITableViewCell {
             self.classItem?.existsInPersonalSchedule = false
             sender.isSelected = false
             sender.backgroundColor = self.notSelectedColor
+            guard let classDelegate = self.delegate else {
+                return
+            }
+            classDelegate.classRemovedFromSchedule()
         }
     }
     

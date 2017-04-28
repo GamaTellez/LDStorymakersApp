@@ -30,7 +30,7 @@ class BreakoutClassesVC: AppViewController, UITableViewDelegate {
         guard let breakoutClasses = self.breakoutClasses else {
             return
         }
-        self.breakoutClassesTableDataSource.updateDataSourceArray(with: breakoutClasses)
+        self.breakoutClassesTableDataSource.updateDataSourceArray(with: breakoutClasses, navControllerDelegate: self.navigationController! as! AppNavigationController, viewDelegate: self.view)
         self.breakoutClassesTableView.reloadData()
     }
 
@@ -58,6 +58,4 @@ class BreakoutClassesVC: AppViewController, UITableViewDelegate {
             classDetailVC.classSelected = classSelected
         }
     }
-    
-    
 }
