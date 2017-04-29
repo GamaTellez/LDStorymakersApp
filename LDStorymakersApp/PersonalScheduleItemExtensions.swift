@@ -13,7 +13,7 @@ extension PersonalScheduleItem {
     
     static func createPersonalScheduleItem(fromo possibleItem:PossiblePersonalScheduleItem, completion:(_ saved:Bool)-> Void) {
         let newPersonalScheduleItem = NSEntityDescription.insertNewObject(forEntityName: AppManagedObject.PersonalScheduleItem.rawValue, into: StoreCoordinator().context) as! PersonalScheduleItem
-        newPersonalScheduleItem.breakout = possibleItem.breakout
+       newPersonalScheduleItem.breakout = possibleItem.breakout
         newPersonalScheduleItem.presentation = possibleItem.presentation
         newPersonalScheduleItem.scheduleItem = possibleItem.scheduleItem
         newPersonalScheduleItem.speaker = possibleItem.speaker

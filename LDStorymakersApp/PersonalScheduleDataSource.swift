@@ -42,12 +42,6 @@ class PersonalScheduleDataSource: NSObject, UITableViewDataSource {
             findClassCell.textLabel?.text = "Find Class"
             return findClassCell
         }
-//        if ((personalScheduleItemsOfBreakoutAtIndex.count + 1) == indexPath.row) {
-//                let findClassCell = tableView.dequeueReusableCell(withIdentifier: self.findClassCellID, for: indexPath)
-//                findClassCell.textLabel?.text = "Find Class"
-//                return findClassCell
-//        } else {
-
    
         if (indexPath.row == personalScheduleItemsOfBreakoutAtIndex.count) {
             let findClassCell = tableView.dequeueReusableCell(withIdentifier: self.findClassCellID, for: indexPath)

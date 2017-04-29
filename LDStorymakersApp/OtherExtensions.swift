@@ -142,10 +142,6 @@ extension UIAlertController {
             let time = DispatchTime.init(uptimeNanoseconds: UInt64(delay))
             DispatchQueue.main.asyncAfter(deadline: time, execute: {
                 navigationController.dismiss(animated: true, completion: nil)
-               
-//                if (message == PersonalScheduleModifiedKeywords.classAdded) {
-//                navigationController.popViewController(animated: true)
-//                    }
                 })
             }
     }

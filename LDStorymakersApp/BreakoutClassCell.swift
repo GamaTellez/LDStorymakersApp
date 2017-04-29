@@ -65,7 +65,7 @@ class BreakoutClassCell: UITableViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
-       // self.checkIfClassExistInPersonalSchedule()
+        self.checkIfClassExistInPersonalSchedule()
     }
 
     internal func loadInfoInCellViews() {
