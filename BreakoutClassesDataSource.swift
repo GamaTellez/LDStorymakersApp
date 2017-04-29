@@ -34,7 +34,6 @@ class BreakoutClassesDataSource: NSObject, UITableViewDataSource, PersonalSchedu
     }
 
     func classRemovedFromSchedule() {
-        
         guard let navigationController = self.navControllerDelegate,
             let view = self.viewDelegate else {
                 return
@@ -50,13 +49,13 @@ class BreakoutClassesDataSource: NSObject, UITableViewDataSource, PersonalSchedu
         UIAlertController.personalScheduleModified(message: PersonalScheduleModifiedKeywords.classAdded, sourceView: view, navigationController:navigationController)
     }
     
-    func failedToAddClass() {
-        guard let navigationController = self.navControllerDelegate,
-            let view = self.viewDelegate else {
-                return
-        }
-        UIAlertController.personalScheduleModified(message: PersonalScheduleModifiedKeywords.timeConflict, sourceView: view, navigationController:navigationController)
-
-    }
+//    func failedToAddClass() {
+//        guard let navigationController = self.navControllerDelegate,
+//            let view = self.viewDelegate else {
+//                return
+//        }
+//        UIAlertController.personalScheduleModified(message: PersonalScheduleModifiedKeywords.timeConflict, sourceView: view, navigationController:navigationController)
+//
+//    }
     
 }

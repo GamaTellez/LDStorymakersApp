@@ -11,7 +11,7 @@ import UIKit
 protocol PersonalScheduleModifiedDelegate {
         func classAddedToSchedule()
         func classRemovedFromSchedule()
-        func failedToAddClass()
+       // func failedToAddClass()
 }
 
 class BreakoutClassCell: UITableViewCell {
@@ -56,15 +56,7 @@ class BreakoutClassCell: UITableViewCell {
     
     @IBAction func addRemoveScheduleItemButtonTapped(_ sender: UIButton) {
         if (!sender.isSelected) {
-            if (self.classItem?.breakout?.personalScheduleItem != nil) {
-                guard let classDelegate = self.delegate else {
-                    return
-                }
-                classDelegate.failedToAddClass()
-
-            } else {
                 self.createNewPersonalScheduledItemFromSelectedClass(sender: sender)
-                }
         } else {
             self.removeClassSelected(sender: sender)
         }
@@ -73,7 +65,7 @@ class BreakoutClassCell: UITableViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        self.checkIfClassExistInPersonalSchedule()
+       // self.checkIfClassExistInPersonalSchedule()
     }
 
     internal func loadInfoInCellViews() {

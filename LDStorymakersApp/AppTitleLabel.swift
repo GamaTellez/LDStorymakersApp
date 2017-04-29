@@ -18,5 +18,6 @@ class AppTitleLabel: UILabel {
         self.font =  UIFont(name: AppFonts.titlesFont, size: 20)
         self.textColor = .white
         self.backgroundColor = AppColors.appBarsColor
+        self.numberOfLines = 2
     }
 }

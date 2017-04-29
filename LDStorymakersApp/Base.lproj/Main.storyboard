@@ -96,16 +96,23 @@
                             <constraint firstItem="20Q-xt-zYK" firstAttribute="top" secondItem="JrV-Xq-sHg" secondAttribute="bottom" constant="8" symbolic="YES" id="yV4-2U-hhh"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="FLg-Sl-8Hi"/>
+                    <navigationItem key="navigationItem" id="FLg-Sl-8Hi">
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="vZq-jc-Kzc">
+                            <connections>
+                                <action selector="mapBarButtonItempTapped:" destination="M3E-nC-UuA" id="hSR-sT-sku"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="daySegementedControl" destination="JrV-Xq-sHg" id="BKl-b6-2Nk"/>
+                        <outlet property="mapBarButton" destination="vZq-jc-Kzc" id="8HO-Kf-rVq"/>
                         <outlet property="personalScheduleGroupedTableView" destination="20Q-xt-zYK" id="5ew-xF-pzK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RG7-CJ-Rzr" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <customObject id="r62-2v-oQ9" customClass="PersonalScheduleDataSource" customModule="LDStorymakersApp" customModuleProvider="target"/>
             </objects>
-            <point key="canvasLocation" x="2484" y="35.532233883058474"/>
+            <point key="canvasLocation" x="2281" y="36"/>
         </scene>
         <!--Settings-->
         <scene sceneID="Y2H-qV-SKi">

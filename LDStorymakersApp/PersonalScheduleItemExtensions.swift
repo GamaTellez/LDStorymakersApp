@@ -17,7 +17,7 @@ extension PersonalScheduleItem {
         newPersonalScheduleItem.presentation = possibleItem.presentation
         newPersonalScheduleItem.scheduleItem = possibleItem.scheduleItem
         newPersonalScheduleItem.speaker = possibleItem.speaker
-        possibleItem.breakout?.personalScheduleItem = newPersonalScheduleItem
+        possibleItem.breakout?.addToPersonalScheduleItems(newPersonalScheduleItem)
         
         StoreCoordinator().save { (saved) in
                     if (saved) {

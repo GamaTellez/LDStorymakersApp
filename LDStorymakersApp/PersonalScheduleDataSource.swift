@@ -25,28 +25,38 @@ class PersonalScheduleDataSource: NSObject, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let breakoutID = self.dayBreakouts?[section].breakoutID?.characters.count else {
+        guard let personalScheduleItemsInBreakoutAtIndex = self.dayBreakouts?[section].personalScheduleItems?.array as? [PersonalScheduleItem],
+                let breakoutAtIndex = self.dayBreakouts?[section] else {
             return 0
         }
-        if (breakoutID < 3) {
-            return 1
+        if (breakoutAtIndex.id > 12) {
+            return 0
         } else {
-            return 0
+        return personalScheduleItemsInBreakoutAtIndex.count + 1
         }
     }
-    
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let breakoutAtIndex = self.dayBreakouts?[indexPath.section],
-                let classInBreakout = breakoutAtIndex.personalScheduleItem
-            else {
-                let findClassCell = tableView.dequeueReusableCell(withIdentifier: self.findClassCellID, for: indexPath)
-                findClassCell.textLabel?.text = "Find Class"
-                return findClassCell
+        guard let personalScheduleItemsOfBreakoutAtIndex = self.dayBreakouts?[indexPath.section].personalScheduleItems?.array as? [PersonalScheduleItem] else {
+            let findClassCell = tableView.dequeueReusableCell(withIdentifier: self.findClassCellID, for: indexPath)
+            findClassCell.textLabel?.text = "Find Class"
+            return findClassCell
         }
-        let classScheduleCell = tableView.dequeueReusableCell(withIdentifier: PersonalScheduleCell.personalScheduleCellID, for: indexPath) as! PersonalScheduleCell
-            classScheduleCell.updateInfoLabel(with: classInBreakout)
-        return classScheduleCell
+//        if ((personalScheduleItemsOfBreakoutAtIndex.count + 1) == indexPath.row) {
+//                let findClassCell = tableView.dequeueReusableCell(withIdentifier: self.findClassCellID, for: indexPath)
+//                findClassCell.textLabel?.text = "Find Class"
+//                return findClassCell
+//        } else {
+
+   
+        if (indexPath.row == personalScheduleItemsOfBreakoutAtIndex.count) {
+            let findClassCell = tableView.dequeueReusableCell(withIdentifier: self.findClassCellID, for: indexPath)
+            findClassCell.textLabel?.text = "Find Class"
+            return findClassCell
+        }
+        let personalScheduleItemAtIndex = personalScheduleItemsOfBreakoutAtIndex[indexPath.row]
+        let scheduleItemCell = tableView.dequeueReusableCell(withIdentifier: PersonalScheduleCell.personalScheduleCellID, for: indexPath) as! PersonalScheduleCell
+        scheduleItemCell.updateInfoLabel(with: personalScheduleItemAtIndex)
+        return scheduleItemCell
     }
-    
 }

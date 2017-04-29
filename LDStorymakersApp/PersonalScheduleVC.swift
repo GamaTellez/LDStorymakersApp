@@ -13,6 +13,8 @@ class PersonalScheduleVC: AppViewController, UITableViewDelegate {
     @IBOutlet var daySegementedControl: AppSegmentedControl!
     @IBOutlet var personalScheduleGroupedTableView: UITableView!
     let personalScheduleDataSource:PersonalScheduleDataSource = PersonalScheduleDataSource()
+    
+    @IBOutlet var mapBarButton: UIBarButtonItem!
     var fridayBreakouts:[Breakout]?
     var saturdayBreakouts:[Breakout]?
     lazy var userDefaults:UserDefaults = UserDefaults()
@@ -57,7 +59,13 @@ class PersonalScheduleVC: AppViewController, UITableViewDelegate {
         
     }
     
-    
+    @IBAction func mapBarButtonItempTapped(_ sender: UIBarButtonItem) {
+        guard let mapURL = URL(string: "http://www.utahvalleyconventioncenter.com/wp-content/uploads/2011/11/All-Levels-Floor-Plan-w%EF%80%A2-cap1.pdf") else {
+            return
+        }
+        UIApplication.shared.open(mapURL, options: [:], completionHandler: nil)
+    }
+
     override func viewDidAppear(_ animated: Bool) {
         self.loadTableViewData()
     }
@@ -135,39 +143,41 @@ class PersonalScheduleVC: AppViewController, UITableViewDelegate {
         return breakoutAtIndex.labelForHeaderViewForMandatoryBreakoutIn(tableView: tableView)
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        let breakoutAtIndex = self.getBreakoutAtIndex(section: indexPath.section)
-        guard let personalScheduleItemSelected:PersonalScheduleItem = breakoutAtIndex?.personalScheduleItem else {
-            self.pushBreakoutClassesViewController(with: breakoutAtIndex)
-            return
-        }
-        self.pushClassDetailViewController(from: personalScheduleItemSelected)
-        
-    }
-    
-    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
-        guard let breakOutAtIndex = self.getBreakoutAtIndex(section: indexPath.section) else {
-            return .none
-        }
-        if (breakOutAtIndex.personalScheduleItem != nil) {
-            return .delete
-        } else {
-            return .none
-        }
-    }
-
-    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        let removeAction = UITableViewRowAction(style: .destructive, title: "Remove") { (removeAction, IndexPath) in
-            guard let breakoutAtIndex = self.getBreakoutAtIndex(section: indexPath.section),
-                let personalScheduleItemAtIndex = breakoutAtIndex.personalScheduleItem else {
-                    return
-            }
-            StoreCoordinator().delete(object: personalScheduleItemAtIndex)
-            tableView.reloadRows(at: [indexPath], with: .fade)
-        }
-        return [removeAction]
-    }
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        tableView.deselectRow(at: indexPath, animated: true)
+//
+//        
+////        let breakoutAtIndex = self.getBreakoutAtIndex(section: indexPath.section)
+////        guard let personalScheduleItemSelected:PersonalScheduleItem = breakoutAtIndex?.personalScheduleItems[] else {
+////            self.pushBreakoutClassesViewController(with: breakoutAtIndex)
+////            return
+////        }
+////        self.pushClassDetailViewController(from: personalScheduleItemSelected)
+////        
+//    }
+//
+//    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
+//        guard let breakOutAtIndex = self.getBreakoutAtIndex(section: indexPath.section) else {
+//            return .none
+//        }
+//        if (breakOutAtIndex.personalScheduleItem != nil) {
+//            return .delete
+//        } else {
+//            return .none
+//        }
+//    }
+//
+//    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+//        let removeAction = UITableViewRowAction(style: .destructive, title: "Remove") { (removeAction, IndexPath) in
+//            guard let breakoutAtIndex = self.getBreakoutAtIndex(section: indexPath.section),
+//                let personalScheduleItemAtIndex = breakoutAtIndex.personalScheduleItem else {
+//                    return
+//            }
+//            StoreCoordinator().delete(object: personalScheduleItemAtIndex)
+//            tableView.reloadRows(at: [indexPath], with: .fade)
+//        }
+//        return [removeAction]
+//    }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         

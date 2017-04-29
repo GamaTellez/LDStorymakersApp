@@ -137,24 +137,17 @@ extension UIAlertController {
             let personalScheduleModifiedAlert = UIAlertController(title: message.rawValue, message: nil, preferredStyle: .alert)
         personalScheduleModifiedAlert.popoverPresentationController?.sourceView = sourceView
         personalScheduleModifiedAlert.popoverPresentationController?.sourceRect = sourceView.bounds
-        
-        if (message == PersonalScheduleModifiedKeywords.timeConflict) {
-            personalScheduleModifiedAlert.addAction(UIAlertAction(title: "Continue", style: .default, handler: nil))
-            navigationController.present(personalScheduleModifiedAlert, animated: true, completion: nil)
-        } else {
         navigationController.present(personalScheduleModifiedAlert, animated: true) { 
             let delay = 0.5 * Double(NSEC_PER_SEC)
             let time = DispatchTime.init(uptimeNanoseconds: UInt64(delay))
             DispatchQueue.main.asyncAfter(deadline: time, execute: {
-                
                 navigationController.dismiss(animated: true, completion: nil)
                
-                if (message == PersonalScheduleModifiedKeywords.classAdded) {
-                navigationController.popViewController(animated: true)
-                    }
+//                if (message == PersonalScheduleModifiedKeywords.classAdded) {
+//                navigationController.popViewController(animated: true)
+//                    }
                 })
             }
-        }
     }
 }
 

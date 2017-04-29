@@ -110,7 +110,7 @@ class ClassDetailView: AppViewController {
             self.saveClassBarButton.isEnabled = false
             return
         }
-        if (possibleClassExist || self.classSelected?.breakout?.personalScheduleItem != nil) {
+        if (possibleClassExist) {
             self.saveClassBarButton.isEnabled = false
         }
     }
