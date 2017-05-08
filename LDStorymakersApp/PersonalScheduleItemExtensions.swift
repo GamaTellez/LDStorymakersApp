@@ -44,5 +44,18 @@ extension PersonalScheduleItem {
         }
         return nil
     }
+  
+    static func delePersonalScheduleItems(completion:(_ finished:Bool)-> Void) {
+        do {
+            let allPersonalScheduleItems = try StoreCoordinator().context.fetch(PersonalScheduleItem.fetchRequest()) as [PersonalScheduleItem]
+            for item in allPersonalScheduleItems {
+                StoreCoordinator().context.delete(item)
+            }
+        } catch {
+            completion(false)
+            print (error.localizedDescription)
+        }
+        completion(true)
+    }
 }
 

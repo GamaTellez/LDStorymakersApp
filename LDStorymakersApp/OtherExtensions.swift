@@ -77,7 +77,7 @@ extension UserDefaults {
                         spreadSheetKey = stringSpreadSheetKey
                     }
                 }
-                //print(nameKey! + " = " + spreadSheetKey!)
+                print(nameKey! + " = " + spreadSheetKey!)
                 defaults.set(spreadSheetKey, forKey: nameKey!)
                 defaults.synchronize()
             } else {
@@ -113,13 +113,13 @@ extension UIView {
         return loadingView
     }
     
-    static func presentView(view:UIView) {
+    static func presentViewWithDuration(view:UIView) {
         UIView.animate(withDuration: 2) { 
             view.alpha = 1
         }
     }
     
-    static func removeView(view:UIView) {
+    static func removeViewWithDelay(view:UIView) {
         let when = DispatchTime.now() + 3
         DispatchQueue.main.asyncAfter(deadline: when) { 
             UIView.animate(withDuration: 2, animations: {

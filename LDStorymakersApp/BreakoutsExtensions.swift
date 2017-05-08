@@ -79,12 +79,14 @@ extension Breakout {
             let allBreakoutsSorted = allBreakouts.sorted(by: {$1.startTime! as Date > $0.startTime! as Date })
             var count = 0
             for breakoutItem in allBreakoutsSorted {
+                if (breakoutItem.breakoutID != "Friday Teen Meetup" && breakoutItem.breakoutID != "Saturday Teen Meetup" ) {
                 if (count < 13) {
                     fridayBreakouts.append(breakoutItem)
                 } else {
                     saturdayBreakouts.append(breakoutItem)
                 }
                 count += 1
+                }
             }
             return (fridayBreakouts, saturdayBreakouts)
         } catch {

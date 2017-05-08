@@ -355,7 +355,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 87A29C471DD3FDA300DA0FA6 /* Build configuration list for PBXProject "LDStorymakersApp" */;
+			buildConfigurationList = 87A29C471DD3FDA300DA0FA6 /* Build configuration list for PBXProject "LDStoryMakersRealDeal" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -592,6 +592,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = FCJBBVX9H7;
 				INFOPLIST_FILE = LDStorymakersApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = gamaTellez.LDSStoryMakersRealDeal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -606,6 +607,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = FCJBBVX9H7;
 				INFOPLIST_FILE = LDStorymakersApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = gamaTellez.LDSStoryMakersRealDeal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -674,7 +676,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		87A29C471DD3FDA300DA0FA6 /* Build configuration list for PBXProject "LDStorymakersApp" */ = {
+		87A29C471DD3FDA300DA0FA6 /* Build configuration list for PBXProject "LDStoryMakersRealDeal" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				87A29C751DD3FDA300DA0FA6 /* Debug */,

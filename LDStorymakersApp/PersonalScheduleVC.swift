@@ -23,6 +23,8 @@ class PersonalScheduleVC: AppViewController, UITableViewDelegate {
         super.viewDidLoad()
         //self.getBreakoutsForDataSource()
             self.title = "LDStorymakers 2017"
+        self.mapBarButton.image = UIImage(named: "map")?.withRenderingMode(.alwaysTemplate)
+        self.mapBarButton.tintColor = UIColor.white
         self.setUpDaySegmentedController()
         self.setUpPersonalScheduleTableView()
         self.appFirstLaunch()
@@ -36,15 +38,14 @@ class PersonalScheduleVC: AppViewController, UITableViewDelegate {
             if let appTabBar = self.tabBarController as? AppTapBarController {
                 appTabBar.enableTabBarItems(enabled: false)
             }
-
             self.loadingView = UIView.downloadingInformationView(frame: self.view.frame)
-            UIView.presentView(view: self.loadingView!)
+            UIView.presentViewWithDuration(view: self.loadingView!)
             self.view.addSubview(self.loadingView!)
             URLSession.getConferenceInformation(completion: { (finished) in
                 if (finished) {
                     self.userDefaults.setValue(false, forKey: "firstLaunch")
                     DispatchQueue.main.async {
-                        UIView.removeView(view: self.loadingView!)
+                        UIView.removeViewWithDelay(view: self.loadingView!)
                     }
                     self.loadTableViewData()
                     if let appTabBar = self.tabBarController as? AppTapBarController {

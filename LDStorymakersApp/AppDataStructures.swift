@@ -88,5 +88,21 @@ class PossiblePersonalScheduleItem {
     }
 }
 
+class ConferenceNotification {
+    var notificationMessage:String?
+  
+    
+    init(from infoDictionariesArray:[[String:Any]]) {
+        guard let messageDictionary = infoDictionariesArray[1]["v"] as? String else {
+            return
+        }
+            self.notificationMessage = messageDictionary
+    }
+}
+
+
+
+
+
 
 

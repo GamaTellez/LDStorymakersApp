@@ -15,8 +15,7 @@ private let mainSpreadSheetKey = "1Y8jMldIfTCOdiirkINlMHJNij1C_ura01Ol40AwZxHs"
 
 extension URLSession {
     /*****************************************************************************
-     * gets the spreadsheet keys stored in userdefaults, with a completion value
-     * of type bool
+     * gets the spreadsheet keys stored in userdefaults
      *****************************************************************************/
     static func getAllSpreadSheetkeys(completion:@escaping (_ success:Bool)-> Void) {
         guard let mainSpreadSheetURL = URL(string: generalSpreadSheetLink + mainSpreadSheetKey) else {
@@ -53,7 +52,7 @@ extension URLSession {
     }
     
     /*****************************************************************************
-     * it gets the spreadsheet data for the given entityName
+     * it gets the spreadsheet data for the given entityName, 
      *****************************************************************************/
     static func downloadSpreadSheetData(for entity: SpreadSheets, completion: @escaping (_ finished:Bool) -> Void) {
     let defaults = UserDefaults()
@@ -166,7 +165,68 @@ extension URLSession {
         }
     }
     
+    static func refreshAllConferenceData(completion:@escaping (Bool)-> Void) {
+        Breakout.deleteBreakouts { (finished) in
+            if (finished) {
+                Speaker.deleteSpeakers(completion: { (finished) in
+                    if (finished) {
+                        ScheduleItem.deleteSchedule(completion: { (finished) in
+                            if (finished) {
+                                Presentation.deletePresentations(completion: { (finished) in
+                                    if (finished) {
+                                        PersonalScheduleItem.delePersonalScheduleItems(completion: { (finished) in
+                                            if (finished) {
+                                                URLSession.getConferenceInformation(completion: { (finished) in
+                                                    if (finished) {
+                                                        completion(true)
+                                                    } else {
+                                                        completion(false)
+                                                    }
+                                                })
+                                            }
+                                        })
+                                    }
+                                })
+                            }
+                        })
+                    }
+                })
+            }
+        }
+    }
+    
+    static func getConferenceNotifications(completion:@escaping ([ConferenceNotification]?)-> Void) {
+        let defaults = UserDefaults()
+        var conferenceNotifications:[ConferenceNotification]?
+        
+        if let notificationsURL = URL(string: generalSpreadSheetLink + defaults.string(forKey: "Notifications")!) {
+            let dataTask = self.shared.dataTask(with: notificationsURL, completionHandler: { (data:Data?, response:URLResponse?, error:Error?) in
+                if (error == nil) {
+                    guard let jsonData = String.parseJSonString(from: data!) else {
+                        return
+                    }
+                    do {
+                        let json = try JSONSerialization.jsonObject(with: jsonData, options: .mutableContainers) as! [String:Any]
+                        let spreadSheetArrayWithDictionaries = json["table"] as! [String:Any]
+                        let arrayWithDictionaries = spreadSheetArrayWithDictionaries["rows"] as! [[String:Any]]
+                        conferenceNotifications = [ConferenceNotification]()
+                        for notificationDictionary in arrayWithDictionaries {
+                            if let arrayWithInfoDictionaries = notificationDictionary["c"] as? [[String:Any]] {
+                                conferenceNotifications?.append(ConferenceNotification(from: arrayWithInfoDictionaries))
+                            }
+                        }
+                        completion(conferenceNotifications)
+                    } catch {
+                        completion(nil)
+                        print(error.localizedDescription + "when getting notifications spreadsheet")
+                    }
+                }
+            })
+            dataTask.resume()
+        }
+    }
 }
+
 
 
 
