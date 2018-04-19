@@ -22,7 +22,7 @@ class PersonalScheduleVC: AppViewController, UITableViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         //self.getBreakoutsForDataSource()
-            self.title = "LDStorymakers 2017"
+            self.title = "LDStorymakers 2018"
         self.mapBarButton.image = UIImage(named: "map")?.withRenderingMode(.alwaysTemplate)
         self.mapBarButton.tintColor = UIColor.white
         self.setUpDaySegmentedController()
@@ -124,7 +124,7 @@ class PersonalScheduleVC: AppViewController, UITableViewDelegate {
         guard let breakoutString = self.getBreakoutAtIndex(section: section)?.breakoutID else {
             return 80
         }
-        if (breakoutString.characters.count > 2) {
+        if (breakoutString.count > 2) {
             return 80
         } else {
             return 20

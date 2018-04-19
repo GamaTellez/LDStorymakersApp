@@ -20,7 +20,7 @@ class AppNavigationController: UINavigationController {
         guard let titleFont = UIFont(name: AppFonts.titlesFont, size: 20) else {
             return
         }
-        self.navigationBar.titleTextAttributes = [NSFontAttributeName: titleFont,
-                                                NSForegroundColorAttributeName:UIColor.white]
+        self.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: titleFont,
+                                                NSAttributedStringKey.foregroundColor:UIColor.white]
     }
 }

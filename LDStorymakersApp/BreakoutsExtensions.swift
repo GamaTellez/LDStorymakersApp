@@ -43,7 +43,7 @@ extension Breakout {
                     let fullStartTimeString = String(format: "%@ %@", dateDay, stringStartTime)
                     if let startDate = dateFormatter.date(from: fullStartTimeString) {
                         //newBreakout.setValue(startDate, forKey: "startTime")
-                        newBreakout.startTime = startDate as NSDate
+                        newBreakout.startTime = startDate as Date
                     } else {
                         print("no startDate")
                     }
@@ -55,7 +55,7 @@ extension Breakout {
                     let fullEndTimeString = String(format: "%@ %@", dateDay, stringEndTime)
                     if let endDate = dateFormatter.date(from: fullEndTimeString) {
                        // newBreakout.setValue(endDate, forKey: "endTime")
-                        newBreakout.endTime = endDate as NSDate
+                        newBreakout.endTime = endDate as Date
                     } else {
                         print("no end date")
                     }
@@ -195,7 +195,7 @@ extension Breakout {
     //creates the label for the section header of mandatory breakout in personal schedule view
      func labelForHeaderViewForMandatoryBreakoutIn(tableView:UITableView)-> UILabel? {
         if let breakoutIDString = self.breakoutID {
-            if (breakoutIDString.characters.count > 2) {
+            if (breakoutIDString.count > 2) {
                 let headerLabel = UILabel(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 80))
                 headerLabel.font = UIFont(name: AppFonts.classCellTitleFont, size: 20)
                 headerLabel.textAlignment = .center
