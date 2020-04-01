@@ -98,7 +98,7 @@ extension UIView {
 
     static func downloadingInformationView(frame:CGRect)-> UIView {
         let loadingView = UIView(frame: frame)
-        let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+        let activityIndicator = UIActivityIndicatorView(style: .medium)
         activityIndicator.startAnimating()
         activityIndicator.center = loadingView.center
         loadingView.addSubview(activityIndicator)

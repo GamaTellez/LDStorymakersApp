@@ -130,7 +130,7 @@ extension URLSession {
                 print("failed to get course feed back link")
                 return
         }
-        UIApplication.shared.open(classFeedBackURL, options: [:], completionHandler: nil)
+        UIApplication.shared.open(classFeedBackURL, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil)
 
     }
     
@@ -230,3 +230,8 @@ extension URLSession {
 
 
 
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToUIApplicationOpenExternalURLOptionsKeyDictionary(_ input: [String: Any]) -> [UIApplication.OpenExternalURLOptionsKey: Any] {
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (UIApplication.OpenExternalURLOptionsKey(rawValue: key), value)})
+}

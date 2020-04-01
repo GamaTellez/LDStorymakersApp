@@ -123,7 +123,7 @@ class SettingsVC: AppViewController, UITableViewDataSource, UITableViewDelegate 
         if (indexPath.section == 2 && indexPath.row != 0) {
             return 200
         }
-        return UITableViewAutomaticDimension
+        return UITableView.automaticDimension
     }
     
     
@@ -142,14 +142,14 @@ class SettingsVC: AppViewController, UITableViewDataSource, UITableViewDelegate 
         guard let conferenceFeedbackURL = URL(string:(self.userDefaults.value(forKey: "ConferenceLink") as? String)!) else {
             return
         }
-        UIApplication.shared.open(conferenceFeedbackURL, options: [:], completionHandler: nil)
+        UIApplication.shared.open(conferenceFeedbackURL, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil)
     }
     
     private func openCourseFeedbackLink() {
         guard let conferenceFeedbackURL = URL(string:(self.userDefaults.value(forKey: "CourseLink") as? String)!) else {
             return
         }
-        UIApplication.shared.open(conferenceFeedbackURL, options: [:], completionHandler: nil)
+        UIApplication.shared.open(conferenceFeedbackURL, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil)
     }
 
     }
@@ -164,3 +164,8 @@ class SettingsVC: AppViewController, UITableViewDataSource, UITableViewDelegate 
 
 
 
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToUIApplicationOpenExternalURLOptionsKeyDictionary(_ input: [String: Any]) -> [UIApplication.OpenExternalURLOptionsKey: Any] {
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (UIApplication.OpenExternalURLOptionsKey(rawValue: key), value)})
+}

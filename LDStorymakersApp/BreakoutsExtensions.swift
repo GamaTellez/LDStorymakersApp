@@ -63,7 +63,7 @@ extension Breakout {
             }
         StoreCoordinator().save { (saved) in
             if (saved) {
-               // print("breakout saved")
+                print("\(arrayWithInfoDictionaries)\n\n--------------------------\n")
             } else {
                 print("failed to save break out")
             }
@@ -80,7 +80,7 @@ extension Breakout {
             var count = 0
             for breakoutItem in allBreakoutsSorted {
                 if (breakoutItem.breakoutID != "Friday Teen Meetup" && breakoutItem.breakoutID != "Saturday Teen Meetup" ) {
-                if (count < 13) {
+                if (count < 14) {//so the are only 13 breakouts but there are two happening at the same time so just increaded by one
                     fridayBreakouts.append(breakoutItem)
                 } else {
                     saturdayBreakouts.append(breakoutItem)
@@ -88,6 +88,7 @@ extension Breakout {
                 count += 1
                 }
             }
+            
             return (fridayBreakouts, saturdayBreakouts)
         } catch {
             print(error.localizedDescription + "when fectching all breakouts for personal schedule")
@@ -139,7 +140,15 @@ extension Breakout {
             guard let endTime = self.endTime else {
                 return ("Time not Available")
             }
-            return String(format:"%@ - %@", DateFormatter.localizedString(from: startTime as Date, dateStyle: .none, timeStyle: .short), DateFormatter.localizedString(from: endTime as Date, dateStyle: .none, timeStyle: .short))
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "MM-dd-yyyy HH:mm"
+            dateFormatter.timeZone = TimeZone(abbreviation: "MST")
+            dateFormatter.dateStyle = .none
+            dateFormatter.timeStyle = .short
+            let readableStartTime = dateFormatter.string(from: startTime)
+            let readableEndTime = dateFormatter.string(from: endTime)
+            return String(format: "%@ - %@", readableStartTime, readableEndTime)
+//            return String(format:"%@ - %@", DateFormatter.localizedString(from: startTime as Date, dateStyle: .none, timeStyle: .short), DateFormatter.localizedString(from: endTime as Date, dateStyle: .none, timeStyle: .short))
         }
     //gets the day as a string of the breakout
     func getBreakoutDay()-> String? {

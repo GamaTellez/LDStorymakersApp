@@ -19,18 +19,19 @@ class PersonalScheduleVC: AppViewController, UITableViewDelegate {
     var saturdayBreakouts:[Breakout]?
     lazy var userDefaults:UserDefaults = UserDefaults()
     var loadingView:UIView?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //self.getBreakoutsForDataSource()
-            self.title = "LDStorymakers 2018"
+            self.title = "LDStorymakers 2019"
         self.mapBarButton.image = UIImage(named: "map")?.withRenderingMode(.alwaysTemplate)
         self.mapBarButton.tintColor = UIColor.white
         self.setUpDaySegmentedController()
         self.setUpPersonalScheduleTableView()
         self.appFirstLaunch()
         self.loadTableViewData()
-
     }
+    
     
     
     private func appFirstLaunch() {
@@ -64,7 +65,7 @@ class PersonalScheduleVC: AppViewController, UITableViewDelegate {
         guard let mapURL = URL(string: "http://www.utahvalleyconventioncenter.com/wp-content/uploads/2011/11/All-Levels-Floor-Plan-w%EF%80%A2-cap1.pdf") else {
             return
         }
-        UIApplication.shared.open(mapURL, options: [:], completionHandler: nil)
+        UIApplication.shared.open(mapURL, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil)
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -154,10 +155,9 @@ class PersonalScheduleVC: AppViewController, UITableViewDelegate {
         } else {
             self.pushClassDetailViewController(from: personalItems[indexPath.row])
         }
-        
     }
 
-    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
         guard let breakOutAtIndex = self.getBreakoutAtIndex(section: indexPath.section) else {
             return .none
         }
@@ -168,18 +168,29 @@ class PersonalScheduleVC: AppViewController, UITableViewDelegate {
         }
     }
 
-    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        
-        let removeAction = UITableViewRowAction(style: .destructive, title: "Remove") { (removeAction, IndexPath) in
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let contextItem = UIContextualAction(style: .destructive, title: "Remove") { (contextualAtion, view, true) in
             if let allPersonalScheduleItems = self.getBreakoutAtIndex(section: indexPath.section)?.personalScheduleItems?.array as? [PersonalScheduleItem] {
                 StoreCoordinator().delete(object: allPersonalScheduleItems[indexPath.row])
-                tableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.fade)
+                tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.fade)
             }
         }
-        return [removeAction]
+        let swipeActions = UISwipeActionsConfiguration(actions: [contextItem])
+        return swipeActions
     }
     
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+//    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+//
+//        let removeAction = UITableViewRowAction(style: .destructive, title: "Remove") { (removeAction, IndexPath) in
+//            if let allPersonalScheduleItems = self.getBreakoutAtIndex(section: indexPath.section)?.personalScheduleItems?.array as? [PersonalScheduleItem] {
+//                StoreCoordinator().delete(object: allPersonalScheduleItems[indexPath.row])
+//                tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.fade)
+//            }
+//        }
+//        return [removeAction]
+//    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         
         if editingStyle == .delete {
             tableView.deleteRows(at: [indexPath], with: .fade)
@@ -216,8 +227,7 @@ class PersonalScheduleVC: AppViewController, UITableViewDelegate {
 }
 
 
-
-
-
-
-
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToUIApplicationOpenExternalURLOptionsKeyDictionary(_ input: [String: Any]) -> [UIApplication.OpenExternalURLOptionsKey: Any] {
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (UIApplication.OpenExternalURLOptionsKey(rawValue: key), value)})
+}

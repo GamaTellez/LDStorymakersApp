@@ -15,12 +15,8 @@ class AppViewController: UIViewController {
         self.setUpAppearance()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-    
     private func setUpAppearance() {
         self.view.backgroundColor = AppColors.viewBackGroundColor
-        self.view.addSubview(UIView.addStatusBarBackGroundView(at: 0, y: 0))
+        //self.view.addSubview(UIView.addStatusBarBackGroundView(at    : 0, y: 0))
     }
 }

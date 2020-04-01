@@ -66,6 +66,7 @@ extension ScheduleItem {
             if let timeId = itemTimeIdDictionary["v"] as? Int {
                 //newItemSchedule.setValue(NSNumber(integerLiteral: timeId), forKey: "timeId")
                 newItemSchedule.timeID = Int16(timeId)
+                
             }
         }
     StoreCoordinator().save { (saved) in
