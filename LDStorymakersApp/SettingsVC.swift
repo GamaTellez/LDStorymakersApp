@@ -108,11 +108,17 @@ class SettingsVC: AppViewController, UITableViewDataSource, UITableViewDelegate 
         default:
             self.settingsTableView.isUserInteractionEnabled = false
             self.loadingView = UIView.downloadingInformationView(frame: self.view.frame)
-            UIView.presentViewWithDuration(view: self.loadingView!)
+            //UIView.presentViewWithDuration(view: self.loadingView!)
+            if let appTabBar = self.tabBarController as? AppTapBarController {
+                appTabBar.enableTabBarItems(enabled: false)
+            }
             self.view.addSubview(self.loadingView!)
             URLSession.refreshAllConferenceData(completion: { (finished) in
                 UIView.removeViewWithDelay(view: self.loadingView!)
                 self.settingsTableView.isUserInteractionEnabled = true
+                if let appTabBar = self.tabBarController as? AppTapBarController {
+                    appTabBar.enableTabBarItems(enabled: true)
+                }
             })
             break
         }

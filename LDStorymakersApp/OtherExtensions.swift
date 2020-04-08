@@ -97,27 +97,29 @@ extension UIView {
     }
 
     static func downloadingInformationView(frame:CGRect)-> UIView {
-        let loadingView = UIView(frame: frame)
-        let activityIndicator = UIActivityIndicatorView(style: .medium)
-        activityIndicator.startAnimating()
-        activityIndicator.center = loadingView.center
-        loadingView.addSubview(activityIndicator)
-        let label = UILabel()
+        let blurEffect = UIBlurEffect(style: .extraLight)
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame = frame
+        
+        let label = UILabel(frame: CGRect(x: 0, y: frame.midY - 60, width: frame.width, height: 50))
         label.textAlignment = .center
         label.text = "Downloading Conference Schedule..."
         label.font = UIFont(name: AppFonts.titlesFont, size: 15)
-        label.frame.size = CGSize(width: loadingView.frame.width, height: loadingView.frame.width)
-        label.center = CGPoint(x: loadingView.center.x, y: loadingView.center.y + activityIndicator.frame.height + 40)
-        loadingView.addSubview(label)
-        loadingView.alpha = 0
-        return loadingView
+        blurEffectView.contentView.addSubview(label)
+        
+        let activityIndicator = UIActivityIndicatorView(style: .large)
+        activityIndicator.frame = CGRect(x: frame.midX - 25, y: frame.midY, width: 50, height: 50)
+        activityIndicator.startAnimating()
+        blurEffectView.contentView.addSubview(activityIndicator)
+        return blurEffectView
+        
     }
     
-    static func presentViewWithDuration(view:UIView) {
-        UIView.animate(withDuration: 2) { 
-            view.alpha = 1
-        }
-    }
+//    static func presentViewWithDuration(view:UIView) {
+//        UIView.animate(withDuration: 0) {
+//            view.alpha = 1
+//        }
+//    }
     
     static func removeViewWithDelay(view:UIView) {
         let when = DispatchTime.now() + 3

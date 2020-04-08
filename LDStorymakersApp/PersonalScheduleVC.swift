@@ -39,8 +39,8 @@ class PersonalScheduleVC: AppViewController, UITableViewDelegate {
             if let appTabBar = self.tabBarController as? AppTapBarController {
                 appTabBar.enableTabBarItems(enabled: false)
             }
-            self.loadingView = UIView.downloadingInformationView(frame: self.view.frame)
-            UIView.presentViewWithDuration(view: self.loadingView!)
+            self.loadingView = UIView.downloadingInformationView(frame: self.view.bounds)
+            //UIView.presentViewWithDuration(view: self.loadingView!)
             self.view.addSubview(self.loadingView!)
             URLSession.getConferenceInformation(completion: { (finished) in
                 if (finished) {
@@ -178,18 +178,7 @@ class PersonalScheduleVC: AppViewController, UITableViewDelegate {
         let swipeActions = UISwipeActionsConfiguration(actions: [contextItem])
         return swipeActions
     }
-    
-//    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-//
-//        let removeAction = UITableViewRowAction(style: .destructive, title: "Remove") { (removeAction, IndexPath) in
-//            if let allPersonalScheduleItems = self.getBreakoutAtIndex(section: indexPath.section)?.personalScheduleItems?.array as? [PersonalScheduleItem] {
-//                StoreCoordinator().delete(object: allPersonalScheduleItems[indexPath.row])
-//                tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.fade)
-//            }
-//        }
-//        return [removeAction]
-//    }
-    
+        
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         
         if editingStyle == .delete {
