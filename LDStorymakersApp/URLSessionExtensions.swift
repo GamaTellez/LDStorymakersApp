@@ -82,11 +82,25 @@ extension URLSession {
                     }
                     //print(infoDictionaries)
                     DispatchQueue.main.async {
+                        /*Temporary fix for the google spreadsheets bug where whitneyAwardsSaved appears multiple times. Inside the function we check for the bool value so it is not saved multiple times */
+                        UserDefaults.standard.set(false, forKey: "whitneyAwardsSaved")
+                    
                         for objectDictionary in infoDictionaries {
                             if let arrayWithInfo = objectDictionary["c"] as? NSArray {
                                 switch entity {
                                 case .Breakouts:
+                                var breakoutName = ""
+                                if let dictWithBreakoutID = arrayWithInfo[0] as? [String:Any] {
+                                    if let id = dictWithBreakoutID["v"] as? String {
+                                        breakoutName = id
+                                    }
+                                }
+                                if breakoutName == "Whitney Awards Gala" && !UserDefaults.standard.bool(forKey: "whitneyAwardsSaved") {
                                     Breakout.createBreakoutFromInfoArray(arrayWithInfo)
+                                    UserDefaults.standard.set(true, forKey: "whitneyAwardsSaved")
+                                } else if breakoutName != "Whitney Awards Gala" {
+                                    Breakout.createBreakoutFromInfoArray(arrayWithInfo)
+                                }
                                     break
                                 case .Presentations:
                                     Presentation.createPresentationFromInfoArray(arrayWithInfo)

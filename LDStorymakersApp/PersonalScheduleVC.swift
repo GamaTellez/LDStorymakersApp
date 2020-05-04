@@ -9,7 +9,7 @@
 import UIKit
 
 class PersonalScheduleVC: AppViewController, UITableViewDelegate {
-
+    
     @IBOutlet var daySegementedControl: AppSegmentedControl!
     @IBOutlet var personalScheduleGroupedTableView: UITableView!
     let personalScheduleDataSource:PersonalScheduleDataSource = PersonalScheduleDataSource()
@@ -23,7 +23,7 @@ class PersonalScheduleVC: AppViewController, UITableViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         //self.getBreakoutsForDataSource()
-            self.title = "LDStorymakers 2019"
+        self.title = "LDStorymakers 2020"
         self.mapBarButton.image = UIImage(named: "map")?.withRenderingMode(.alwaysTemplate)
         self.mapBarButton.tintColor = UIColor.white
         self.setUpDaySegmentedController()
@@ -40,7 +40,6 @@ class PersonalScheduleVC: AppViewController, UITableViewDelegate {
                 appTabBar.enableTabBarItems(enabled: false)
             }
             self.loadingView = UIView.downloadingInformationView(frame: self.view.bounds)
-            //UIView.presentViewWithDuration(view: self.loadingView!)
             self.view.addSubview(self.loadingView!)
             URLSession.getConferenceInformation(completion: { (finished) in
                 if (finished) {
@@ -53,7 +52,7 @@ class PersonalScheduleVC: AppViewController, UITableViewDelegate {
                         appTabBar.enableTabBarItems(enabled: true)
                     }
                 } else {
-                        print("couldn get data")
+                    print("couldn get data")
                 }
             })
             return
@@ -67,7 +66,7 @@ class PersonalScheduleVC: AppViewController, UITableViewDelegate {
         }
         UIApplication.shared.open(mapURL, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil)
     }
-
+    
     override func viewDidAppear(_ animated: Bool) {
         self.loadTableViewData()
     }
@@ -90,7 +89,7 @@ class PersonalScheduleVC: AppViewController, UITableViewDelegate {
         }
         self.personalScheduleGroupedTableView.reloadData()
     }
-
+    
     private func setUpDaySegmentedController() {
         self.daySegementedControl.selectedSegmentIndex = 0
     }
@@ -132,11 +131,11 @@ class PersonalScheduleVC: AppViewController, UITableViewDelegate {
         }
         
     }
-
+    
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 0
     }
-
+    
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         guard let breakoutAtIndex = self.getBreakoutAtIndex(section: section) else {
             return nil
@@ -156,7 +155,7 @@ class PersonalScheduleVC: AppViewController, UITableViewDelegate {
             self.pushClassDetailViewController(from: personalItems[indexPath.row])
         }
     }
-
+    
     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
         guard let breakOutAtIndex = self.getBreakoutAtIndex(section: indexPath.section) else {
             return .none
@@ -167,18 +166,32 @@ class PersonalScheduleVC: AppViewController, UITableViewDelegate {
             return .none
         }
     }
-
+    
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let contextItem = UIContextualAction(style: .destructive, title: "Remove") { (contextualAtion, view, true) in
-            if let allPersonalScheduleItems = self.getBreakoutAtIndex(section: indexPath.section)?.personalScheduleItems?.array as? [PersonalScheduleItem] {
-                StoreCoordinator().delete(object: allPersonalScheduleItems[indexPath.row])
-                tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.fade)
+        if let _ = tableView.cellForRow(at: indexPath) as? PersonalScheduleCell {
+            let contextItem = UIContextualAction(style: .destructive, title: "Remove") { (contextualAtion, view, true) in
+                if let allPersonalScheduleItems = self.getBreakoutAtIndex(section: indexPath.section)?.personalScheduleItems?.array as? [PersonalScheduleItem] {
+                    StoreCoordinator().delete(object: allPersonalScheduleItems[indexPath.row])
+                    tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.fade)
+                }
             }
+            let swipeActions = UISwipeActionsConfiguration(actions: [contextItem])
+            return swipeActions
         }
-        let swipeActions = UISwipeActionsConfiguration(actions: [contextItem])
-        return swipeActions
-    }
+        return nil
         
+        
+        
+        //        let contextItem = UIContextualAction(style: .destructive, title: "Remove") { (contextualAtion, view, true) in
+        //            if let allPersonalScheduleItems = self.getBreakoutAtIndex(section: indexPath.section)?.personalScheduleItems?.array as? [PersonalScheduleItem] {
+        //                StoreCoordinator().delete(object: allPersonalScheduleItems[indexPath.row])
+        //                tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.fade)
+        //            }
+        //        }
+        //        let swipeActions = UISwipeActionsConfiguration(actions: [contextItem])
+        //        return swipeActions
+    }
+    
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         
         if editingStyle == .delete {
@@ -188,9 +201,9 @@ class PersonalScheduleVC: AppViewController, UITableViewDelegate {
     
     private func getBreakoutAtIndex(section:Int)-> Breakout? {
         if (self.daySegementedControl.selectedSegmentIndex == 0) {
-                return self.fridayBreakouts?[section]
+            return self.fridayBreakouts?[section]
         } else {
-                return self.saturdayBreakouts?[section]
+            return self.saturdayBreakouts?[section]
         }
     }
     
@@ -218,5 +231,5 @@ class PersonalScheduleVC: AppViewController, UITableViewDelegate {
 
 // Helper function inserted by Swift 4.2 migrator.
 fileprivate func convertToUIApplicationOpenExternalURLOptionsKeyDictionary(_ input: [String: Any]) -> [UIApplication.OpenExternalURLOptionsKey: Any] {
-	return Dictionary(uniqueKeysWithValues: input.map { key, value in (UIApplication.OpenExternalURLOptionsKey(rawValue: key), value)})
+    return Dictionary(uniqueKeysWithValues: input.map { key, value in (UIApplication.OpenExternalURLOptionsKey(rawValue: key), value)})
 }

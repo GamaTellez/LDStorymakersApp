@@ -39,10 +39,10 @@ class PersonalScheduleDataSource: NSObject, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let personalScheduleItemsOfBreakoutAtIndex = self.dayBreakouts?[indexPath.section].personalScheduleItems?.array as? [PersonalScheduleItem] else {
             let findClassCell = tableView.dequeueReusableCell(withIdentifier: self.findClassCellID, for: indexPath)
+            
             findClassCell.textLabel?.text = "Find Class"
             return findClassCell
         }
-   
         if (indexPath.row == personalScheduleItemsOfBreakoutAtIndex.count) {
             let findClassCell = tableView.dequeueReusableCell(withIdentifier: self.findClassCellID, for: indexPath)
             findClassCell.textLabel?.text = "Find Class"

@@ -11,7 +11,7 @@ import UIKit
 class ClassDetailView: AppViewController {
 
     var classSelected:PossiblePersonalScheduleItem?
-    @IBOutlet var classTitleLabel: UILabel!
+    @IBOutlet var classTitleLabel: UITextView!
     @IBOutlet var locationLabel: UILabel!
     @IBOutlet var descriptionTextView: UITextView!
     @IBOutlet var viewAuthorButton: UIButton!
@@ -40,9 +40,7 @@ class ClassDetailView: AppViewController {
     }
         
     private func setUpClassTitleLabel() {
-        self.classTitleLabel.font = UIFont(name: AppFonts.titlesFont, size: 25)
-        self.classTitleLabel.numberOfLines = 2
-        self.classTitleLabel.adjustsFontSizeToFitWidth = true
+        self.classTitleLabel.font = UIFont(name: AppFonts.titlesFont, size: 20)
         self.classTitleLabel.backgroundColor = UIColor.clear
         guard let classTitle = self.classSelected?.presentation?.title else {
             self.classTitleLabel.text = "Not Available"
@@ -65,7 +63,7 @@ class ClassDetailView: AppViewController {
         self.locationLabel.font = UIFont(name: AppFonts.classCellTitleFont, size: 20)
         self.locationLabel.backgroundColor = UIColor.clear
         guard let location = self.classSelected?.scheduleItem?.location else {
-            self.locationLabel.text = "Not Available"
+            self.locationLabel.text = "Location Not Found"
             return
         }
         self.locationLabel.text = location

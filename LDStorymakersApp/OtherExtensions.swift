@@ -140,7 +140,7 @@ extension UIAlertController {
         personalScheduleModifiedAlert.popoverPresentationController?.sourceView = sourceView
         personalScheduleModifiedAlert.popoverPresentationController?.sourceRect = sourceView.bounds
         navigationController.present(personalScheduleModifiedAlert, animated: true) { 
-            let delay = 0.5 * Double(NSEC_PER_SEC)
+            let delay = 1 * Double(NSEC_PER_SEC)
             let time = DispatchTime.init(uptimeNanoseconds: UInt64(delay))
             DispatchQueue.main.asyncAfter(deadline: time, execute: {
                 navigationController.dismiss(animated: true, completion: nil)

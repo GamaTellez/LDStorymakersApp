@@ -15,13 +15,13 @@ class PersonalScheduleCell: UITableViewCell {
     
     internal func updateInfoLabel(with classScheduled:PersonalScheduleItem) {
         guard let presentationTitle =  classScheduled.presentation?.title,
-                let presentationTime = classScheduled.breakout?.breakoutShortFormatTimes(),
-                    let presentationLocation = classScheduled.scheduleItem?.location
+                let presentationTime = classScheduled.breakout?.breakoutShortFormatTimes()
+                    //let presentationLocation = classScheduled.scheduleItem?.location //Online due to covid
             else {
                 self.classScheduledInfoLabel.text = "\n No Info Found"
             return
         }
-        self.classScheduledInfoLabel.text = String(format:"%@ \n %@ \n %@", presentationTitle, presentationTime, presentationLocation)
+        self.classScheduledInfoLabel.text = String(format:"%@ \n %@ \n", presentationTitle, presentationTime)
     }
     override func awakeFromNib() {
         super.awakeFromNib()
