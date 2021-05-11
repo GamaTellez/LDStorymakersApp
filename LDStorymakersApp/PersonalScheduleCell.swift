@@ -14,14 +14,28 @@ class PersonalScheduleCell: UITableViewCell {
     
     
     internal func updateInfoLabel(with classScheduled:PersonalScheduleItem) {
-        guard let presentationTitle =  classScheduled.presentation?.title,
-                let presentationTime = classScheduled.breakout?.breakoutShortFormatTimes()
-                    //let presentationLocation = classScheduled.scheduleItem?.location //Online due to covid
-            else {
-                self.classScheduledInfoLabel.text = "\n No Info Found"
-            return
+        var text = ""
+        if let presentationTitle = classScheduled.presentation?.title {
+            text += presentationTitle
+        
+        } else {
+            if let title = classScheduled.scheduleItem?.presentationTitle {
+              text += title
+            } else {
+                text += "No name available."
+            }
         }
-        self.classScheduledInfoLabel.text = String(format:"%@ \n %@ \n", presentationTitle, presentationTime)
+        if let time = classScheduled.breakout?.breakoutShortFormatTimes() {
+            text += "\n \(time)"
+        } else {
+            text += "\n No time available."
+        }
+        if let location = classScheduled.scheduleItem?.location {
+            text += "\n \(location)"
+        } else {
+            text += "\n No location available,"
+        }
+        self.classScheduledInfoLabel.text = text
     }
     override func awakeFromNib() {
         super.awakeFromNib()

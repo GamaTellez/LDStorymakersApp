@@ -116,10 +116,15 @@ class BreakoutClassCell: UITableViewCell {
     }
     
     private func removeClassSelected(sender:UIButton) {
-        guard let personalScheduleItemToDelete = PersonalScheduleItem.findPersonalScheduleItem(with: (self.classItem?.presentation?.title)!) else {
+        guard let cItem = self.classItem, let presentation = cItem.presentation, let title = presentation.title else {
+            print("Found nil in classItem")
             return
         }
-        StoreCoordinator().delete(object: personalScheduleItemToDelete)
+        guard let pSItem = PersonalScheduleItem.findPersonalScheduleItem(with: title) else {
+            print("Failed to find personal schedule item")
+            return
+        }
+        StoreCoordinator().delete(object: pSItem)
         self.classItem?.existsInPersonalSchedule = false
         UIView.transition(with: self.addRemoveScheduleItemButton, duration: 0.3, options: .transitionCrossDissolve, animations: {
             sender.isSelected = false

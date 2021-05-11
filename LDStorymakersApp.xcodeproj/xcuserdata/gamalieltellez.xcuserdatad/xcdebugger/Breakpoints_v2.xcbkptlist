@@ -1,5 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Bucket
+   uuid = "4E638DE1-DBCD-4277-8F23-B7715B038506"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "716AC7FC-14E3-474F-8F60-9C607FAFEDFB"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LDStorymakersApp/BreakoutClassCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "102"
+            endingLineNumber = "102"
+            landmarkName = "createNewPersonalScheduledItemFromSelectedClass(sender:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "716AC7FC-14E3-474F-8F60-9C607FAFEDFB - 8b55143043a6109c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "LDStorymakersApp.BreakoutClassCell.createNewPersonalScheduledItemFromSelectedClass(sender: __C.UIButton) -&gt; ()"
+                  moduleName = "LDStorymakersApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gamalieltellez/Documents/Code/Swift/LDStorymakersApp/LDStorymakersApp/BreakoutClassCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "102"
+                  endingLineNumber = "102"
+                  offsetFromSymbolStart = "182">
+               </Location>
+               <Location
+                  uuid = "716AC7FC-14E3-474F-8F60-9C607FAFEDFB - 4db6c0f29f3885fd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Bool) -&gt; () in LDStorymakersApp.BreakoutClassCell.createNewPersonalScheduledItemFromSelectedClass(sender: __C.UIButton) -&gt; ()"
+                  moduleName = "LDStorymakersApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gamalieltellez/Documents/Code/Swift/LDStorymakersApp/LDStorymakersApp/BreakoutClassCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "103"
+                  endingLineNumber = "103"
+                  offsetFromSymbolStart = "210">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

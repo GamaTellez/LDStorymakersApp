@@ -42,11 +42,19 @@ class ClassDetailView: AppViewController {
     private func setUpClassTitleLabel() {
         self.classTitleLabel.font = UIFont(name: AppFonts.titlesFont, size: 20)
         self.classTitleLabel.backgroundColor = UIColor.clear
-        guard let classTitle = self.classSelected?.presentation?.title else {
-            self.classTitleLabel.text = "Not Available"
-            return
+//        guard let classTitle = self.classSelected?.presentation?.title else {
+//            self.classTitleLabel.text = "Not Available"
+//            return
+//        }
+//        self.classTitleLabel.text = classTitle
+        if let classTitle = self.classSelected?.presentation?.title {
+            self.classTitleLabel.text = classTitle
+        } else {
+            if let classTitle = self.classSelected?.scheduleItem?.presentationTitle {
+                self.classTitleLabel.text = classTitle
+            }
         }
-        self.classTitleLabel.text = classTitle
+        self.classTitleLabel.textAlignment = .center
     }
     
     private func setUpNavigationBarTitle() {

@@ -23,7 +23,7 @@ class PersonalScheduleVC: AppViewController, UITableViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         //self.getBreakoutsForDataSource()
-        self.title = "LDStorymakers 2020"
+        self.title = "LDStorymakers 2021"
         self.mapBarButton.image = UIImage(named: "map")?.withRenderingMode(.alwaysTemplate)
         self.mapBarButton.tintColor = UIColor.white
         self.setUpDaySegmentedController()
